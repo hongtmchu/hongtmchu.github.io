@@ -356,7 +356,7 @@
         const mainContent = document.querySelector('main');
         
         links.forEach(link => {
-            link.addEventListener'click', function(e) {
+            link.addEventListener('click', function(e) { // <-- Fixed: Added missing '('
                 e.preventDefault(); // Stop the anchor jump
                 
                 const targetId = this.getAttribute('href').substring(1); // Get 'home', 'education', etc.
