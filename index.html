@@ -109,11 +109,30 @@
              color: var(--primary-blue);
         }
         
-        .orcid-link {
-            color: #a6ce39; /* Official ORCID green */
-            margin-left: 5px;
+        /* Removed .orcid-link class */
+
+        /* New styles for social icon links */
+        .social-icon-row {
+            margin-top: 0.75rem; /* 12px */
+            display: flex;
+            align-items: center;
         }
-        .orcid-link:hover {
+        
+        .social-icon {
+            font-size: 1.5rem; /* 24px */
+            margin-right: 1.25rem; /* 20px spacing */
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .social-icon:hover {
+            color: var(--primary-purple); /* Change to purple on hover */
+        }
+        
+        .social-icon.orcid {
+            color: #a6ce39; /* Official ORCID green */
+        }
+        .social-icon.orcid:hover {
             color: #8ab32f; /* Darker green on hover */
         }
 
@@ -151,25 +170,36 @@
                     
                     <!-- Bio/Profile Section --><div class="flex flex-col md:flex-row items-start mb-8">
                         <div class="md:w-1/3 text-left mb-6 md:mb-0 md:pr-4">
-                            <!-- Placeholder image, as in the layout --><img src="https://placehold.co/200x250/EBF4FF/333333?text=Your+Photo" alt="Hong T.M. Chu" class="rounded-md shadow-md border border-gray-300">
+                            <!-- Placeholder image, as in the layout --><img src="profile.jpg" alt="Hong T.M. Chu" class="rounded-md shadow-md border border-gray-300" onerror="this.src='https://placehold.co/200x250/EBF4FF/333333?text=Photo+Not+Found';">
                         </div>
                         <div class="md:w-2/3 md:pl-4 space-y-2">
                             <h3 class="text-2xl font-bold text-gray-900">
                                 Hong T.M. Chu, Dr.
-                                <a href="https://orcid.org/0009-0002-5674-4685" target="_blank" class="orcid-link" title="ORCID iD">
-                                    <i class="fa-brands fa-orcid"></i>
-                                </a>
+                                <!-- ORCID icon removed from here -->
                             </h3>
                             <p class="text-md text-gray-600">
                                 <strong>✉ Email:</strong> 
                                 <a href="mailto:hongtmchu@gmail.com" class="bio-link">hongtmchu@gmail.com</a> / 
                                 <a href="mailto:hongtmchu@u.nus.edu" class="bio-link">hongtmchu@u.nus.edu</a>
                             </p>
-                             <p class="text-md text-gray-600">
-                                <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/hongtmchu" class="bio-link" target="_blank">www.linkedin.com/in/hongtmchu</a>
-                            </p>
+
+                            <!-- New Icon Row -->
+                            <div class="social-icon-row">
+                                <a href="https://orcid.org/0009-0002-5674-4685" target="_blank" class="social-icon orcid" title="ORCID iD">
+                                    <i class="fa-brands fa-orcid"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/hongtmchu" target="_blank" class="social-icon" title="LinkedIn">
+                                    <i class="fa-brands fa-linkedin"></i>
+                                </a>
+                                <a href="https://scholar.google.com/citations?hl=en&user=ZLXxF3YAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" class="social-icon" title="Google Scholar">
+                                    <i class="fa-brands fa-google-scholar"></i>
+                                </a>
+                            </div>
+                            
+                             <!-- Text links for LinkedIn and Google Scholar removed -->
+
                             <div class="text-md text-gray-600">
-                                [ <a href="#" class="bio-link">My CV: view</a> ]
+                                [ <a href="CV_HongChu.pdf" class="bio-link" target="_blank">CV</a> ]
                             </div>
                         </div>
                     </div>
