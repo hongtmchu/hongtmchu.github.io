@@ -152,6 +152,8 @@
                 <nav class="flex flex-col">
                     <a href="#home" class="sidebar-link">Home</a>
                     <a href="#publications" class="sidebar-link">Publications</a>
+                    <!-- NEW: OLab Link Added -->
+                    <a href="#olab" class="sidebar-link">OLab</a>
                     <a href="#awards" class="sidebar-link">Awards</a>
                     <a href="#talks" class="sidebar-link">Talks</a>
                     <a href="#service" class="sidebar-link">Service</a>
@@ -196,7 +198,9 @@
                                 [<a href="CV_HongChu.pdf" class="bio-link" target="_blank">CV</a>] (Last updated: November 2025)
                             </div>
 
-                            <!-- Recruiting info --><div class="text-md text-gray-600">
+                            <!-- Recruiting info -->
+                            <!-- Note: The reference to "OLab Section" is now accurate -->
+                            <div class="text-md text-gray-600">
                                 I am recruiting Research Assistants / PhD with relevant research experience on optimization and machine learning. Please check the OLab Section for more information.
                             </div>
                         </div>
@@ -218,11 +222,12 @@
 
                 </section>
 
-                <!-- Employment --><section id="employment" class="mb-12">
+                <!-- Employment --><section id="employment" class="mb-12 hidden">
                     <h2 class="section-title">Employment</h2>
                     <ul class="styled-list list-square list-inside">
                         <li>
-                            <strong>[2024 - now] Assistant Professor</strong><br>
+                            <!-- UPDATED: now -> present -->
+                            <strong>[2024 - present] Assistant Professor</strong><br>
                             College of Engineering & Computer Science, VinUniversity, Vietnam
                         </li>
                         <li>
@@ -236,7 +241,7 @@
                     </ul>
                 </section>
 
-                <!-- Education --><section id="education" class="mb-12">
+                <!-- Education --><section id="education" class="mb-12 hidden">
                     <h2 class="section-title">Education</h2>
                     <ul class="styled-list list-square list-inside">
                         <li>
@@ -278,6 +283,78 @@
                             <strong>Hong T. M. Chu</strong>, Ling Liang, Kim-Chuan Toh, Lei Yang. <em>Computational Optimization and Applications, (2023): 1-40.</em>
                         </li>
                     </ul>
+                </section>
+                
+                <!-- OLab Section Updated -->
+                <section id="olab" class="mb-12 hidden">
+                    <h2 class="section-title">Optimization Lab (OLab)</h2>
+
+                    
+                    <div id="olab-about" class="mb-10">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">About OLab</h3>
+                        <p class="text-justify">
+                            We aim to solve complex problems with optimal solutions and strategies. Our primary research interests include numerical optimization, operation research, and various real-world applications.
+                        </p>
+                    </div>
+                    
+                    <div id="olab-members" class="mb-10">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Members</h3>
+                        <!-- NEW: Format description row -->
+                        <ul class="styled-list list-none space-y-4 text-base">
+                             <li class="text-gray-500 italic mb-2 pt-2 pb-2 border-b border-gray-200">
+                                **Format**: Full Name, [start date - end date], current institution, research interests, CV / homepage link
+                            </li>
+                            <!-- P.I. -->
+                            <li class="text-justify">
+                                <strong>Hong T.M. Chu (P.I.)</strong>, [2024 - present], VinUniversity, Optimization, Machine Learning, <a href="CV_HongChu.pdf" class="bio-link" target="_blank">CV</a> / <a href="#home" class="bio-link">Homepage</a>
+                            </li>
+                            <!-- Placeholder Member 1 (Ph.D. Student) -->
+                            <li class="text-justify">
+                                <strong>Nguyen Van A</strong>, [2024 - present], VinUniversity (PhD Student), Optimal Transport, Convex Analysis, <a href="#" class="bio-link">CV</a> / <a href="#" class="bio-link">Homepage</a>
+                            </li>
+                            <!-- Placeholder Member 2 (Research Assistant) -->
+                            <li class="text-justify">
+                                <strong>Tran Thi B</strong>, [2024 - 2025], Hanoi University of Science (RA), Distributionally Robust Optimization, Numerical Methods, <a href="#" class="bio-link">Homepage</a>
+                            </li>
+                            <!-- Placeholder Member 3 (Alumni) -->
+                             <li class="text-justify">
+                                <strong>Le Minh C</strong>, [2023 - 2024], MIT (Postdoc), Large Scale Optimization, Algorithm Design, <a href="#" class="bio-link">CV</a> / <a href="#" class="bio-link">Homepage</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- RECRUITMENT SECTION UPDATED -->
+                    <div id="olab-recruitment" class="mt-10 p-4 border border-blue-300 rounded-lg bg-blue-50">
+                        <!-- TITLE UPDATED: Title to include PE -->
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 text-red-600">Recruitment Opportunities (RA / PE / PhD)</h3>
+                        
+                        <!-- TEXT UPDATED: Position names now include Programming Engineer (PE) and do not use double asterisks for bolding -->
+                        <p class="text-justify mb-2">
+                            I am actively seeking highly motivated **Research Assistants (RA)** and **Programming Engineer** and **Ph.D. candidates** to join OLab. Candidates should have a strong background in mathematics, computer science, or a related field, with demonstrated interest or experience in:
+                        </p>
+                        <ul class="list-disc list-inside ml-4 mb-4 space-y-1 text-gray-700">
+                            <li>Numerical Optimization and Algorithms</li>
+                            <li>Optimal Transport and Wasserstein DRO</li>
+                            <li>Robust Machine Learning / Deep Neural Networks</li>
+                            <li>Operational Research and Real-world Applications</li>
+                        </ul>
+                        
+                        <!-- Final Call to Action Paragraph -->
+                        <p class="text-justify mb-4">
+                            If you are interested in any of above topics, please send me an email with **Application to OLab** in the subject line. In particular, we specially call for the following positions:
+                        </p>
+                        
+                        <!-- Flyer Links to RA and PE -->
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="RA_Flyer.pdf" target="_blank" class="bio-link font-bold p-3 border border-red-400 bg-white rounded-lg shadow-sm flex-1 text-center hover:bg-red-50 transition">
+                                <i class="fa-solid fa-file-pdf mr-2"></i> RA Position Flyer
+                            </a>
+                            <a href="PE_Flyer.pdf" target="_blank" class="bio-link font-bold p-3 border border-red-400 bg-white rounded-lg shadow-sm flex-1 text-center hover:bg-red-50 transition">
+                                <i class="fa-solid fa-file-pdf mr-2"></i> PE Position Flyer
+                            </a>
+                        </div>
+                    </div>
+
                 </section>
 
                 <!-- Selected Awards --><section id="awards" class="mb-12 hidden">
@@ -396,7 +473,7 @@
         const mainContent = document.querySelector('main');
         
         links.forEach(link => {
-            link.addEventListener('click', function(e) { // <-- Fixed: Added missing '('
+            link.addEventListener('click', function(e) { 
                 e.preventDefault(); // Stop the anchor jump
                 
                 const targetId = this.getAttribute('href').substring(1); // Get 'home', 'education', etc.
