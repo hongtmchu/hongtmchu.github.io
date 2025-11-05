@@ -103,12 +103,7 @@
                 <!-- Home Section --><section id="home" class="mb-12">
                     <h2 class="text-3xl font-bold text-gray-800 mb-6" style="color: var(--primary-purple);">Home</h2>
                     
-                    <!-- Sub-navigation links --><p class="text-md text-gray-600 mb-6 flex flex-wrap gap-x-4">
-                        [ <a href="#research-interests" class="bio-link">Research interests</a>, 
-                          <a href="#employment" class="bio-link">Employment</a>, 
-                          <a href="#education" class="bio-link">Education</a>, 
-                          <a href="#publications" class="bio-link">Publications</a> ]
-                    </p>
+                    <!-- Sub-navigation links REMOVED -->
                     
                     <!-- Bio/Profile Section --><div class="flex flex-col md:flex-row items-start mb-8">
                         <div class="md:w-1/3 text-left mb-6 md:mb-0 md:pr-4">
@@ -138,22 +133,6 @@
                         </p>
                     </div>
 
-                </section>
-
-                <!-- Education -->
-                <section id="education" class="mb-12">
-                    <h2 class="section-title">Education</h2>
-                    <ul class="styled-list list-square list-inside">
-                        <li>
-                            <strong>2018-2023: Ph.D</strong><br>
-                            Department of Mathematics, National University of Singapore, Singapore<br>
-                            (Supervisor: Professor Kim-Chuan Toh)
-                        </li>
-                        <li>
-                            <strong>2013-2017: Bachelor of Mathematics</strong><br>
-                            Faculty of Mathematics & Information Technology, Hanoi National University of Education, Vietnam
-                        </li>
-                    </ul>
                 </section>
 
                 <!-- Employment -->
@@ -191,6 +170,8 @@
                     </ul>
                 </section>
 
+                <!-- DUPLICATE Employment section REMOVED -->
+
                 <!-- Publications & Preprints --><section id="publications" class="mb-12 hidden">
                     <h2 class="section-title">Publications & Preprints</h2>
                     <ul class="pub-list list-none"> <!-- Publication list does not use bullets -->
@@ -201,16 +182,16 @@
                             [2024] Hong T. M. Chu, Subhro Ghosh, Chi Thanh Lam, Soumendu Sundar Mukherjee, <a href="#">Implicit Regularization via Spectral Neural Networks and Non-linear Matrix Sensing</a>, Submitted.
                         </li>
                         <li>
-                            [2023] Hong T.M. Chu, Meixia Lin, Kim-Chuan Toh, <a href="#">Wasserstein distributionally robust optimization and its tractable regularization formulations</a>, Submitted.
+                            [2023] Hong T.M. Chu, Meixia Lin, Kim-Cuan Toh, <a href="#">Wasserstein distributionally robust optimization and its tractable regularization formulations</a>, Submitted.
                         </li>
                         <li>
-                            [2023] Lei Yang, Ling Liang, Hong T.M. Chu, Kim-Chuan Toh, <a href="#">A Corrected Inexact Proximal Augmented Lagrangian Method with a Relative Error Criterion for a Class of Group-quadratic Regularized Optimal Transport Problems</a>, Journal of Scientific Computing 99 (3), 79.
+                            [2023] Lei Yang, Ling Liang, Hong T.M. Chu, Kim-Cuan Toh, <a href="#">A Corrected Inexact Proximal Augmented Lagrangian Method with a Relative Error Criterion for a Class of Group-quadratic Regularized Optimal Transport Problems</a>, Journal of Scientific Computing 99 (3), 79.
                         </li>
                         <li>
                             [2021] Hong T.M. Chu, Kim-Cuan Toh, Yangjing Zhang, <a href="#">On Regularized Square-root Regression Problems: Distributionally Robust Interpretation and Fast Computations</a>, Journal of Machine Learning Research, 23(308):1–39.
                         </li>
                         <li>
-                            [2020] Hong T. M. Chu. Ling Liang, Kim-Chuan Toh, Lei Yang, <a href="#">An efficient implementable inexact entropic proximal point algorithm for a class of linear programming problems</a>, Computational Optimization and Applications, (2023): 1-40.
+                            [2020] Hong T. M. Chu. Ling Liang, Kim-Cuan Toh, Lei Yang, <a href="#">An efficient implementable inexact entropic proximal point algorithm for a class of linear programming problems</a>, Computational Optimization and Applications, (2023): 1-40.
 </li>
                     </ul>
                 </section>
@@ -330,11 +311,10 @@
                 // Hide all <section> elements inside <main>
                 mainContent.querySelectorAll('section').forEach(section => {
                     section.classList.add('hidden');
-                });
-
+S
                 // Show the target section(s)
                 if (targetId === 'home') {
-                    // If "Home" is clicked, show home, education, and employment
+                    // If "Home" is clicked, show home, employment, and education
                     document.getElementById('home').classList.remove('hidden');
                     document.getElementById('employment').classList.remove('hidden');
                     document.getElementById('education').classList.remove('hidden');
