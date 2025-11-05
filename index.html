@@ -87,8 +87,8 @@
             <!-- Left Sidebar Navigation --><aside class="w-full md:w-1/5 md:pr-8 mb-8 md:mb-0">
                 <nav>
                     <a href="#home" class="sidebar-link">Home</a>
-                    <a href="#education" class="sidebar-link">Education</a>
                     <a href="#employment" class="sidebar-link">Employment</a>
+                    <a href="#education" class="sidebar-link">Education</a>
                     <a href="#publications" class="sidebar-link">Publications</a>
                     <a href="#awards" class="sidebar-link">Honors & Awards</a>
                     <a href="#talks" class="sidebar-link">Talks & Presentations</a>
@@ -105,8 +105,8 @@
                     
                     <!-- Sub-navigation links --><p class="text-md text-gray-600 mb-6 flex flex-wrap gap-x-4">
                         [ <a href="#research-interests" class="bio-link">Research interests</a>, 
-                          <a href="#education" class="bio-link">Education</a>, 
                           <a href="#employment" class="bio-link">Employment</a>, 
+                          <a href="#education" class="bio-link">Education</a>, 
                           <a href="#publications" class="bio-link">Publications</a> ]
                     </p>
                     
@@ -175,7 +175,23 @@
                     </ul>
                 </section>
 
-                <!-- Publications & Preprints --><section id="publications" class="mb-12">
+                <!-- Education -->
+                <section id="education" class="mb-12">
+                    <h2 class="section-title">Education</h2>
+                    <ul class="styled-list list-square list-inside">
+                        <li>
+                            <strong>2018-2023: Ph.D</strong><br>
+                            Department of Mathematics, National University of Singapore, Singapore<br>
+                            (Supervisor: Professor Kim-Chuan Toh)
+                        </li>
+                        <li>
+                            <strong>2013-2017: Bachelor of Mathematics</strong><br>
+                            Faculty of Mathematics & Information Technology, Hanoi National University of Education, Vietnam
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Publications & Preprints --><section id="publications" class="mb-12 hidden">
                     <h2 class="section-title">Publications & Preprints</h2>
                     <ul class="pub-list list-none"> <!-- Publication list does not use bullets -->
                         <li>
@@ -199,7 +215,7 @@
                     </ul>
                 </section>
 
-                <!-- Selected Awards --><section id="awards" class="mb-12">
+                <!-- Selected Awards --><section id="awards" class="mb-12 hidden">
                     <h2 class="section-title">Selected Honors and Awards</h2>
                     <ul class="styled-list list-square list-inside">
                         <li>
@@ -216,7 +232,7 @@
                 </section>
 
                 <!-- Talks & Presentations -->
-                <section id="talks" class="mb-12">
+                <section id="talks" class="mb-12 hidden">
                     <h2 class="section-title">Talks & Presentations</h2>
                     <ul class="styled-list list-square list-inside">
                         <li>
@@ -234,7 +250,7 @@
                     </ul>
                 </section>
 
-                <!-- Administrative Experience --><section id="admin-experience" class="mb-12">
+                <!-- Administrative Experience --><section id="admin-experience" class="mb-12 hidden">
                     <h2 class="section-title">Administrative Experience</h2>
                     <ul class="styled-list list-square list-inside">
                         <li>
@@ -253,7 +269,7 @@
                 </section>
                 
                 <!-- Pedagogical Experience -->
-                <section id="pedagogy" class="mb-12">
+                <section id="pedagogy" class="mb-12 hidden">
                     <h2 class="section-title">Pedagogical Experience</h2>
                     <ul class="styled-list list-square list-inside">
                         <li>
@@ -280,7 +296,7 @@
                 </section>
                 
                 <!-- Programming Languages -->
-                <section id="programming" class="mb-12">
+                <section id="programming" class="mb-12 hidden">
                     <h2 class="section-title">Programming Languages</h2>
                     <ul class="styled-list list-square list-inside">
                         <li>MATLAB, PYTHON</li>
@@ -301,25 +317,37 @@
         // --- Basic UI functionality ---
         document.getElementById('year').textContent = new Date().getFullYear();
         
-        // --- Smooth Scrolling for all anchor links ---
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+        // --- Tabbed Page Functionality ---
+        const links = document.querySelectorAll('.sidebar-link');
+        const mainContent = document.querySelector('main');
+        
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault(); // Stop the anchor jump
+                
+                const targetId = this.getAttribute('href').substring(1); // Get 'home', 'education', etc.
 
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
+                // Hide all <section> elements inside <main>
+                mainContent.querySelectorAll('section').forEach(section => {
+                    section.classList.add('hidden');
+                });
 
-                if (targetElement) {
-                    // We need to account for the top padding/margin of the container
-                    // Find the main container (the one without 'mx-auto')
-                    const containerTop = document.querySelector('.max-w-6xl').offsetTop;
-                    const targetTop = targetElement.offsetTop;
-                    
-                    window.scrollTo({
-                        top: targetTop + containerTop - 20, // 20px buffer
-                        behavior: 'smooth'
-                    });
+                // Show the target section(s)
+                if (targetId === 'home') {
+                    // If "Home" is clicked, show home, education, and employment
+                    document.getElementById('home').classList.remove('hidden');
+                    document.getElementById('employment').classList.remove('hidden');
+                    document.getElementById('education').classList.remove('hidden');
+                } else {
+                    // Otherwise, just show the specific section clicked
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.classList.remove('hidden');
+                    }
                 }
+                
+                // Scroll to the top of the main content area for better visibility
+                mainContent.scrollTop = 0; 
             });
         });
     </script>
