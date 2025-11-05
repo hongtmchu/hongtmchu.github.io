@@ -7,8 +7,7 @@
     
     <!-- Tailwind CSS for styling --><script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Montserrat -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Google Fonts: Montserrat --><link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     
@@ -28,43 +27,68 @@
             line-height: 1.3; /* Updated line height to match CSS */
         }
         
-        /* Main Header Title (H1) */
-        h1 {
-            color: var(--primary-blue); /* Apply blue to the main header */
-            @apply text-3xl font-bold mb-6;
-        }
+        /* Main Header Title (H1) - Style block removed. Will use .section-title class directly. */
 
-        /* Section Title Styling - Applied to all <h2> */
+        /* Section Title Styling - Applied to all <h2> and <h1> */
         .section-title {
             color: var(--primary-purple); /* Apply purple to section titles */
-            /* This style is now applied to all <h2> tags for consistency */
-            @apply text-3xl font-bold mb-6; 
+            font-size: 1.5rem; /* 24px (1.5x body font size) */
+            font-weight: 700; /* (Tailwind font-bold) */
+            margin-bottom: 1.5rem; /* 24px (Tailwind mb-6) */
+            line-height: 1;
+        }
+
+        /* New class for the main header's background */
+        .main-header {
+            /* Using the blue variable with 50% opacity */
+            background-color: rgba(0, 51, 204, 0.5); 
+            color: white; /* White text for contrast */
+            padding: 1rem; /* 16px padding */
+            border-radius: 0.375rem; /* 6px rounded corners */
+            
+            /* Keep the font styles matching section-title */
+            color: white;
+            font-size: 1.5rem; 
+            font-weight: 700;
+            line-height: 1.25;
         }
 
         /* Sidebar navigation link */
         .sidebar-link {
-            /* Now explicitly block to ensure single column */
-            @apply block text-md font-medium text-[var(--primary-blue)] hover:underline mb-2;
+            display: block;
+            font-size: 0.875rem; /* 14px (Tailwind text-md) */
+            font-weight: 500; /* (Tailwind font-medium) */
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem; /* 8px (Tailwind mb-2) */
+        }
+        .sidebar-link:hover {
+            text-decoration: underline;
         }
 
         /* Publication List Styling */
         .pub-list li {
-            @apply mb-4 text-justify;
+            margin-bottom: 1rem; /* 16px (Tailwind mb-4) */
+            text-align: justify;
         }
         .pub-list a {
             color: var(--primary-blue); /* Use new primary blue for links */
-            @apply hover:underline;
+        }
+        .pub-list a:hover {
+            text-decoration: underline;
         }
         
         /* Simple link styling for About section */
         .bio-link {
             color: var(--primary-blue); /* Use new primary blue for links */
-            @apply hover:underline font-medium;
+            font-weight: 500; /* (Tailwind font-medium) */
+        }
+        .bio-link:hover {
+            text-decoration: underline;
         }
         
         /* Simple list for News/Research/Services */
         .styled-list li {
-            @apply mb-3; /* Keep vertical spacing */
+            margin-bottom: 0.75rem; /* 12px (Tailwind mb-3) */
         }
         
         /* Use Tailwind for square bullets */
@@ -82,8 +106,10 @@
 
     <div class="max-w-6xl p-4 sm:p-6 lg:p-8">
         
-        <!-- Main Header Title --><h1>
-            HONG T.M. CHU
+        <!-- Main Header Title -->
+        <!-- We use section-title for font consistency and main-header for background -->
+        <h1 class="section-title main-header">
+            Hong T.M. Chu (Assistant Professor at VinUniversity)
         </h1>
 
         <div class="md:flex">
@@ -91,8 +117,6 @@
             <!-- Left Sidebar Navigation --><aside class="w-full md:w-72 md:flex-shrink-0 md:pr-8 mb-8 md:mb-0">
                 <nav class="flex flex-col">
                     <a href="#home" class="sidebar-link">Home</a>
-                    <a href="#employment" class="sidebar-link">Employment</a>
-                    <a href="#education" class="sidebar-link">Education</a>
                     <a href="#publications" class="sidebar-link">Publications</a>
                     <a href="#awards" class="sidebar-link">Awards</a>
                     <a href="#talks" class="sidebar-link">Talks</a>
@@ -129,7 +153,7 @@
                     </div>
 
                     <!-- Research Interests --><div id="research-interests" class="mb-10">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4 mt-6 pb-2 border-b-2 border-gray-300" style="color: var(--primary-purple);">Research Interests</h3>
+                        <h2 class="section-title">Research Interests</h2>
                         <p class="text-justify">
                             Computational approaches to optimal transport and Wasserstein distributionally robust optimization problems.
                         </p>
@@ -137,8 +161,7 @@
 
                 </section>
 
-                <!-- Employment -->
-                <section id="employment" class="mb-12">
+                <!-- Employment --><section id="employment" class="mb-12">
                     <h2 class="section-title">Employment</h2>
                     <ul class="styled-list list-square list-inside">
                         <li>
@@ -156,8 +179,7 @@
                     </ul>
                 </section>
 
-                <!-- Education -->
-                <section id="education" class="mb-12">
+                <!-- Education --><section id="education" class="mb-12">
                     <h2 class="section-title">Education</h2>
                     <ul class="styled-list list-square list-inside">
                         <li>
@@ -174,8 +196,7 @@
 
                 <!-- Publications & Preprints --><section id="publications" class="mb-12 hidden">
                     <h2 class="section-title">Publications</h2>
-                    <ul class="pub-list list-none"> <!-- Publication list does not use bullets -->
-                        <li>
+                    <ul class="pub-list list-none"> <!-- Publication list does not use bullets --><li>
                             [2025] Bach C. Le, Tung V. Dao, Binh T. Nguyen, Hong T.M. Chu, <a href="#">Tight Robustness Certificates and Wasserstein Distributional Attacks for Deep Neural Networks</a>, Submitted.
                         </li>
                         <li>
@@ -212,8 +233,7 @@
                     </ul>
                 </section>
 
-                <!-- Talks & Presentations -->
-                <section id="talks" class="mb-12 hidden">
+                <!-- Talks & Presentations --><section id="talks" class="mb-12 hidden">
                     <h2 class="section-title">Talks</h2>
                     <ul class="styled-list list-square list-inside">
                         <li>
@@ -226,7 +246,7 @@
                             <strong>May 2023:</strong> SIAM Conference on Optimization, Seattle, USA
                         </li>
                          <li>
-                            <strong>March 2023:</strong> The 6th Mathematics Symposium in Singapore, Singapore
+                            <strong>March 2G023:</strong> The 6th Mathematics Symposium in Singapore, Singapore
                         </li>
                     </ul>
                 </section>
@@ -249,8 +269,7 @@
                     </ul>
                 </section>
                 
-                <!-- Pedagogical Experience -->
-                <section id="teaching" class="mb-12 hidden">
+                <!-- Pedagogical Experience --><section id="teaching" class="mb-12 hidden">
                     <h2 class="section-title">Teaching</h2>
                     <ul class="styled-list list-square list-inside">
                         <li>
@@ -276,8 +295,7 @@
                     </ul>
                 </section>
                 
-                <!-- Programming Languages -->
-                <section id="programming" class="mb-12 hidden">
+                <!-- Programming Languages --><section id="programming" class="mb-12 hidden">
                     <h2 class="section-title">Programming</h2>
                     <ul class="styled-list list-square list-inside">
                         <li>MATLAB, PYTHON</li>
