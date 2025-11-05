@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hong T.M. Chu - Personal Academic Website</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* Define custom fonts and colors */
+        :root {
+            --accent-blue: #0000EE; /* Standard browser link blue */
+            --body-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            font-family: var(--body-font);
+            color: #333;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        /* Section Title Styling */
+        .section-title {
+            @apply text-xl font-bold text-gray-800 mb-4 mt-6 pb-2 border-b-2 border-gray-300;
+        }
+
+        /* Sidebar navigation link */
+        .sidebar-link {
+            @apply block text-md font-medium text-[var(--accent-blue)] hover:underline mb-2;
+        }
+
+        /* Publication List Styling */
+        .pub-list li {
+            @apply mb-4 text-justify;
+        }
+        .pub-list a {
+            color: var(--accent-blue);
+            @apply hover:underline;
+        }
+        
+        /* Simple link styling for About section */
+        .bio-link {
+            color: var(--accent-blue);
+            @apply hover:underline font-medium;
+        }
+        
+        /* Simple list for News/Research/Services */
+        .styled-list li {
+            @apply mb-3; /* Increased spacing to match */
+        }
+        
+        .styled-list strong {
+            color: #111;
+        }
+
+    </style>
+</head>
+<body class="bg-white text-gray-700">
+
+    <div class="max-w-6xl mx-auto p-4 sm:p-6 lg:p-8">
+        
+        <!-- Main Header Title -->
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">
+            Hong T.M. Chu (Assistant Professor at VinUniversity)
+        </h1>
+
+        <div class="md:flex">
+            
+            <!-- Left Sidebar Navigation -->
+            <aside class="w-full md:w-1/5 md:pr-8 mb-8 md:mb-0">
+                <nav>
+                    <a href="#home" class="sidebar-link">Home</a>
+                    <a href="#publications" class="sidebar-link">Publications</a>
+                    <a href="#awards" class="sidebar-link">Selected Awards</a>
+                    <a href="#admin-experience" class="sidebar-link">Administrative Experience</a>
+                </nav>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="w-full md:w-4/5">
+
+                <!-- Home Section -->
+                <section id="home" class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Home</h2>
+                    
+                    <!-- Sub-navigation links -->
+                    <p class="text-md text-gray-600 mb-6">
+                        [ <a href="#research-interests" class="bio-link">Research interests</a>, 
+                          <a href="#education-employment" class="bio-link">Education & Employment</a>, 
+                          <a href="#publications" class="bio-link">Publications</a>, 
+                          <a href="#awards" class="bio-link">Selected Awards</a>,
+                          <a href="#admin-experience" class="bio-link">Administrative Experience</a> ]
+                    </p>
+                    
+                    <!-- Bio/Profile Section -->
+                    <div class="flex flex-col md:flex-row items-start mb-8">
+                        <div class="md:w-1/3 text-left mb-6 md:mb-0 md:pr-4">
+                            <!-- Placeholder image, as in the layout -->
+                            <img src="https://placehold.co/200x250/EBF4FF/333333?text=Your+Photo" alt="Hong T.M. Chu" class="rounded-md shadow-md border border-gray-300">
+                        </div>
+                        <div class="md:w-2/3 md:pl-4 space-y-2">
+                            <h3 class="text-2xl font-bold text-gray-900">Hong T.M. Chu (Chu Thị Mai Hồng)</h3>
+                            <p class="text-md text-gray-700">
+                                Assistant Professor<br>
+                                College of Engineering & Computer Science<br>
+                                VinUniversity, Vietnam
+                            </p>
+                            <p class="text-md text-gray-600">
+                                <strong>Homepage:</strong> <a href="#" class="bio-link">Chu Thi Mai Hong - VinUni</a>
+                            </p>
+                            <p class="text-md text-gray-600">
+                                <strong>✉ Email:</strong> hongtmchu [at] u.nus.edu / gmail.com / outlook.com
+                            </p>
+                             <p class="text-md text-gray-600">
+                                <strong>⌨ Office:</strong> I4, VinUniversity, Hanoi, Vietnam
+                            </p>
+                            <div class="text-md text-gray-600">
+                                [ <a href="#" class="bio-link">My CV: view (Google Drive)</a> ]<br>
+                                [ <a href="#" class="bio-link">ORCiD: 0009-0002-5674-4685</a> ]
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Research Interests -->
+                    <div id="research-interests" class="mb-10">
+                        <h3 class="section-title">Research interests</h3>
+                        <p class="font-bold mb-3">
+                            Optimization methods in computational optimal transport and machine learning.
+                        </p>
+                        <p class="text-justify">
+                            My research focuses on the computational approaches to optimal transport and Wasserstein distributionally robust optimization problems. Specifically, I am interested in developing advanced optimization algorithms to efficiently solve various variants of optimal transport problems, along with the tractable interpretation of the minimax problems that arise from Wasserstein robust optimization.
+                        </p>
+                    </div>
+
+                    <!-- Education & Employment -->
+                    <div id="education-employment" class="mb-10">
+                        <h3 class="section-title">Education & Employment</h3>
+                        <ul class="styled-list list-none pl-4">
+                            <li>
+                                <strong>2024 to present:</strong> Assistant Professor, College of Engineering & Computer Science, VinUniversity, Vietnam
+                            </li>
+                            <li>
+                                <strong>2023-2024:</strong> Research Fellow, Department of Mathematics, National University of Singapore, Singapore
+                            </li>
+                            <li>
+                                <strong>2018-2023:</strong> PhD, Department of Mathematics, National University of Singapore, Singapore (Supervisor: <a href="#" class="bio-link">Professor Kim-Chuan Toh</a>)
+                            </li>
+                            <li>
+                                <strong>2017-2018:</strong> Researcher, Institute of Mathematics, Vietnam Academy of Science and Technology, Hanoi, Vietnam
+                            </li>
+                            <li>
+                                <strong>2013-2017:</strong> Bachelor of Mathematics, Hanoi National University of Education, Hanoi, Vietnam
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Publications & Preprints -->
+                <section id="publications" class="mb-12">
+                    <h2 class="section-title">Publications & Preprints</h2>
+                    <ul class="pub-list list-none">
+                        <li>
+                            Hong T.M. Chu, Meixia Lin, Kim-Chuan Toh, <a href="#">Wasserstein distributionally robust optimization and its tractable regularization formulations</a>, Submitted
+                        </li>
+                        <li>
+                            Lei Yang, Ling Liang, Hong T.M. Chu, Kim-Chuan Toh, <a href="#">A Corrected Inexact Proximal Augmented Lagrangian Method with a Relative Error Criterion for a Class of Group-quadratic Regularized Optimal Transport Problems</a>, Journal of Scientific Computing 99 (3), 79.
+                        </li>
+                        <li>
+                            Hong T.M. Chu, Kim-Chuan Toh, Yangjing Zhang, <a href="#">On Regularized Square-root Regression Problems: Distributionally Robust Interpretation and Fast Computations</a>, Journal of Machine Learning Research, 23(308):1–39.
+                        </li>
+                        <li>
+                            Hong T. M. Chu, Ling Liang, Kim-Chuan Toh, Lei Yang, <a href="#">An efficient implementable inexact entropic proximal point algorithm for a class of linear programming problems</a>, Computational Optimization and Applications, (2023): 1-40.
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Selected Awards -->
+                <section id="awards" class="mb-12">
+                    <h2 class="section-title">Selected Awards</h2>
+                    <ul class="styled-list list-none pl-4">
+                        <li>
+                            <strong>Teaching award</strong> Part-time teaching assistant award AY 2020/2021 - Faculty of Science, National University of Singapore, Singapore
+                        </li>
+                        <li>
+                            <strong>Teaching award</strong> Part-time teaching assistant award AY 2019/2020 - Faculty of Science, National University of Singapore, Singapore
+                        </li>
+                        <li>
+                            <strong>Internship award</strong> Award of excellence 2017 - Faculty of Mathematics & Information Technology, HNUE, Vietnam
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Administrative Experience -->
+                <section id="admin-experience" class="mb-12">
+                    <h2 class="section-title">Administrative Experience</h2>
+                    <ul class="styled-list list-none pl-4">
+                        <li>
+                            <strong>2023 - 2028: Ambassador</strong> Appointment as Faculty of Science Postgraduate Alumni Ambassador (FPAA), National University of Singapore, Singapore
+                        </li>
+                        <li>
+                            <strong>Spring 2024: Preliminary & Final Judge</strong> Singapore Science & Engineering Fair (SSEF: MoE, A*STAR and SCS), Singapore
+                        </li>
+                        <li>
+                            <strong>Jan 2023: Member</strong> The Mathematics of Data, Institute for Mathematical Sciences, Singapore
+                        </li>
+                    </ul>
+                </section>
+                
+                <!-- Footer -->
+                <footer class="mt-16 border-t border-gray-200 pt-8">
+                    <div class="text-center text-sm text-gray-500">
+                        <p>&copy; <span id="year"></span> Hong T.M. Chu. Last updated: November 2025</p>
+                    </div>
+                </footer>
+
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // --- Basic UI functionality ---
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // --- Smooth Scrolling for all anchor links ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    // We need to account for the top padding/margin of the container
+                    const containerTop = document.querySelector('.max-w-6xl').offsetTop;
+                    const targetTop = targetElement.offsetTop;
+                    
+                    window.scrollTo({
+                        top: targetTop + containerTop - 20, // 20px buffer
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
