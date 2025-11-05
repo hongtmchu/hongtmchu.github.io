@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hong T.M. Chu - Personal Academic Website</title>
+    <title>Hong T.M. Chu</title>
     
-    <!-- Tailwind CSS for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS for styling --><script src="https://cdn.tailwindcss.com"></script>
     
     <style>
         /* Define custom fonts and colors */
         :root {
-            --accent-blue: #0000EE; /* Standard browser link blue */
+            --primary-blue: #0033CC; /* Darker blue from image */
+            --primary-purple: #6600CC; /* Purple from image */
             --body-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
@@ -22,14 +22,22 @@
             line-height: 1.6;
         }
         
+        /* Main Header Title (H1) */
+        h1 {
+            color: var(--primary-blue); /* Apply blue to the main header */
+            @apply text-3xl font-bold mb-6;
+        }
+
         /* Section Title Styling */
         .section-title {
-            @apply text-xl font-bold text-gray-800 mb-4 mt-6 pb-2 border-b-2 border-gray-300;
+            color: var(--primary-purple); /* Apply purple to section titles */
+            @apply text-xl font-bold mt-6 mb-4 pb-2 border-b-2 border-gray-300;
         }
 
         /* Sidebar navigation link */
         .sidebar-link {
-            @apply block text-md font-medium text-[var(--accent-blue)] hover:underline mb-2;
+            /* Now explicitly block to ensure single column */
+            @apply block text-md font-medium text-[var(--primary-blue)] hover:underline mb-2;
         }
 
         /* Publication List Styling */
@@ -37,13 +45,13 @@
             @apply mb-4 text-justify;
         }
         .pub-list a {
-            color: var(--accent-blue);
+            color: var(--primary-blue); /* Use new primary blue for links */
             @apply hover:underline;
         }
         
         /* Simple link styling for About section */
         .bio-link {
-            color: var(--accent-blue);
+            color: var(--primary-blue); /* Use new primary blue for links */
             @apply hover:underline font-medium;
         }
         
@@ -62,15 +70,13 @@
 
     <div class="max-w-6xl mx-auto p-4 sm:p-6 lg:p-8">
         
-        <!-- Main Header Title -->
-        <h1 class="text-3xl font-bold text-gray-800 mb-6">
+        <!-- Main Header Title --><h1>
             Hong T.M. Chu (Assistant Professor at VinUniversity)
         </h1>
 
         <div class="md:flex">
             
-            <!-- Left Sidebar Navigation -->
-            <aside class="w-full md:w-1/5 md:pr-8 mb-8 md:mb-0">
+            <!-- Left Sidebar Navigation --><aside class="w-full md:w-1/5 md:pr-8 mb-8 md:mb-0">
                 <nav>
                     <a href="#home" class="sidebar-link">Home</a>
                     <a href="#publications" class="sidebar-link">Publications</a>
@@ -79,15 +85,12 @@
                 </nav>
             </aside>
 
-            <!-- Main Content Area -->
-            <main class="w-full md:w-4/5">
+            <!-- Main Content Area --><main class="w-full md:w-4/5">
 
-                <!-- Home Section -->
-                <section id="home" class="mb-12">
-                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Home</h2>
+                <!-- Home Section --><section id="home" class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6" style="color: var(--primary-purple);">Home</h2>
                     
-                    <!-- Sub-navigation links -->
-                    <p class="text-md text-gray-600 mb-6">
+                    <!-- Sub-navigation links --><p class="text-md text-gray-600 mb-6 flex flex-wrap gap-x-4">
                         [ <a href="#research-interests" class="bio-link">Research interests</a>, 
                           <a href="#education-employment" class="bio-link">Education & Employment</a>, 
                           <a href="#publications" class="bio-link">Publications</a>, 
@@ -95,11 +98,9 @@
                           <a href="#admin-experience" class="bio-link">Administrative Experience</a> ]
                     </p>
                     
-                    <!-- Bio/Profile Section -->
-                    <div class="flex flex-col md:flex-row items-start mb-8">
+                    <!-- Bio/Profile Section --><div class="flex flex-col md:flex-row items-start mb-8">
                         <div class="md:w-1/3 text-left mb-6 md:mb-0 md:pr-4">
-                            <!-- Placeholder image, as in the layout -->
-                            <img src="https://placehold.co/200x250/EBF4FF/333333?text=Your+Photo" alt="Hong T.M. Chu" class="rounded-md shadow-md border border-gray-300">
+                            <!-- Placeholder image, as in the layout --><img src="https://placehold.co/200x250/EBF4FF/333333?text=Your+Photo" alt="Hong T.M. Chu" class="rounded-md shadow-md border border-gray-300">
                         </div>
                         <div class="md:w-2/3 md:pl-4 space-y-2">
                             <h3 class="text-2xl font-bold text-gray-900">Hong T.M. Chu (Chu Thị Mai Hồng)</h3>
@@ -124,8 +125,7 @@
                         </div>
                     </div>
 
-                    <!-- Research Interests -->
-                    <div id="research-interests" class="mb-10">
+                    <!-- Research Interests --><div id="research-interests" class="mb-10">
                         <h3 class="section-title">Research interests</h3>
                         <p class="font-bold mb-3">
                             Optimization methods in computational optimal transport and machine learning.
@@ -135,8 +135,7 @@
                         </p>
                     </div>
 
-                    <!-- Education & Employment -->
-                    <div id="education-employment" class="mb-10">
+                    <!-- Education & Employment --><div id="education-employment" class="mb-10">
                         <h3 class="section-title">Education & Employment</h3>
                         <ul class="styled-list list-none pl-4">
                             <li>
@@ -158,8 +157,7 @@
                     </div>
                 </section>
 
-                <!-- Publications & Preprints -->
-                <section id="publications" class="mb-12">
+                <!-- Publications & Preprints --><section id="publications" class="mb-12">
                     <h2 class="section-title">Publications & Preprints</h2>
                     <ul class="pub-list list-none">
                         <li>
@@ -177,8 +175,7 @@
                     </ul>
                 </section>
 
-                <!-- Selected Awards -->
-                <section id="awards" class="mb-12">
+                <!-- Selected Awards --><section id="awards" class="mb-12">
                     <h2 class="section-title">Selected Awards</h2>
                     <ul class="styled-list list-none pl-4">
                         <li>
@@ -193,8 +190,7 @@
                     </ul>
                 </section>
 
-                <!-- Administrative Experience -->
-                <section id="admin-experience" class="mb-12">
+                <!-- Administrative Experience --><section id="admin-experience" class="mb-12">
                     <h2 class="section-title">Administrative Experience</h2>
                     <ul class="styled-list list-none pl-4">
                         <li>
@@ -209,8 +205,7 @@
                     </ul>
                 </section>
                 
-                <!-- Footer -->
-                <footer class="mt-16 border-t border-gray-200 pt-8">
+                <!-- Footer --><footer class="mt-16 border-t border-gray-200 pt-8">
                     <div class="text-center text-sm text-gray-500">
                         <p>&copy; <span id="year"></span> Hong T.M. Chu. Last updated: November 2025</p>
                     </div>
