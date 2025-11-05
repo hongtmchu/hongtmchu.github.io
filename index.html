@@ -7,11 +7,16 @@
     
     <!-- Tailwind CSS for styling --><script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Montserrat --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome for icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Academicons (for ORCID & Google Scholar) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" xintegrity="sha512-CViOlhcHxl8RsD6MIfkDGGZGaQ+KYU2E/EfrCVnw2Wf0N6DYLgPZMAwio6F3RVSCHRWeX/n/aIeJgYIty+gH3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
     <style>
         /* Define custom fonts and colors */
@@ -25,7 +30,7 @@
         body {
             font-family: var(--body-font);
             color: #333;
-            font-size: 16px; /* Reverted to 16px */
+            font-size: 16px; /* Base font size */
             line-height: 1.3; /* Updated line height to match CSS */
         }
         
@@ -34,7 +39,7 @@
         /* Section Title Styling - Applied to all <h2> and <h1> */
         .section-title {
             color: var(--primary-purple); /* Apply purple to section titles */
-            font-size: 1.5rem; /* Reverted to 1.5rem (24px) */
+            font-size: 1.5rem; /* 1.5x base font (24px) */
             font-weight: 700; /* (Tailwind font-bold) */
             margin-bottom: 1.5rem; /* 24px (Tailwind mb-6) */
             line-height: 1;
@@ -49,7 +54,7 @@
             
             /* Keep the font styles matching section-title */
             color: var(--primary-blue); /* Blue text for contrast */
-            font-size: 1.5rem; /* Reverted to 1.5rem */
+            font-size: 1.5rem; /* 1.5x base font (24px) */
             font-weight: 700;
             line-height: 1.25;
         }
@@ -108,8 +113,6 @@
              color: var(--primary-blue);
         }
         
-        /* Removed .orcid-link class */
-
         /* New styles for social icon links */
         .social-icon-row {
             margin-top: 0.75rem; /* 12px */
@@ -128,11 +131,26 @@
             color: var(--primary-purple); /* Change to purple on hover */
         }
         
-        .social-icon.orcid {
+        /* Specific icon colors */
+        .social-icon.ai-orcid {
             color: #a6ce39; /* Official ORCID green */
         }
-        .social-icon.orcid:hover {
+        .social-icon.ai-orcid:hover {
             color: #8ab32f; /* Darker green on hover */
+        }
+        
+        .social-icon.ai-google-scholar {
+            color: #4285F4; /* Google Blue */
+        }
+         .social-icon.ai-google-scholar:hover {
+            color: #3367D6;
+        }
+        
+        .social-icon.fa-linkedin {
+             color: #0A66C2; /* LinkedIn Blue */
+        }
+        .social-icon.fa-linkedin:hover {
+            color: #004182;
         }
 
 
@@ -140,17 +158,21 @@
 </head>
 <body class="bg-white text-gray-700">
 
+    <!-- Removed max-w-6xl for full-width layout -->
     <div class="p-4 sm:p-6 lg:p-8">
         
-        <!-- Main Header Title --><!-- We use section-title for font consistency and main-header for background --><h1 class="section-title main-header">
+        <!-- Main Title, styled as a section title with a background -->
+        <h1 class="section-title main-header">
             Hong T.M. Chu (Assistant Professor at VinUniversity)
         </h1>
 
         <div class="md:flex">
             
-            <!-- Left Sidebar Navigation --><aside class="w-full md:w-72 md:flex-shrink-0 md:pr-8 mb-8 md:mb-0">
+            <!-- Left Sidebar Navigation -->
+            <aside class="w-full md:w-72 md:flex-shrink-0 md:pr-8 mb-8 md:mb-0">
                 <nav class="flex flex-col">
                     <a href="#home" class="sidebar-link">Home</a>
+                    <!-- Removed Employment and Education -->
                     <a href="#publications" class="sidebar-link">Publications</a>
                     <a href="#awards" class="sidebar-link">Awards</a>
                     <a href="#talks" class="sidebar-link">Talks</a>
@@ -160,274 +182,64 @@
                 </nav>
             </aside>
 
-            <!-- Main Content Area --><main class="w-full md:w-auto">
+            <!-- Main Content Area -->
+            <main class="w-full md:w-auto">
 
-                <!-- Home Section --><section id="home" class="mb-12">
+                <!-- Home Section -->
+                <section id="home" class="mb-12">
                     <h2 class="section-title">Home</h2>
                     
-                    <!-- Bio/Profile Section --><div class="flex flex-col md:flex-row items-start mb-8">
-                        <div class="md:w-1/3 text-left mb-6 md:mb-0 md:pr-4">
-                            <!-- Your photo --><img src="profile.jpg" alt="Hong T.M. Chu" class="rounded-full shadow-md border border-gray-300 w-40 h-40 object-cover" onerror="this.src='https://placehold.co/150x150/EBF4FF/333333?text=Photo+Not+Found';">
+                    <!-- Bio/Profile Section -->
+                    <div class="flex flex-col md:flex-row items-start mb-8">
+                        <!-- Photo - Not a circle, w-40, h-auto, closer to info -->
+                        <div class="text-left mb-4 md:mb-0 md:mr-6 flex-shrink-0">
+                            <img src="profile.jpg" alt="Hong T.M. Chu" 
+                                 class="rounded-md shadow-md border border-gray-300 w-40 h-auto object-cover" 
+                                 onerror="this.src='https://placehold.co/160x200/EBF4FF/333333?text=Photo+Not+Found'; this.style.height='200px';">
                         </div>
-                        <div class="md:w-2/3 md:pl-4 space-y-2">
+                        
+                        <!-- Info Block - Closer to photo -->
+                        <div class="w-full space-y-2">
                             <h3 class="text-2xl font-bold text-gray-900">
                                 Hong T.M. Chu, Dr.
-                                <!-- ORCID icon removed from here --></h3>
+                            </h3>
+                            
                             <p class="text-md text-gray-600">
                                 <strong>✉ Email:</strong> 
                                 <a href="mailto:hongtmchu@gmail.com" class="bio-link">hongtmchu@gmail.com</a> / 
                                 <a href="mailto:hongtmchu@u.nus.edu" class="bio-link">hongtmchu@u.nus.edu</a>
                             </p>
 
-                            <!-- New Icon Row --><div class="social-icon-row">
-                                <a href="https://orcid.org/0009-0002-5674-4685" target="_blank" class="social-icon orcid" title="ORCID iD">
-                                    <i class="fa-brands fa-orcid"></i>
+                            <!-- Social Icon Row -->
+                            <div class="social-icon-row">
+                                <a href="https://orcid.org/0009-0002-5674-4685" target="_blank" class="social-icon ai ai-orcid" title="ORCID iD">
+                                    <!-- Using academicons 'ai' class -->
                                 </a>
-                                <a href="https://www.linkedin.com/in/hongtmchu" target="_blank" class="social-icon" title="LinkedIn">
-                                    <i class="fa-brands fa-linkedin"></i>
+                                <a href="https://www.linkedin.com/in/hongtmchu" target="_blank" class="social-icon fa-brands fa-linkedin" title="LinkedIn">
+                                    <!-- Using font-awesome 'fa-brands' class -->
                                 </a>
-                                <a href="https://scholar.google.com/citations?hl=en&user=ZLXxF3YAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" class="social-icon" title="Google Scholar">
-                                    <i class="fa-brands fa-google-scholar"></i>
+                                <a href="https://scholar.google.com/citations?hl=en&user=ZLXxF3YAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" class="social-icon ai ai-google-scholar" title="Google Scholar">
+                                    <!-- Using academicons 'ai' class -->
                                 </a>
                             </div>
                             
-                             <!-- Text links for LinkedIn and Google Scholar removed --><div class="text-md text-gray-600">
+                            <!-- CV Link -->
+                            <div class="text-md text-gray-600 pt-2">
                                 [ <a href="CV_HongChu.pdf" class="bio-link" target="_blank">CV</a> ]
                             </div>
                         </div>
                     </div>
 
-                    <!-- Research Interests --><div id="research-interests" class="mb-10">
+                    <!-- Research Interests -->
+                    <div id="research-interests" class="mb-10">
                         <h2 class="section-title">Research Interests</h2>
                         <p class="text-justify">
                             Computational approaches to optimal transport and Wasserstein distributionally robust optimization problems.
                         </p>
                     </div>
 
-                    <!-- Short Bio --><div id="short-bio" class="mb-10">
+                    <!-- Short Bio -->
+                    <div id="short-bio" class="mb-10">
                         <h2 class="section-title">Short Bio</h2>
                         <p class="text-justify">
-                            Hong T.M. Chu is currently an Assistant Professor of Mathematics at the College of Engineering and Computer Science, VinUniversity, Vietnam. Prior to her current appointment at VinUniversity, she was a Research Fellow in the Department of Mathematics at the National University of Singapore. She received her PhD in Mathematics from the National University of Singapore under the supervision of Professor Kim-Chuan Toh. She has received Teaching Assistant Awards from the Faculty of Science (AY 2019-2020 & AY 2020-2021) and has been nominated as a Faculty of Science Postgraduate Alumni Ambassador at the National University of Singapore.
-                        </p>
-                    </div>
-
-                </section>
-
-                <!-- Employment --><section id="employment" class="mb-12">
-                    <h2 class="section-title">Employment</h2>
-                    <ul class="styled-list list-square list-inside">
-                        <li>
-                            <strong>[2024 - now] Assistant Professor</strong><br>
-                            College of Engineering & Computer Science, VinUniversity, Vietnam
-                        </li>
-                        <li>
-                            <strong>[2023-2024] Research Fellow</strong><br>
-                            Department of Mathematics, National University of Singapore, Singapore
-                        </li>
-                        <li>
-                            <strong>[2017-2018] Research Assistant</strong><br>
-                            Institute of Mathematics, Vietnam Academy of Science and Technology, Vietnam
-                        </li>
-                    </ul>
-                </section>
-
-                <!-- Education --><section id="education" class="mb-12">
-                    <h2 class="section-title">Education</h2>
-                    <ul class="styled-list list-square list-inside">
-                        <li>
-                            <strong>[2018-2023] Ph.D</strong><br>
-                            Department of Mathematics, National University of Singapore, Singapore<br>
-                            (Supervisor: Professor Kim-Chuan Toh)
-                        </li>
-                        <li>
-                            <strong>[2013-2017] Bachelor of Mathematics</strong><br>
-                            Faculty of Mathematics & Information Technology, Hanoi National University of Education, Vietnam
-                        </li>
-                    </ul>
-                </section>
-
-                <!-- Publications & Preprints --><section id="publications" class="mb-12 hidden">
-                    <h2 class="section-title">Publications</h2>
-                    <ul class="pub-list list-none"> <!-- Publication list does not use bullets --><li>
-                            <a href="#">Tight Robustness Certificates and Wasserstein Distributional Attacks for Deep Neural Networks</a><br>
-                            Bach C. Le, Tung V. Dao, Binh T. Nguyen, <strong>Hong T.M. Chu</strong>. <em>Submitted.</em>
-                        </li>
-                        <li>
-                            <a href="#">Implicit Regularization via Spectral Neural Networks and Non-linear Matrix Sensing</a><br>
-                            <strong>Hong T. M. Chu</strong>, Subhro Ghosh, Chi Thanh Lam, Soumendu Sundar Mukherjee.
-                        </li>
-                        <li>
-                            <a href="#">Wasserstein distributionally robust optimization and its tractable regularization formulations</a><br>
-                            <strong>Hong T.M. Chu</strong>, Meixia Lin, Kim-Chuan Toh. <em>Submitted.</em>
-                        </li>
-                        <li>
-                            <a href="#">A Corrected Inexact Proximal Augmented Lagrangian Method with a Relative Error Criterion for a Class of Group-quadratic Regularized Optimal Transport Problems</a><br>
-                            Lei Yang, Ling Liang, <strong>Hong T.M. Chu</strong>, Kim-Chuan Toh. <em>Journal of Scientific Computing 99 (3), 79.</em>
-                        </li>
-                        <li>
-                            <a href="#">On Regularized Square-root Regression Problems: Distributionally Robust Interpretation and Fast Computations</a><br>
-                            <strong>Hong T.M. Chu</strong>, Kim-Chuan Toh, Yangjing Zhang. <em>Journal of Machine Learning Research, 23(308):1–39.</em>
-                        </li>
-                        <li>
-                            <a href="#">An efficient implementable inexact entropic proximal point algorithm for a class of linear programming problems</a><br>
-                            <strong>Hong T. M. Chu</strong>, Ling Liang, Kim-Chuan Toh, Lei Yang. <em>Computational Optimization and Applications, (2023): 1-40.</em>
-                        </li>
-                    </ul>
-                </section>
-
-                <!-- Selected Awards --><section id="awards" class="mb-12 hidden">
-                    <h2 class="section-title">Awards</h2>
-                    <ul class="styled-list list-square list-inside">
-                        <li>
-                            <strong>[2021] Teaching award</strong>
-                            <a href="https://www.science.nus.edu.sg/blog/2022/01/07/faculty-award-2021-winners/" target="_blank" class="icon-link">
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            </a>
-                            <br>
-                            Part-time teaching assistant award AY 2020/2021<br>
-                            Faculty of Science, National University of Singapore, Singapore
-                        </li>
-                        <li>
-                            <strong>[2020] Teaching award</strong>
-                            <a href="https://www.math.nus.edu.sg/about/faculty-awards-accolades-for-staff/" target="_blank" class="icon-link">
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            </a>
-                            <br>
-                            Part-time teaching assistant award AY 19/2020<br>
-                            Faculty of Science, National University of Singapore, Singapore
-                        </li>
-                    </ul>
-                </section>
-
-                <!-- Talks & Presentations --><section id="talks" class="mb-12 hidden">
-                    <h2 class="section-title">Talks</h2>
-                    <ul class="styled-list list-square list-inside">
-                        <li>
-                            <strong>[October 2025]</strong> International Workshop on Weakly Supervised Learning, Southeast University, Nanjing, China
-                        </li>
-                        <li>
-                            <strong>[June 2023]</strong> SAMI, Hanoi University of Science and Technology, Hanoi, Vietnam
-                        </li>
-                        <li>
-                            <strong>[May 2023]</strong> SIAM Conference on Optimization, Seattle, USA
-                        </li>
-                         <li>
-                            <strong>[March 2023]</strong> The 6th Mathematics Symposium in Singapore, Singapore
-                        </li>
-                    </ul>
-                </section>
-
-                <!-- Administrative Experience --><section id="service" class="mb-12 hidden">
-                    <h2 class="section-title">Service</h2>
-                    <ul class="styled-list list-square list-inside">
-                        <li>
-                            <strong>[2023 - 2028] Ambassador</strong><br>
-                            Appointment as Faculty of Science Postgraduate Alumni Ambassador (FPAA), National University of Singapore, Singapore
-                        </li>
-                        <li>
-                            <strong>[Spring 2024] Preliminary & Final Judge</strong><br>
-                            Singapore Science & Engineering Fair (SSEF), MOE, A*STAR and SCS, Singapore
-                        </li>
-                        <li>
-                            <strong>[Jan 2024] Member</strong>
-                            <a href="https://ims.nus.edu.sg/events/the-mathematics-of-data/" target="_blank" class="icon-link">
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            </a>
-                            <br>
-                            The Mathematics of Data, Institute for Mathematical Sciences, Singapore
-                        </li>
-                    </ul>
-                </section>
-                
-                <!-- Pedagogical Experience --><section id="teaching" class="mb-12 hidden">
-                    <h2 class="section-title">Teaching</h2>
-                    <ul class="styled-list list-square list-inside">
-                        <li>
-                            <strong>[Fall 2024] Lecturer, MATH2010</strong><br>
-                            Probability & Statistics (VinUniversity)<br>
-                            Average student rating: 4.68/5.0
-                        </li>
-                        <li>
-                            <strong>[Spring 2022, Fall 2021, Fall 2020] Teaching assistant, DSA3102</strong><br>
-                            Essential Data Analytics Tools: Convex Optimisation (National University of Singapore)<br>
-                            Average student rating: 4.1/5.0
-                        </li>
-                         <li>
-                            <strong>[Spring 2020] Teaching assistant, MA3252</strong><br>
-                            Linear and Network Optimisation (National University of Singapore)<br>
-                            Average student rating: 4.4/5.0
-                        </li>
-                         <li>
-                            <strong>[Fall 2019] Teaching assistant, MA1102R</strong><br>
-                            Calculus (National University of Singapore)<br>
-                            Average student rating: 4.4/5.0
-                        </li>
-                    </ul>
-                </section>
-                
-                <!-- Programming Languages --><section id="programming" class="mb-12 hidden">
-                    <h2 class="section-title">Programming</h2>
-                    <ul class="styled-list list-square list-inside">
-                        <li>MATLAB, PYTHON</li>
-                    </ul>
-                </section>
-
-                <!-- Footer --><footer class="mt-16 border-t border-gray-200 pt-8">
-                    <div class="text-center text-sm text-gray-500">
-                        <p>&copy; <span id="year"></span> Hong T.M. Chu. Last updated: November 2025</p>
-                    </div>
-                </footer>
-
-            </main>
-        </div>
-    </div>
-
-    <script>
-        // --- Basic UI functionality ---
-        document.getElementById('year').textContent = new Date().getFullYear();
-        
-        // --- Tabbed Page Functionality ---
-        const links = document.querySelectorAll('.sidebar-link');
-        const mainContent = document.querySelector('main');
-        
-        links.forEach(link => {
-            link.addEventListener('click', function(e) { // <-- Fixed: Added missing '('
-                e.preventDefault(); // Stop the anchor jump
-                
-                const targetId = this.getAttribute('href').substring(1); // Get 'home', 'education', etc.
-
-                // Hide all <section> elements inside <main>
-                mainContent.querySelectorAll('section').forEach(section => {
-                    section.classList.add('hidden');
-                });
-
-                // Show the target section(s)
-                if (targetId === 'home') {
-                    // If "Home" is clicked, show home, employment, and education
-                    document.getElementById('home').classList.remove('hidden');
-                    document.getElementById('employment').classList.remove('hidden');
-                    document.getElementById('education').classList.remove('hidden');
-                } else {
-                    // Otherwise, just show the specific section clicked
-                    const targetSection = document.getElementById(targetId);
-                    if (targetSection) {
-                        targetSection.classList.remove('hidden');
-                    }
-                }
-                
-                // Scroll to the top of the main content area for better visibility
-                mainContent.scrollTop = 0; 
-                window.scrollTo(0, 0); // Also scroll the main window
-            });
-        });
-        
-        // --- Initial Load ---
-        // Manually show the 'home', 'employment', and 'education' sections on first load.
-        document.addEventListener('DOMContentLoaded', () => {
-             document.getElementById('home').classList.remove('hidden');
-             document.getElementById('employment').classList.remove('hidden');
-             document.getElementById('education').classList.remove('hidden');
-        });
-    </script>
-</body>
-</html>
+                            Hong T.M. Chu is currently an Assistant Professor of Mathematics at the College of Engineering and Computer Science, VinUniversity, Vietnam. Prior to her current appointment at VinUniversity, she was a Research Fellow in the Department of Mathematics at the National University of Singapore. She received her PhD in Mathematics from the National University of Singapore under the supervision of Professor Kim-Chuan Toh. She has received Teaching Assistant
