@@ -200,8 +200,8 @@
 
                             <!-- Recruiting info: CONVERTED TO BOX & UPDATED TEXT -->
                             <div class="mt-4 p-4 border border-blue-300 rounded-lg bg-blue-50">
-                                <!-- UPDATED TEXT to include PE -->
-                                I am recruiting <strong>RA / PE</strong> / <strong>PhD</strong> with relevant research experience on optimization and machine learning. Please check the <a href="#" onclick="showSection('olab'); return false;" class="bio-link">OLab Section</a> for more information.
+                                <!-- TEXT UPDATED: "OLab Section" -> "OLab" -->
+                                I am recruiting <strong>RA / PE</strong> / <strong>PhD</strong> with relevant research experience on optimization and machine learning. Please check the <a href="#" onclick="showSection('olab'); return false;" class="bio-link">OLab</a> for more information.
                             </div>
                         </div>
                     </div>
@@ -299,28 +299,28 @@
                     
                     <div id="olab-members" class="mb-10">
                         <h3 class="text-xl font-bold text-gray-800 mb-4">Members</h3>
-                        <!-- UPDATED: Format Description and Content Structure -->
                         <ul class="styled-list list-none space-y-4 text-base">
-                             <li class="text-gray-500 italic mb-2 pt-2 pb-2 border-b border-gray-200">
-                                <strong>Format</strong>: Full Name (bold), <em>current institution</em> (italic), working in OLab from [start date] to [end date] (normal), <em>research interests</em> (italic), CV / Homepage (attached link)
+                             <li id="member-format-description" class="text-gray-500 italic mb-2 pt-2 pb-2 border-b border-gray-200">
+                                <!-- FORMAT UPDATED: Removed bold/italic indicators -->
+                                <strong>Format</strong>: Full Name, <em>current institution</em>, working in OLab from [start date] to [end date], <em>research interests</em>, CV / Homepage (attached link)
                             </li>
-                            <!-- P.I. -->
-                            <li class="text-justify">
-                                <strong>Hong T.M. Chu (P.I.)</strong>, <em>VinUniversity</em>, working in OLab from 2024 to present, <em>Optimization, Machine Learning</em>, [<a href="CV_HongChu.pdf" class="bio-link" target="_blank">CV</a>] / [<a href="#home" class="bio-link">Homepage</a>]
-                            </li>
+                            <!-- P.I. (Removed as requested) -->
+                        </ul>
+                        <!-- Container for sortable members -->
+                        <div id="member-list-container" class="styled-list list-none space-y-4 text-base">
                             <!-- Placeholder Member 1 (Ph.D. Student) -->
-                            <li class="text-justify">
+                            <li class="member-item text-justify">
                                 <strong>Nguyen Van A</strong>, <em>VinUniversity (PhD Student)</em>, working in OLab from 2024 to present, <em>Optimal Transport, Convex Analysis</em>, [<a href="#" class="bio-link">CV</a>] / [<a href="#" class="bio-link">Homepage</a>]
                             </li>
                             <!-- Placeholder Member 2 (Research Assistant) -->
-                            <li class="text-justify">
+                            <li class="member-item text-justify">
                                 <strong>Tran Thi B</strong>, <em>Hanoi University of Science (RA)</em>, working in OLab from 2024 to 2025, <em>Distributionally Robust Optimization, Numerical Methods</em>, [<a href="#" class="bio-link">Homepage</a>]
                             </li>
                             <!-- Placeholder Member 3 (Alumni) -->
-                             <li class="text-justify">
+                             <li class="member-item text-justify">
                                 <strong>Le Minh C</strong>, <em>MIT (Postdoc)</em>, working in OLab from 2023 to 2024, <em>Large Scale Optimization, Algorithm Design</em>, [<a href="#" class="bio-link">CV</a>] / [<a href="#" class="bio-link">Homepage</a>]
                             </li>
-                        </ul>
+                        </div>
                     </div>
 
                     <!-- RECRUITMENT SECTION UPDATED -->
@@ -488,8 +488,44 @@
                 }
             }
             
+            // If we are showing the OLab section, sort the members
+            if (targetId === 'olab') {
+                sortMembers();
+            }
+            
             // Scroll to top
             window.scrollTo(0, 0); 
+        }
+
+        /**
+         * Sorts the OLab members alphabetically by name (the bold text).
+         * This function runs whenever the OLab tab is clicked.
+         */
+        function sortMembers() {
+            const container = document.getElementById('member-list-container');
+            if (!container) return;
+
+            // Convert HTMLCollection of children (<li>) to a true Array
+            const members = Array.from(container.children);
+
+            members.sort((a, b) => {
+                // Extracts the bold name which is the first child of the <li>
+                const nameA = a.querySelector('strong')?.textContent.replace('(P.I.)', '').trim().toLowerCase() || '';
+                const nameB = b.querySelector('strong')?.textContent.replace('(P.I.)', '').trim().toLowerCase() || '';
+
+                if (nameA < nameB) {
+                    return -1;
+                }
+                if (nameA > nameB) {
+                    return 1;
+                }
+                return 0;
+            });
+
+            // Re-append the sorted items to the container
+            members.forEach(member => {
+                container.appendChild(member);
+            });
         }
 
         // --- Tabbed Page Functionality (Uses showSection internally) ---
