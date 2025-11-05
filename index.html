@@ -12,11 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome (for icons) -->
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Academicons (for ORCID & Google Scholar) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" xintegrity="sha512-CViOlhcHxl8RsD6MIfkDGGZGaQ+KYU2E/EfrCVnw2Wf0N6DYLgPZMAwio6F3RVSCHRWeX/n/aIeJgYIty+gH3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 
     <style>
         /* Define custom fonts and colors */
@@ -30,7 +27,7 @@
         body {
             font-family: var(--body-font);
             color: #333;
-            font-size: 16px; /* Base font size */
+            font-size: 16px; /* Reverted to 16px */
             line-height: 1.3; /* Updated line height to match CSS */
         }
         
@@ -39,7 +36,7 @@
         /* Section Title Styling - Applied to all <h2> and <h1> */
         .section-title {
             color: var(--primary-purple); /* Apply purple to section titles */
-            font-size: 1.5rem; /* 1.5x base font (24px) */
+            font-size: 1.5rem; /* Reverted to 1.5rem (24px) */
             font-weight: 700; /* (Tailwind font-bold) */
             margin-bottom: 1.5rem; /* 24px (Tailwind mb-6) */
             line-height: 1;
@@ -54,7 +51,7 @@
             
             /* Keep the font styles matching section-title */
             color: var(--primary-blue); /* Blue text for contrast */
-            font-size: 1.5rem; /* 1.5x base font (24px) */
+            font-size: 1.5rem; /* Reverted to 1.5rem */
             font-weight: 700;
             line-height: 1.25;
         }
@@ -73,7 +70,7 @@
 
         /* Publication List Styling */
         .pub-list li {
-            margin-bottom: 1rem; /* 16px (Tailwind mb-4) */
+            margin-bottom: 1.5rem; /* 24px (Tailwind mb-6) */
             text-align: justify;
         }
         .pub-list a {
@@ -113,6 +110,8 @@
              color: var(--primary-blue);
         }
         
+        /* Removed .orcid-link class */
+
         /* New styles for social icon links */
         .social-icon-row {
             margin-top: 0.75rem; /* 12px */
@@ -131,26 +130,11 @@
             color: var(--primary-purple); /* Change to purple on hover */
         }
         
-        /* Specific icon colors */
-        .social-icon.ai-orcid {
+        .social-icon.orcid {
             color: #a6ce39; /* Official ORCID green */
         }
-        .social-icon.ai-orcid:hover {
+        .social-icon.orcid:hover {
             color: #8ab32f; /* Darker green on hover */
-        }
-        
-        .social-icon.ai-google-scholar {
-            color: #4285F4; /* Google Blue */
-        }
-         .social-icon.ai-google-scholar:hover {
-            color: #3367D6;
-        }
-        
-        .social-icon.fa-linkedin {
-             color: #0A66C2; /* LinkedIn Blue */
-        }
-        .social-icon.fa-linkedin:hover {
-            color: #004182;
         }
 
 
@@ -158,10 +142,9 @@
 </head>
 <body class="bg-white text-gray-700">
 
-    <!-- Removed max-w-6xl for full-width layout -->
     <div class="p-4 sm:p-6 lg:p-8">
         
-        <!-- Main Title, styled as a section title with a background -->
+        <!-- Main Header Title -->
         <h1 class="section-title main-header">
             Hong T.M. Chu (Assistant Professor at VinUniversity)
         </h1>
@@ -172,7 +155,6 @@
             <aside class="w-full md:w-72 md:flex-shrink-0 md:pr-8 mb-8 md:mb-0">
                 <nav class="flex flex-col">
                     <a href="#home" class="sidebar-link">Home</a>
-                    <!-- Removed Employment and Education -->
                     <a href="#publications" class="sidebar-link">Publications</a>
                     <a href="#awards" class="sidebar-link">Awards</a>
                     <a href="#talks" class="sidebar-link">Talks</a>
@@ -191,55 +173,45 @@
                     
                     <!-- Bio/Profile Section -->
                     <div class="flex flex-col md:flex-row items-start mb-8">
-                        <!-- Photo - Not a circle, w-40, h-auto, closer to info -->
-                        <div class="text-left mb-4 md:mb-0 md:mr-6 flex-shrink-0">
+                        <div class="w-full md:w-auto text-left mb-6 md:mb-0 md:pr-6 flex-shrink-0">
+                            <!-- Photo (not a circle, original aspect ratio) -->
                             <img src="profile.jpg" alt="Hong T.M. Chu" 
-                                 class="rounded-md shadow-md border border-gray-300 w-40 h-auto object-cover" 
-                                 onerror="this.src='https://placehold.co/160x200/EBF4FF/333333?text=Photo+Not+Found'; this.style.height='200px';">
+                                 class="rounded-md shadow-md border border-gray-300 w-48 h-auto" 
+                                 style="max-width: 200px;"
+                                 onerror="this.src='https://placehold.co/200x250/EBF4FF/333333?text=Photo+Not+Found';">
                         </div>
-                        
-                        <!-- Info Block - Closer to photo -->
-                        <div class="w-full space-y-2">
+                        <div class="w-full md:pl-4 space-y-2">
                             <h3 class="text-2xl font-bold text-gray-900">
                                 Hong T.M. Chu, Dr.
                             </h3>
-                            
                             <p class="text-md text-gray-600">
                                 <strong>✉ Email:</strong> 
                                 <a href="mailto:hongtmchu@gmail.com" class="bio-link">hongtmchu@gmail.com</a> / 
                                 <a href="mailto:hongtmchu@u.nus.edu" class="bio-link">hongtmchu@u.nus.edu</a>
                             </p>
 
-                            <!-- Social Icon Row -->
+                            <!-- Social Icon Links -->
                             <div class="social-icon-row">
-                                <a href="https://orcid.org/0009-0002-5674-4685" target="_blank" class="social-icon ai ai-orcid" title="ORCID iD">
-                                    <!-- Using academicons 'ai' class -->
+                                <a href="https://orcid.org/0009-0002-5674-4685" target="_blank" class="social-icon orcid" title="ORCID iD">
+                                    <i class="fa-brands fa-orcid"></i>
                                 </a>
-                                <a href="https://www.linkedin.com/in/hongtmchu" target="_blank" class="social-icon fa-brands fa-linkedin" title="LinkedIn">
-                                    <!-- Using font-awesome 'fa-brands' class -->
+                                <a href="https://www.linkedin.com/in/hongtmchu" target="_blank" class="social-icon" title="LinkedIn">
+                                    <i class="fa-brands fa-linkedin"></i>
                                 </a>
-                                <a href="https://scholar.google.com/citations?hl=en&user=ZLXxF3YAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" class="social-icon ai ai-google-scholar" title="Google Scholar">
-                                    <!-- Using academicons 'ai' class -->
+                                <a href="https://scholar.google.com/citations?hl=en&user=ZLXxF3YAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" class="social-icon" title="Google Scholar">
+                                    <i class="fa-brands fa-google-scholar"></i>
                                 </a>
                             </div>
                             
                             <!-- CV Link -->
-                            <div class="text-md text-gray-600 pt-2">
+                            <div class="text-md text-gray-600">
                                 [ <a href="CV_HongChu.pdf" class="bio-link" target="_blank">CV</a> ]
                             </div>
                         </div>
                     </div>
 
-                    <!-- Research Interests -->
-                    <div id="research-interests" class="mb-10">
-                        <h2 class="section-title">Research Interests</h2>
-                        <p class="text-justify">
-                            Computational approaches to optimal transport and Wasserstein distributionally robust optimization problems.
-                        </p>
-                    </div>
-
-                    <!-- Short Bio -->
+                    <!-- Short Bio Section (Merged with Research Interests) -->
                     <div id="short-bio" class="mb-10">
                         <h2 class="section-title">Short Bio</h2>
                         <p class="text-justify">
-                            Hong T.M. Chu is currently an Assistant Professor of Mathematics at the College of Engineering and Computer Science, VinUniversity, Vietnam. Prior to her current appointment at VinUniversity, she was a Research Fellow in the Department of Mathematics at the National University of Singapore. She received her PhD in Mathematics from the National University of Singapore under the supervision of Professor Kim-Chuan Toh. She has received Teaching Assistant
+                            Hong T.M. Chu is currently an Assistant Professor of Mathematics at the College of Engineering and Computer Science, VinUniversity, Vietnam. Prior to her current appointment at VinUniversity, she was a Research Fellow in the Department of Mathematics at the National University of Singapore. She received her PhD in Mathematics from the National University of Singapore under the supervision of Professor Kim-Chuan Toh. She has received Teaching Assistant Awards from the Faculty of Science (AY 20
