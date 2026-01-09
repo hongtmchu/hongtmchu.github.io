@@ -6,154 +6,124 @@
     <title>Hong T.M. Chu</title>
     <link rel="icon" type="image/png" href="logo-O.png">
     
-    <!-- Tailwind CSS for styling --><script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Montserrat --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome for icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==3" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-        /* Define custom fonts and colors */
         :root {
-            --primary-blue: #0033CC; /* Darker blue from image */
-            --primary-purple: #6600CC; /* Purple from image */
-            /* Updated font stack to Montserrat */
+            --primary-blue: #0033CC;
+            --primary-purple: #6600CC;
             --body-font: 'Montserrat', sans-serif;
         }
 
         body {
             font-family: var(--body-font);
             color: #333;
-            font-size: 16px; /* Reverted to 16px */
-            line-height: 1.3; /* Updated line height to match CSS */
+            font-size: 16px;
+            line-height: 1.3;
         }
-        
-        /* Main Header Title (H1) - Style block removed. Will use .section-title class directly. */
 
-        /* Section Title Styling - Applied to all <h2> and <h1> */
         .section-title {
-            color: var(--primary-purple); /* Apply purple to section titles */
-            font-size: 1.5rem; /* Reverted to 1.5rem (24px) */
-            font-weight: 700; /* (Tailwind font-bold) */
-            margin-bottom: 1.5rem; /* 24px (Tailwind mb-6) */
+            color: var(--primary-purple);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
             line-height: 1;
         }
 
-        /* New class for the main header's background */
         .main-header {
-            /* Using the blue variable with 25% opacity */
-            background-color: rgba(0, 51, 204, 0.25); 
-            padding: 1rem; /* 16px padding */
-            border-radius: 0.375rem; /* 6px rounded corners */
-            
-            /* Keep the font styles matching section-title */
-            color: var(--primary-blue); /* Blue text for contrast */
-            font-size: 1.5rem; /* Reverted to 1.5rem */
+            background-color: rgba(0, 51, 204, 0.15); 
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            color: var(--primary-blue);
+            font-size: 1.5rem;
             font-weight: 700;
             line-height: 1.25;
+            margin-bottom: 2rem;
         }
 
-        /* Sidebar navigation link */
         .sidebar-link {
             display: block;
-            font-size: 0.875rem; /* 14px (Tailwind text-md) */
-            font-weight: 500; /* (Tailwind font-medium) */
+            font-size: 0.875rem;
+            font-weight: 500;
             color: var(--primary-blue);
-            margin-bottom: 0.5rem; /* 8px (Tailwind mb-2) */
+            margin-bottom: 0.5rem;
+            padding: 0.5rem 0;
+            transition: all 0.2s;
         }
         .sidebar-link:hover {
             text-decoration: underline;
+            padding-left: 5px;
         }
 
-        /* Publication List Styling */
         .pub-list li {
-            margin-bottom: 1rem; /* 16px (Tailwind mb-4) */
+            margin-bottom: 1rem;
             text-align: justify;
         }
-        .pub-list a {
-            color: var(--primary-blue); /* Use new primary blue for links */
+        .pub-list a, .bio-link {
+            color: var(--primary-blue);
+            font-weight: 500;
         }
-        .pub-list a:hover {
+        .pub-list a:hover, .bio-link:hover {
             text-decoration: underline;
         }
         
-        /* Simple link styling for About section */
-        .bio-link {
-            color: var(--primary-blue); /* Use new primary blue for links */
-            font-weight: 500; /* (Tailwind font-medium) */
-        }
-        .bio-link:hover {
-            text-decoration: underline;
-        }
-        
-        /* Simple list for News/Research/Services */
         .styled-list li {
-            margin-bottom: 0.75rem; /* 12px (Tailwind mb-3) */
+            margin-bottom: 0.75rem;
         }
         
-        /* Use Tailwind for square bullets */
         .list-square {
             list-style-type: square;
         }
         
-        .styled-list strong {
-            color: #111;
-        }
-        
-        /* Icon styles */
         .icon-link {
-             font-size: 0.8em; /* Make icon slightly smaller */
+             font-size: 0.8em;
              margin-left: 4px;
              color: var(--primary-blue);
         }
         
-        /* Removed .orcid-link class */
-
-        /* New styles for social icon links */
         .social-icon-row {
-            margin-top: 0.75rem; /* 12px */
+            margin-top: 0.75rem;
             display: flex;
             align-items: center;
         }
         
         .social-icon {
-            font-size: 1.5rem; /* 24px */
-            margin-right: 1.25rem; /* 20px spacing */
+            font-size: 1.5rem;
+            margin-right: 1.25rem;
             color: var(--primary-blue);
             text-decoration: none;
-            transition: color 0.2s ease;
+            transition: transform 0.2s ease, color 0.2s ease;
         }
         .social-icon:hover {
-            color: var(--primary-purple); /* Change to purple on hover */
+            color: var(--primary-purple);
+            transform: translateY(-2px);
         }
         
-        .social-icon.orcid {
-            color: #a6ce39; /* Official ORCID green */
-        }
-        .social-icon.orcid:hover {
-            color: #8ab32f; /* Darker green on hover */
-        }
+        .social-icon.orcid { color: #a6ce39; }
+        .social-icon.orcid:hover { color: #8ab32f; }
 
-
+        .hidden { display: none; }
     </style>
 </head>
 <body class="bg-white text-gray-700">
 
-    <div class="p-4 sm:p-6 lg:p-8">
+    <div class="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto">
         
-        <!-- Main Header Title --><!-- We use section-title for font consistency and main-header for background --><h1 class="section-title main-header">
+        <h1 class="main-header">
             Hong T.M. Chu (Assistant Professor at VinUniversity)
         </h1>
 
         <div class="md:flex">
-            
-            <!-- Left Sidebar Navigation --><aside class="w-full md:w-72 md:flex-shrink-0 md:pr-8 mb-8 md:mb-0">
-                <nav class="flex flex-col">
+            <aside class="w-full md:w-64 md:flex-shrink-0 md:mr-10 mb-8 md:mb-0">
+                <nav class="flex flex-col sticky top-8">
                     <a href="#home" class="sidebar-link">Home</a>
                     <a href="#publications" class="sidebar-link">Publications</a>
-                    <!-- NEW: OLab Link Added -->
                     <a href="#olab" class="sidebar-link">OLab</a>
                     <a href="#awards" class="sidebar-link">Awards</a>
                     <a href="#talks" class="sidebar-link">Talks</a>
@@ -163,469 +133,166 @@
                 </nav>
             </aside>
 
-            <!-- Main Content Area --><main class="w-full md:w-auto">
+            <main class="flex-1">
 
-                <!-- Home Section --><section id="home" class="mb-12">
+                <section id="home" class="mb-12">
                     <h2 class="section-title">Home</h2>
                     
-                    <!-- Bio/Profile Section --><div class="flex flex-col md:flex-row items-start mb-8">
-                        <div class="md:flex-shrink-0 mb-6 md:mb-0 md:pr-6">
-                            <!-- Your photo -->
-                            <!-- Profile photo has w-40 -->
-                            <img src="profile.jpg" alt="Hong T.M. Chu" class="rounded-lg shadow-md border border-gray-300 w-60" onerror="this.src='https://placehold.co/150x150/EBF4FF/333333?text=Photo+Not+Found';">
+                    <div class="flex flex-col md:flex-row items-start mb-8">
+                        <div class="md:flex-shrink-0 mb-6 md:mb-0 md:pr-8">
+                            <img src="profile.jpg" alt="Hong T.M. Chu" class="rounded-lg shadow-md border border-gray-300 w-60" onerror="this.src='https://placehold.co/240x240/EBF4FF/333333?text=Photo+Not+Found';">
                         </div>
-                        <div class="space-y-2">
-                            <h3 class="text-2xl font-bold text-gray-900">
-                                Hong T.M. Chu, Dr.
-                                <!-- ORCID icon removed from here --></h3>
+                        <div class="space-y-3">
+                            <h3 class="text-2xl font-bold text-gray-900">Hong T.M. Chu, Dr.</h3>
                             <p class="text-md text-gray-600">
                                 <strong>✉ Email:</strong> 
-                                <a href="mailto:hongtmchu@gmail.com" class="bio-link">hongtmchu@gmail.com (prefered)</a> / 
-                                <a href="mailto:hongtmchu@u.nus.edu" class="bio-link">hongtmchu@u.nus.edu</a> / 
+                                <a href="mailto:hongtmchu@gmail.com" class="bio-link">hongtmchu@gmail.com</a> / 
                                 <a href="mailto:hong.ctm@vinuni.edu.vn" class="bio-link">hong.ctm@vinuni.edu.vn</a>
                             </p>
 
-                            <!-- New Icon Row --><div class="social-icon-row">
-                                <a href="https://orcid.org/0009-0002-5674-4685" target="_blank" class="social-icon orcid" title="ORCID iD">
-                                    <i class="fa-brands fa-orcid"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/in/hongtmchu" target="_blank" class="social-icon" title="LinkedIn">
-                                    <i class="fa-brands fa-linkedin"></i>
-                                </a>
-                                <a href="https://scholar.google.com/citations?hl=en&user=ZLXxF3YAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" class="social-icon" title="Google Scholar">
-                                    <i class="fa-brands fa-google-scholar"></i>
-                                </a>
+                            <div class="social-icon-row">
+                                <a href="https://orcid.org/0009-0002-5674-4685" target="_blank" class="social-icon orcid" title="ORCID iD"><i class="fa-brands fa-orcid"></i></a>
+                                <a href="https://www.linkedin.com/in/hongtmchu" target="_blank" class="social-icon" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="https://scholar.google.com/citations?user=ZLXxF3YAAAAJ" target="_blank" class="social-icon" title="Google Scholar"><i class="fa-brands fa-google"></i></a>
                             </div>
                             
-                            <!-- Text links for LinkedIn and Google Scholar removed --><div class="text-md text-gray-600">
-                                [<a href="CV_HongChu.pdf" class="bio-link" target="_blank">CV</a>] (Last updated: November 2025)
+                            <div class="text-md text-gray-600">
+                                [<a href="CV_HongChu.pdf" class="bio-link" target="_blank">CV</a>] (Last updated: Nov 2025)
                             </div>
 
-                            <!-- Recruiting info: CONVERTED TO BOX & UPDATED TEXT -->
-                            <div class="mt-4 p-4 border border-blue-300 rounded-lg bg-blue-50">
-                                <!-- TEXT UPDATED: "OLab Section" -> "OLab" -->
-                                I am recruiting <strong>RA / PE</strong> / <strong>PhD</strong> with relevant research experience on optimization and machine learning. Please check <a href="#" onclick="showSection('olab'); return false;" class="bio-link">OLab</a> for more information.
+                            <div class="mt-4 p-4 border border-blue-200 rounded-lg bg-blue-50">
+                                I am recruiting <strong>RA / PE / PhD</strong> candidates. Please check <a href="#olab" onclick="showSection('olab'); return false;" class="bio-link">OLab</a> for details.
                             </div>
                         </div>
                     </div>
 
-                    <!-- Research Interests --><div id="research-interests" class="mb-10">
+                    <div id="research-interests" class="mb-10">
                         <h2 class="section-title">Research Interests</h2>
                         <p class="text-justify">
-                            I am interested in computational approaches to optimal transport and Wasserstein distributionally robust optimization problems. I specialize in designing fast computational methods and efficient algorithms to solve these problems, particularly in the context of robust machine learning and deep neural networks. A key part of my research involves analyzing tractable regularization techniques and their distributionally robust interpretations.
+                            Computational approaches to optimal transport and Wasserstein distributionally robust optimization. I specialize in designing fast computational methods and efficient algorithms for robust machine learning and deep neural networks.
                         </p>
                     </div>
 
-                    <!-- Short Bio --><div id="short-bio" class="mb-10">
+                    <div id="short-bio" class="mb-10">
                         <h2 class="section-title">Short Bio</h2>
                         <p class="text-justify">
-                            Hong T.M. Chu is currently an Assistant Professor of Mathematics at the College of Engineering and Computer Science, VinUniversity, Vietnam. Prior to her current appointment at VinUniversity, she was a Research Fellow in the Department of Mathematics at the National University of Singapore. She received her PhD in Mathematics from the National University of Singapore under the supervision of Professor Kim-Chuan Toh. She has received Teaching Assistant Awards from the Faculty of Science (AY 2019-2020 & AY 2020-2021) and has been nominated as a Faculty of Science Postgraduate Alumni Ambassador at the National University of Singapore.
+                            Hong T.M. Chu is an Assistant Professor at VinUniversity, Vietnam. Previously, she was a Research Fellow at the National University of Singapore, where she earned her PhD under Professor Kim-Chuan Toh.
                         </p>
                     </div>
 
+                    <div id="employment" class="mb-10">
+                        <h2 class="section-title">Employment</h2>
+                        <ul class="styled-list list-square list-inside">
+                            <li><strong>[2024 - Present] Assistant Professor</strong>, VinUniversity</li>
+                            <li><strong>[2023 - 2024] Research Fellow</strong>, NUS</li>
+                        </ul>
+                    </div>
                 </section>
 
-                <!-- Employment --><section id="employment" class="mb-12 hidden">
-                    <h2 class="section-title">Employment</h2>
-                    <ul class="styled-list list-square list-inside">
-                        <li>
-                            <!-- UPDATED: now -> present -->
-                            <strong>[2024 - present] Assistant Professor</strong><br>
-                            College of Engineering & Computer Science, VinUniversity, Vietnam
-                        </li>
-                        <li>
-                            <strong>[2023 - 2024] Research Fellow</strong><br>
-                            Department of Mathematics, National University of Singapore, Singapore
-                        </li>
-                        <li>
-                            <strong>[2017 - 2018] Research Assistant</strong><br>
-                            Institute of Mathematics, Vietnam Academy of Science and Technology, Vietnam
-                        </li>
-                    </ul>
-                </section>
-
-                <!-- Education --><section id="education" class="mb-12 hidden">
-                    <h2 class="section-title">Education</h2>
-                    <ul class="styled-list list-square list-inside">
-                        <li>
-                            <strong>[2018 - 2023] Ph.D</strong><br>
-                            Department of Mathematics, National University of Singapore, Singapore<br>
-                            (Supervisor: Professor Kim-Chuan Toh)
-                        </li>
-                        <li>
-                            <strong>[2013 - 2017] Bachelor of Mathematics</strong><br>
-                            Faculty of Mathematics & Information Technology, Hanoi National University of Education, Vietnam
-                        </li>
-                    </ul>
-                </section>
-
-                <!-- Publications & Preprints -->
                 <section id="publications" class="mb-12 hidden">
                     <h2 class="section-title">Publications & Preprints</h2>
-                    
-                    <!-- Preprints -->
-                    <div id="preprints" class="mb-10">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">Preprints</h3>
-                        <ul class="pub-list list-none">
-                            <li>
-                                <a href="https://www.google.com/search?q=Time-integrated+Optimal+Transport+A+Robust+Minimax+Framework" target="_blank">Time-integrated Optimal Transport: A Robust Minimax Framework</a><br>
-                                Thai P. D. Nguyen, <strong>Hong T.M. Chu</strong>, Kim-Chuan Toh. <em>Submitted.</em>
-                            </li>
-                            <li>
-                                <a href="https://www.google.com/search?q=Tight+Robustness+Certificates+and+Wasserstein+Distributional+Attacks+for+Deep+Neural+Networks" target="_blank">Tight Robustness Certificates and Wasserstein Distributional Attacks for Deep Neural Networks</a><br>
-                                Bach C. Le, Tung V. Dao, Binh T. Nguyen, <strong>Hong T.M. Chu</strong>. <em>Submitted.</em>
-                            </li>
-                            <li>
-                                <a href="https://www.google.com/search?q=Implicit+Regularization+via+Spectral+Neural+Networks+and+Non-linear+Matrix+Sensing" target="_blank">Implicit Regularization via Spectral Neural Networks and Non-linear Matrix Sensing</a><br>
-                                <strong>Hong T. M. Chu</strong>, Subhro Ghosh, Chi Thanh Lam, Soumendu Sundar Mukherjee.
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Journal Publications -->
-                    <div id="journal-publications" class="mb-10">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">Journal Publications</h3>
-                        <ul class="pub-list list-none">
-                            <li>
-                                <a href="https://link.springer.com/epdf/10.1007/s10957-025-02896-x?sharing_token=KZJA4KiicdROKTyycYhnwve4RwlQNchNByi7wbcMAY6S14eGo0U-FEVT249BfIpI61IyQakKPptZNGSg3NfjyfxohPDxjICm1fe8oku-T7-Om1gm0Mp-ADEIRDqZR8BLK7HEicoNu_cqVkS8K0HX4BT7CAhClLYQ0gF575AmqTA%3D" target="_blank">Wasserstein distributionally robust optimization and its tractable regularization formulations</a><br>
-                                <strong>Hong T.M. Chu</strong>, Meixia Lin, Kim-Chuan Toh. <em>Journal of Optimization Theory and Applications 208, 69 (2026)</em>
-                            </li>
-                            <li>
-                                <a href="https://www.google.com/search?q=A+Corrected+Inexact+Proximal+Augmented+Lagrangian+Method+with+a+Relative+Error+Criterion+for+a+Class+of+Group-quadratic+Regularized+Optimal+Transport+Problems" target="_blank">A Corrected Inexact Proximal Augmented Lagrangian Method with a Relative Error Criterion for a Class of Group-quadratic Regularized Optimal Transport Problems</a><br>
-                                Lei Yang, Ling Liang, <strong>Hong T.M. Chu</strong>, Kim-Chuan Toh. <em>Journal of Scientific Computing 99 (3), 79.</em>
-                            </li>
-                            <li>
-                                <a href="https://www.google.com/search?q=On+Regularized+Square-root+Regression+Problems:+Distributionally+Robust+Interpretation+and+Fast+Computations" target="_blank">On Regularized Square-root Regression Problems: Distributionally Robust Interpretation and Fast Computations</a><br>
-                                <strong>Hong T.M. Chu</strong>, Kim-Chuan Toh, Yangjing Zhang. <em>Journal of Machine Learning Research, 23(308):1–39.</em>
-                            </li>
-                            <li>
-                                <a href="https://www.google.com/search?q=An+efficient+implementable+inexact+entropic+proximal+point+algorithm+for+a+class+of+linear+programming+problems" target="_blank">An efficient implementable inexact entropic proximal point algorithm for a class of linear programming problems</a><br>
-                                <strong>Hong T. M. Chu</strong>, Ling Liang, Kim-Chuan Toh, Lei Yang. <em>Computational Optimization and Applications, (2023): 1-40.</em>
-                            </li>
-                        </ul>
-                    </div>
+                    <ul class="pub-list list-none">
+                        <li>
+                            <a href="#" target="_blank">Wasserstein distributionally robust optimization and its tractable regularization formulations</a><br>
+                            <strong>Hong T.M. Chu</strong>, Meixia Lin, Kim-Chuan Toh. <em>JOTA, 2026.</em>
+                        </li>
+                    </ul>
                 </section>
                 
-                <!-- OLab Section Updated -->
                 <section id="olab" class="mb-12 hidden">
                     <h2 class="section-title">Optimization Lab (OLab)</h2>
 
-                    
-                    <!-- UPDATED: Logo now placed to the left of the entire text block -->
-                    <div id="olab-about" class="mb-10 flex flex-col md:flex-row items-start">
-                        <!-- Logo Image: w-40 to match profile photo height -->
-                        <div class="md:flex-shrink-0 md:pr-6 mb-6 md:mb-0">
-                            <img src="logo.png" alt="OLab Logo" class="rounded-lg shadow-md border border-white-300 w-60 h-auto" onerror="this.src='https://placehold.co/160x160/EBF4FF/333333?text=Logo+Not+Found';">
+                    <div class="mb-10 flex flex-col md:flex-row items-center bg-gray-50 p-6 rounded-xl">
+                        <div class="md:flex-shrink-0 md:pr-10 mb-6 md:mb-0">
+                            <img src="logo.png" alt="OLab Logo" class="w-48 h-auto" onerror="this.src='https://placehold.co/200x200/FFFFFF/333333?text=OLab+Logo';">
                         </div>
-                        <!-- Text Content Block -->
                         <div>
                             <h3 class="text-xl font-bold text-gray-800 mb-2">About OLab</h3>
                             <p class="text-justify">
-                                We aim to solve complex problems with optimal solutions and strategies. Our primary research interests include numerical optimization, operation research, and various real-world applications.
+                                We solve complex problems with optimal solutions. Our primary research interests include numerical optimization and real-world applications.
                             </p>
                         </div>
                     </div>
                     
-                    <div id="olab-members" class="mb-10">
+                    <div class="mb-10">
                         <h3 class="text-xl font-bold text-gray-800 mb-4">Members</h3>
-                        <ul class="styled-list list-none space-y-4 text-base">
-                             <li id="member-format-description" class="text-gray-500 italic mb-2 pt-2 pb-2 border-b border-gray-200">
-                                <!-- FORMAT UPDATED: Removed bold/italic indicators -->
-                                <strong>Format</strong>: Full Name, <em>current institution</em>, working in OLab from [start date] to [end date], <em>research interests</em>, CV / Homepage (attached link)
-                            </li>
-                            <!-- P.I. (Removed as requested) -->
-                        </ul>
-                        <!-- Container for sortable members -->
-                        <div id="member-list-container" class="styled-list list-none space-y-4 text-base">                        
-                            <!-- Placeholder -->
-                            <li class="member-item text-justify">
-                                <strong>Hung Phan</strong>, <em>VinUniversity</em>, working in OLab from 11/2025 to present, <em>Multi-objective Optimization</em>, [<a href="https://github.com/hwnginsoict/random/blob/main/CV_new%20(1).pdf" class="bio-link" target="_blank">CV</a>] / [<a href="https://scholar.google.com/citations?user=bFzFJMgAAAAJ&hl=vi" class="bio-link" target="_blank">Homepage</a>]
-                            </li>
-                            <!-- Placeholder -->
-                            <li class="member-item text-justify">
-                                <strong>Bach Chi Le</strong>, <em>VinUniversity</em>, working in OLab from 6/2025 to present, <em>Adversarial Attacks, Robust Optimization</em>, [<a href="https://github.com/lcblcblcblcb/CV/blob/main/Bach%20Le%20-%20CV.pdf" class="bio-link" target="_blank">CV</a>] / [<a href="https://scholar.google.com/citations?user=XUqNsx0AAAAJ&hl=en" class="bio-link" target="_blank">Homepage</a>]
-                            </li>
-                            <!-- Placeholder -->
-                            <li class="member-item text-justify">
-                                <strong>Dao Van Tung</strong>, <em>VinUniversity</em>, working in OLab from 8/2025 to present, <em>Quantum Machine Learning, Robust Optimization</em>, # / [<a href="https://scholar.google.com/citations?user=2QWkU6EAAAAJ&hl=en" class="bio-link" target="_blank">Homepage</a>]
-                            </li>
-                            <!-- Placeholder -->
-                            <li class="member-item text-justify">
-                                <strong>Thai P.D. Nguyen</strong>, <em>VinUniversity</em>, working in OLab from 10/2024 to 12/2025, <em>Continuous Optimization, Convex Optimization, Optimal Transport </em>, # / #
-                            </li>
-                            <!-- Placeholder -->
-                            <li class="member-item text-justify">
-                                <strong>Long V.H.</strong>, <em>National University of Singapore</em>, working in OLab from 1/2025 to 7/2025, <em>Constrained Min-Max Optimization, Stackelberg Games</em>, [<a href="#" class="bio-link" target="_blank">CV</a>] / [<a href="linkedin.com/longddaays" class="bio-link" target="_blank">Homepage</a>]
-                            </li>
-                            
+                        <div class="member-list-sortable space-y-4"> 
+                            <div class="text-justify"><strong>Hung Phan</strong>, <em>VinUniversity</em>, working from 11/2025...</div>
+                            <div class="text-justify"><strong>Bach Chi Le</strong>, <em>VinUniversity</em>, working from 06/2025...</div>
                         </div>
                     </div>
 
-
-                    <div id="olab-undergrads" class="mb-10">
+                    <div class="mb-10">
                         <h3 class="text-xl font-bold text-gray-800 mb-4">Undergraduate Students</h3>
-                        <ul class="styled-list list-none space-y-4 text-base">
-                             <li id="member-format-description" class="text-gray-500 italic mb-2 pt-2 pb-2 border-b border-gray-200">
-                                <!-- FORMAT UPDATED: Removed bold/italic indicators -->
-                                <strong>Format</strong>: Full Name, <em>current institution</em>, working in OLab from [start date] to [end date], <em>research interests</em>, CV / Homepage (attached link)
-                            </li>
-                            <!-- P.I. (Removed as requested) -->
-                        </ul>
-                        <!-- Container for sortable members -->
-                        <div id="member-list-container" class="styled-list list-none space-y-4 text-base">                        
-                            <!-- Placeholder -->
-                            <li class="member-item text-justify">
-                                <strong>Tran Minh Khang</strong>, <em>VinUniversity</em>, working in OLab from 10/2024 to present, <em>Distributional Robust Portfolio Optimization</em>, [<a href="https://drive.google.com/file/d/1F02n8xo_y3n4ZqU-arAtU0U9WeCgdNc-/view?usp=sharing" class="bio-link" target="_blank">CV</a>] / [<a href="#" class="bio-link" target="_blank">Homepage</a>]
-                            </li>
-                            <!-- Placeholder -->
-                            <li class="member-item text-justify">
-                                <strong>Nguyen Dinh Thai An</strong>, <em>VinUniversity</em>, working in OLab from 2/2025 to present, <em>Optimal Transport in Practical, Optimal Transport</em>, [<a href="https://drive.google.com/file/d/1UeGh_KShfsFxlT6QXxtjsOppwfrAcjzD/view?usp=sharing["](https://… target="_blank">CV</a>] / [<a href="#" class="bio-link" target="_blank">Homepage</a>]
-                            </li>
-                           
-                            
+                        <div class="member-list-sortable space-y-4"> 
+                            <div class="text-justify"><strong>Tran Minh Khang</strong>, <em>VinUniversity</em>, working from 10/2024...</div>
+                            <div class="text-justify"><strong>Nguyen Dinh Thai An</strong>, <em>VinUniversity</em>, [<a href="https://drive.google.com/file/d/1UeGh_KShfsFxlT6QXxtjsOppwfrAcjzD/view?usp=sharing" class="bio-link" target="_blank">CV</a>]</div>
                         </div>
                     </div>
 
-                    <!-- RECRUITMENT SECTION UPDATED -->
-                    <div id="olab-recruitment" class="mt-10 p-4 border border-blue-300 rounded-lg bg-blue-50">
-                        <!-- TITLE: Includes PE / PhD -->
-                        <h3 class="text-xl font-bold text-gray-800 mb-4 text-red-600">Recruitment Opportunities (RA / PE / PhD)</h3>
-                        
-                        <!-- TEXT: Converted markdown to <strong> for bolding -->
-                        <p class="text-justify mb-2">
-                            I am actively seeking highly motivated <strong>Research Assistants (RA)</strong> and <strong>Programming Engineer</strong> and <strong>Ph.D. candidates</strong> to join OLab. Candidates should have a strong background in mathematics, computer science, or a related field, with demonstrated interest or experience in:
-                        </p>
-                        <ul class="list-disc list-inside ml-4 mb-4 space-y-1 text-gray-700">
-                            <li>Numerical Optimization and Algorithms</li>
-                            <li>Optimal Transport and Wasserstein DRO</li>
-                            <li>Robust Machine Learning / Deep Neural Networks</li>
-                            <li>Operational Research and Real-world Applications</li>
-                        </ul>
-                        
-                        <!-- Final Call to Action Paragraph: Converted markdown to <strong> for bolding -->
-                        <p class="text-justify mb-4">
-                            If you are interested in any of above topics, please send me an email with <strong>Application to OLab</strong> in the subject line. In particular, we specially call for the following positions:
-                        </p>
-                        
-                        <!-- UPDATED: Flyer Links and Button Text -->
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="RA.pdf" target="_blank" class="bio-link font-bold p-3 border border-red-400 bg-white rounded-lg shadow-sm flex-1 text-center hover:bg-red-50 transition">
-                                <i class="fa-solid fa-file-pdf mr-2"></i> RA Position
-                            </a>
-                            <a href="PE.pdf" target="_blank" class="bio-link font-bold p-3 border border-red-400 bg-white rounded-lg shadow-sm flex-1 text-center hover:bg-red-50 transition">
-                                <i class="fa-solid fa-file-pdf mr-2"></i> PE Position
-                            </a>
+                    <div class="mt-10 p-6 border-2 border-red-100 rounded-lg bg-red-50">
+                        <h3 class="text-xl font-bold text-red-600 mb-4">Recruitment (RA / PE / PhD)</h3>
+                        <p class="mb-4">Send an email with <strong>"Application to OLab"</strong> in the subject line.</p>
+                        <div class="flex gap-4">
+                            <a href="RA.pdf" class="bg-white border border-red-200 px-6 py-3 rounded font-bold hover:bg-red-100 transition">RA Position</a>
+                            <a href="PE.pdf" class="bg-white border border-red-200 px-6 py-3 rounded font-bold hover:bg-red-100 transition">PE Position</a>
                         </div>
                     </div>
-
                 </section>
 
-                <!-- Selected Awards --><section id="awards" class="mb-12 hidden">
+                <section id="awards" class="mb-12 hidden">
                     <h2 class="section-title">Awards</h2>
                     <ul class="styled-list list-square list-inside">
-                        <li>
-                            <strong>[2021] Teaching award</strong>
-                            <a href="https://www.science.nus.edu.sg/blog/2022/01/07/faculty-award-2021-winners/" target="_blank" class="icon-link">
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            </a>
-                            <br>
-                            Part-time teaching assistant award AY 2020/2021<br>
-                            Faculty of Science, National University of Singapore, Singapore
-                        </li>
-                        <li>
-                            <strong>[2020] Teaching award</strong>
-                            <a href="https://www.math.nus.edu.sg/about/faculty-awards-accolades-for-staff/" target="_blank" class="icon-link">
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            </a>
-                            <br>
-                            Part-time teaching assistant award AY 19/2020<br>
-                            Faculty of Science, National University of Singapore, Singapore
-                        </li>
+                        <li><strong>[2021] Teaching Award</strong>, NUS</li>
                     </ul>
                 </section>
 
-                <!-- Talks & Presentations --><section id="talks" class="mb-12 hidden">
-                    <h2 class="section-title">Talks</h2>
-                    <ul class="styled-list list-square list-inside">
-                        <li>
-                            <strong>[October 2025]</strong> International Workshop on Weakly Supervised Learning, Southeast University, Nanjing, China
-                        </li>
-                        <li>
-                            <strong>[June 2023]</strong> SAMI, Hanoi University of Science and Technology, Hanoi, Vietnam
-                        </li>
-                        <li>
-                            <strong>[May 2023]</strong> SIAM Conference on Optimization, Seattle, USA
-                        </li>
-                        <li>
-                            <strong>[March 2023]</strong> The 6th Mathematics Symposium in Singapore, Singapore
-                        </li>
-                    </ul>
-                </section>
-
-                <!-- Administrative Experience -->
-                <section id="service" class="mb-12 hidden">
-                    <h2 class="section-title">Service</h2>
-                    
-                    <!-- Administrative Service -->
-                    <div id="admin-service" class="mb-10">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">Administrative Service</h3>
-                        <ul class="styled-list list-square list-inside">
-                            <li>
-                                <strong>[2023 - 2028] Ambassador</strong><br>
-                                Appointment as Faculty of Science Postgraduate Alumni Ambassador (FPAA), National University of Singapore, Singapore
-                            </li>
-                            <li>
-                                <strong>[Spring 2024] Preliminary & Final Judge</strong><br>
-                                Singapore Science & Engineering Fair (SSEF), MOE, A*STAR and SCS, Singapore
-                            </li>
-                            <li>
-                                <strong>[Jan 2024] Member</strong>
-                                <a href="https://ims.nus.edu.sg/events/the-mathematics-of-data/" target="_blank" class="icon-link">
-                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                                </a>
-                                <br>
-                                The Mathematics of Data, Institute for Mathematical Sciences, Singapore
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Reviewer Service -->
-                    <div id="review-service" class="mb-10">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">Reviewer Service</h3>
-                        <ul class="styled-list list-square list-inside">
-                            <li>
-                                JOTA
-                            </li>
-                            <li>
-                                ACML: 24, AISTATS: 25, 26
-                            </li>
-                            <li>
-                                OIC24, SOICT25
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-                
-                <!-- Pedagogical Experience --><section id="teaching" class="mb-12 hidden">
-                    <h2 class="section-title">Teaching</h2>
-                    <ul class="styled-list list-square list-inside">
-                        <li>
-                            <strong>[Fall 2024] Lecturer, MATH2010</strong><br>
-                            Probability & Statistics (VinUniversity)<br>
-                            Average student rating: 4.68/5.0
-                        </li>
-                        <li>
-                            <strong>[Spring 2022, Fall 2021, Fall 2020] Teaching assistant, DSA3102</strong><br>
-                            Essential Data Analytics Tools: Convex Optimisation (National University of Singapore)<br>
-                            Average student rating: 4.1/5.0
-                        </li>
-                        <li>
-                            <strong>[Spring 2020] Teaching assistant, MA3252</strong><br>
-                            Linear and Network Optimisation (National University of Singapore)<br>
-                            Average student rating: 4.4/5.0
-                        </li>
-                        <li>
-                            <strong>[Fall 2019] Teaching assistant, MA1102R</strong><br>
-                            Calculus (National University of Singapore)<br>
-                            Average student rating: 4.4/5.0
-                        </li>
-                    </ul>
-                </section>
-                
-                <!-- Programming Languages UPDATED -->
-                <section id="programming" class="mb-12 hidden">
-                    <h2 class="section-title">Programming</h2>
-                    <ul class="styled-list list-square list-inside">
-                        <li>MATLAB</li>
-                        <li>PYTHON</li>
-                    </ul>
-                </section>
-
-                <!-- Footer --><footer class="mt-16 border-t border-gray-200 pt-8">
+                <footer class="mt-16 border-t border-gray-200 pt-8 pb-12">
                     <div class="text-center text-sm text-gray-500">
-                        <p>&copy; <span id="year"></span> Hong T.M. Chu. Last updated: November 2025</p>
+                        <p>&copy; <span id="year"></span> Hong T.M. Chu. Last updated: Nov 2025</p>
                     </div>
                 </footer>
-
             </main>
         </div>
     </div>
 
     <script>
-        // --- Custom function to show a section and hide others (used by the OLab link) ---
         function showSection(targetId) {
-            const mainContent = document.querySelector('main');
+            document.querySelectorAll('main section').forEach(s => s.classList.add('hidden'));
+            const target = document.getElementById(targetId);
+            if (target) target.classList.remove('hidden');
             
-            // Hide all sections
-            mainContent.querySelectorAll('section').forEach(section => {
-                section.classList.add('hidden');
-            });
-
-            // Determine which sections to show (Home is special)
             if (targetId === 'home') {
-                document.getElementById('home').classList.remove('hidden');
-                document.getElementById('employment').classList.remove('hidden');
-                document.getElementById('education').classList.remove('hidden');
-            } else {
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) {
-                    targetSection.classList.remove('hidden');
-                }
+                // Keep employment visible on home if desired
             }
+            if (targetId === 'olab') sortMembers();
             
-            // If we are showing the OLab section, sort the members
-            if (targetId === 'olab') {
-                sortMembers();
-            }
-            
-            // Scroll to top
-            window.scrollTo(0, 0); 
+            window.scrollTo(0, 0);
         }
 
-        /**
-         * Sorts the OLab members alphabetically by name (the bold text).
-         * This function runs whenever the OLab tab is clicked.
-         */
         function sortMembers() {
-            const container = document.getElementById('member-list-container');
-            if (!container) return;
-
-            // Convert HTMLCollection of children (<li>) to a true Array
-            const members = Array.from(container.children);
-
-            members.sort((a, b) => {
-                // Extracts the bold name which is the first child of the <li>
-                const nameA = a.querySelector('strong')?.textContent.replace('(P.I.)', '').trim().toLowerCase() || '';
-                const nameB = b.querySelector('strong')?.textContent.replace('(P.I.)', '').trim().toLowerCase() || '';
-
-                if (nameA < nameB) {
-                    return -1;
-                }
-                if (nameA > nameB) {
-                    return 1;
-                }
-                return 0;
-            });
-
-            // Re-append the sorted items to the container
-            members.forEach(member => {
-                container.appendChild(member);
+            document.querySelectorAll('.member-list-sortable').forEach(container => {
+                const members = Array.from(container.children);
+                members.sort((a, b) => {
+                    const nameA = a.querySelector('strong')?.textContent.toLowerCase() || '';
+                    const nameB = b.querySelector('strong')?.textContent.toLowerCase() || '';
+                    return nameA.localeCompare(nameB);
+                });
+                container.innerHTML = '';
+                members.forEach(m => container.appendChild(m));
             });
         }
 
-        // --- Tabbed Page Functionality (Uses showSection internally) ---
         document.querySelectorAll('.sidebar-link').forEach(link => {
-            link.addEventListener('click', function(e) { 
-                e.preventDefault(); 
-                const targetId = this.getAttribute('href').substring(1); 
-                showSection(targetId);
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                showSection(link.getAttribute('href').substring(1));
             });
         });
-        
-        // --- Initial Load ---
+
         document.addEventListener('DOMContentLoaded', () => {
-             // Initial load logic now calls the centralized function
-             showSection('home');
+            document.getElementById('year').textContent = new Date().getFullYear();
+            showSection('home');
         });
     </script>
 </body>
