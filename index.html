@@ -12,85 +12,126 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
+        /* Define custom fonts and colors */
         :root {
-            --primary-blue: #0033CC;
-            --primary-purple: #6600CC;
+            --primary-blue: #0033CC; /* Darker blue from image */
+            --primary-purple: #6600CC; /* Purple from image */
             --body-font: 'Montserrat', sans-serif;
         }
 
         body {
             font-family: var(--body-font);
             color: #333;
-            font-size: 16px;
-            line-height: 1.5;
+            font-size: 16px; 
+            line-height: 1.3; 
         }
         
         .section-title {
-            color: var(--primary-purple);
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
+            color: var(--primary-purple); 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            margin-bottom: 1.5rem; 
+            line-height: 1;
         }
 
         .main-header {
-            background-color: rgba(0, 51, 204, 0.1); 
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            color: var(--primary-blue);
-            font-size: 1.75rem;
+            background-color: rgba(0, 51, 204, 0.25); 
+            padding: 1rem; 
+            border-radius: 0.375rem; 
+            color: var(--primary-blue); 
+            font-size: 1.5rem; 
             font-weight: 700;
-            margin-bottom: 2rem;
+            line-height: 1.25;
         }
 
         .sidebar-link {
             display: block;
-            font-size: 0.95rem;
-            font-weight: 500;
+            font-size: 0.875rem; 
+            font-weight: 500; 
             color: var(--primary-blue);
-            padding: 0.5rem 0;
-            transition: all 0.2s;
+            margin-bottom: 0.5rem; 
         }
         .sidebar-link:hover {
             text-decoration: underline;
-            padding-left: 5px;
         }
 
-        .pub-list li { margin-bottom: 1rem; text-align: justify; }
-        .pub-list a { color: var(--primary-blue); }
-        .bio-link { color: var(--primary-blue); font-weight: 500; }
-        .styled-list li { margin-bottom: 0.75rem; }
-        .list-square { list-style-type: square; }
+        .pub-list li {
+            margin-bottom: 1rem; 
+            text-align: justify;
+        }
+        .pub-list a {
+            color: var(--primary-blue); 
+        }
+        .pub-list a:hover {
+            text-decoration: underline;
+        }
+        
+        .bio-link {
+            color: var(--primary-blue); 
+            font-weight: 500; 
+        }
+        .bio-link:hover {
+            text-decoration: underline;
+        }
+        
+        .styled-list li {
+            margin-bottom: 0.75rem; 
+        }
+        
+        .list-square {
+            list-style-type: square;
+        }
+        
+        .styled-list strong {
+            color: #111;
+        }
+        
+        .icon-link {
+             font-size: 0.8em; 
+             margin-left: 4px;
+             color: var(--primary-blue);
+        }
         
         .social-icon-row {
-            margin-top: 1rem;
+            margin-top: 0.75rem; 
             display: flex;
-            gap: 1.25rem;
+            align-items: center;
         }
         
         .social-icon {
-            font-size: 1.5rem;
+            font-size: 1.5rem; 
+            margin-right: 1.25rem; 
             color: var(--primary-blue);
-            transition: transform 0.2s;
+            text-decoration: none;
+            transition: color 0.2s ease;
         }
-        .social-icon:hover { transform: scale(1.1); color: var(--primary-purple); }
-        .social-icon.orcid { color: #a6ce39; }
+        .social-icon:hover {
+            color: var(--primary-purple); 
+        }
+        
+        .social-icon.orcid {
+            color: #a6ce39; 
+        }
+        .social-icon.orcid:hover {
+            color: #8ab32f; 
+        }
     </style>
 </head>
-<body class="bg-white">
+<body class="bg-white text-gray-700">
 
-    <div class="max-w-6xl mx-auto p-6 lg:p-12">
+    <div class="p-4 sm:p-6 lg:p-8">
         
-        <h1 class="main-header">
-            Hong T.M. Chu <span class="text-lg font-normal block md:inline md:ml-2">(Assistant Professor at VinUniversity)</span>
+        <h1 class="section-title main-header">
+            Hong T.M. Chu (Assistant Professor at VinUniversity)
         </h1>
 
-        <div class="flex flex-col md:flex-row items-start gap-10">
+        <div class="md:flex">
             
-            <aside class="w-full md:w-48 flex-shrink-0 border-b md:border-b-0 md:border-r border-gray-100 pb-6 md:pb-0">
-                <nav class="flex flex-col space-y-1">
+            <aside class="w-full md:w-64 md:flex-shrink-0 md:pr-8 mb-8 md:mb-0">
+                <nav class="flex flex-col">
                     <a href="#home" class="sidebar-link">Home</a>
                     <a href="#publications" class="sidebar-link">Publications</a>
                     <a href="#olab" class="sidebar-link">OLab</a>
@@ -107,62 +148,219 @@
                 <section id="home" class="mb-12">
                     <h2 class="section-title">Home</h2>
                     
-                    <div class="flex flex-col lg:flex-row gap-8">
-                        <div class="flex-shrink-0">
-                            <img src="profile.jpg" alt="Hong T.M. Chu" 
-                                 class="rounded-xl shadow-lg border border-gray-200 w-48 h-auto object-cover" 
-                                 onerror="this.src='https://placehold.co/200x250/EBF4FF/333333?text=Photo';">
+                    <div class="flex flex-col md:flex-row items-start mb-8">
+                        <div class="md:flex-shrink-0 mb-6 md:mb-0 md:pr-6">
+                            <img src="profile.jpg" alt="Hong T.M. Chu" class="rounded-lg shadow-md border border-gray-300 w-40" onerror="this.src='https://placehold.co/150x150/EBF4FF/333333?text=Photo+Not+Found';">
                         </div>
-
-                        <div class="flex-1 space-y-4">
-                            <div>
-                                <h3 class="text-3xl font-bold text-gray-900">Hong T.M. Chu, Dr.</h3>
-                                <p class="text-gray-600 mt-2">
-                                    <strong>✉ Email:</strong> 
-                                    <a href="mailto:hongtmchu@gmail.com" class="bio-link">hongtmchu@gmail.com</a>
-                                </p>
-                            </div>
+                        <div class="space-y-2">
+                            <h3 class="text-2xl font-bold text-gray-900">Hong T.M. Chu, Dr.</h3>
+                            <p class="text-md text-gray-600">
+                                <strong>✉ Email:</strong> 
+                                <a href="mailto:hongtmchu@gmail.com" class="bio-link">hongtmchu@gmail.com (prefered)</a> / 
+                                <a href="mailto:hongtmchu@u.nus.edu" class="bio-link">hongtmchu@u.nus.edu</a> / 
+                                <a href="mailto:hong.ctm@vinuni.edu.vn" class="bio-link">hong.ctm@vinuni.edu.vn</a>
+                            </p>
 
                             <div class="social-icon-row">
-                                <a href="https://orcid.org/0009-0002-5674-4685" target="_blank" class="social-icon orcid"><i class="fa-brands fa-orcid"></i></a>
-                                <a href="https://www.linkedin.com/in/hongtmchu" target="_blank" class="social-icon"><i class="fa-brands fa-linkedin"></i></a>
-                                <a href="https://scholar.google.com/..." target="_blank" class="social-icon"><i class="fa-brands fa-google-scholar"></i></a>
+                                <a href="https://orcid.org/0009-0002-5674-4685" target="_blank" class="social-icon orcid" title="ORCID iD">
+                                    <i class="fa-brands fa-orcid"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/hongtmchu" target="_blank" class="social-icon" title="LinkedIn">
+                                    <i class="fa-brands fa-linkedin"></i>
+                                </a>
+                                <a href="https://scholar.google.com/citations?hl=en&user=ZLXxF3YAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" class="social-icon" title="Google Scholar">
+                                    <i class="fa-brands fa-google-scholar"></i>
+                                </a>
                             </div>
                             
-                            <div class="text-sm">
-                                [<a href="CV_HongChu.pdf" class="bio-link" target="_blank">Download Full CV</a>] 
-                                <span class="text-gray-400 ml-2">Updated: Nov 2025</span>
+                            <div class="text-md text-gray-600">
+                                [<a href="CV_HongChu.pdf" class="bio-link" target="_blank">CV</a>] (Last updated: November 2025)
                             </div>
 
-                            <div class="p-4 border-l-4 border-blue-500 bg-blue-50 rounded-r-lg">
-                                I am recruiting <strong>RA / PE / PhD</strong> students. 
-                                Check <a href="#" onclick="showSection('olab'); return false;" class="text-blue-700 underline font-bold">OLab</a> for details.
+                            <div class="mt-4 p-4 border border-blue-300 rounded-lg bg-blue-50">
+                                I am recruiting <strong>RA / PE</strong> / <strong>PhD</strong> with relevant research experience on optimization and machine learning. Please check <a href="#" onclick="showSection('olab'); return false;" class="bio-link">OLab</a> for more information.
                             </div>
                         </div>
                     </div>
 
-                    <div class="mt-12">
+                    <div id="research-interests" class="mb-10">
                         <h2 class="section-title">Research Interests</h2>
-                        <p class="text-justify leading-relaxed">
-                            I am interested in computational approaches to optimal transport and Wasserstein distributionally robust optimization problems. I specialize in designing fast computational methods and efficient algorithms to solve these problems, particularly in the context of robust machine learning and deep neural networks.
+                        <p class="text-justify">
+                            I am interested in computational approaches to optimal transport and Wasserstein distributionally robust optimization problems. I specialize in designing fast computational methods and efficient algorithms to solve these problems, particularly in the context of robust machine learning and deep neural networks. A key part of my research involves analyzing tractable regularization techniques and their distributionally robust interpretations.
+                        </p>
+                    </div>
+
+                    <div id="short-bio" class="mb-10">
+                        <h2 class="section-title">Short Bio</h2>
+                        <p class="text-justify">
+                            Hong T.M. Chu is currently an Assistant Professor of Mathematics at the College of Engineering and Computer Science, VinUniversity, Vietnam. Prior to her current appointment at VinUniversity, she was a Research Fellow in the Department of Mathematics at the National University of Singapore. She received her PhD in Mathematics from the National University of Singapore under the supervision of Professor Kim-Chuan Toh. She has received Teaching Assistant Awards from the Faculty of Science (AY 2019-2020 & AY 2020-2021) and has been nominated as a Faculty of Science Postgraduate Alumni Ambassador at the National University of Singapore.
                         </p>
                     </div>
                 </section>
-                
-                <section id="publications" class="hidden mb-12">
-                    <h2 class="section-title">Publications</h2>
-                    </section>
 
-                <section id="olab" class="hidden mb-12">
+                <section id="employment" class="mb-12 hidden">
+                    <h2 class="section-title">Employment</h2>
+                    <ul class="styled-list list-square list-inside">
+                        <li>
+                            <strong>[2024 - present] Assistant Professor</strong><br>
+                            College of Engineering & Computer Science, VinUniversity, Vietnam
+                        </li>
+                        <li>
+                            <strong>[2023 - 2024] Research Fellow</strong><br>
+                            Department of Mathematics, National University of Singapore, Singapore
+                        </li>
+                        <li>
+                            <strong>[2017 - 2018] Research Assistant</strong><br>
+                            Institute of Mathematics, Vietnam Academy of Science and Technology, Vietnam
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="education" class="mb-12 hidden">
+                    <h2 class="section-title">Education</h2>
+                    <ul class="styled-list list-square list-inside">
+                        <li>
+                            <strong>[2018 - 2023] Ph.D</strong><br>
+                            Department of Mathematics, National University of Singapore, Singapore<br>
+                            (Supervisor: Professor Kim-Chuan Toh)
+                        </li>
+                        <li>
+                            <strong>[2013 - 2017] Bachelor of Mathematics</strong><br>
+                            Faculty of Mathematics & Information Technology, Hanoi National University of Education, Vietnam
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="publications" class="mb-12 hidden">
+                    <h2 class="section-title">Publications & Preprints</h2>
+                    <div id="preprints" class="mb-10">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Preprints</h3>
+                        <ul class="pub-list list-none">
+                            <li>
+                                <a href="#" target="_blank">Time-integrated Optimal Transport: A Robust Minimax Framework</a><br>
+                                Thai P. D. Nguyen, <strong>Hong T.M. Chu</strong>, Kim-Chuan Toh. <em>Submitted.</em>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">Tight Robustness Certificates and Wasserstein Distributional Attacks for Deep Neural Networks</a><br>
+                                Bach C. Le, Tung V. Dao, Binh T. Nguyen, <strong>Hong T.M. Chu</strong>. <em>Submitted.</em>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">Implicit Regularization via Spectral Neural Networks and Non-linear Matrix Sensing</a><br>
+                                <strong>Hong T. M. Chu</strong>, Subhro Ghosh, Chi Thanh Lam, Soumendu Sundar Mukherjee.
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div id="journal-publications" class="mb-10">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Journal Publications</h3>
+                        <ul class="pub-list list-none">
+                            <li>
+                                <a href="#" target="_blank">Wasserstein distributionally robust optimization and its tractable regularization formulations</a><br>
+                                <strong>Hong T.M. Chu</strong>, Meixia Lin, Kim-Chuan Toh. <em>Journal of Optimization Theory and Applications 208, 69 (2026)</em>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">A Corrected Inexact Proximal Augmented Lagrangian Method with a Relative Error Criterion for a Class of Group-quadratic Regularized Optimal Transport Problems</a><br>
+                                Lei Yang, Ling Liang, <strong>Hong T.M. Chu</strong>, Kim-Chuan Toh. <em>Journal of Scientific Computing 99 (3), 79.</em>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank">On Regularized Square-root Regression Problems: Distributionally Robust Interpretation and Fast Computations</a><br>
+                                <strong>Hong T.M. Chu</strong>, Kim-Chuan Toh, Yangjing Zhang. <em>Journal of Machine Learning Research, 23(308):1–39.</em>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <section id="olab" class="mb-12 hidden">
                     <h2 class="section-title">Optimization Lab (OLab)</h2>
-                    <div class="flex flex-col md:flex-row gap-6">
-                        <img src="logo.png" class="w-32 h-32 object-contain" onerror="this.src='https://placehold.co/128x128?text=OLab';">
+                    <div id="olab-about" class="mb-10 flex flex-col md:flex-row items-start">
+                        <div class="md:flex-shrink-0 md:pr-6 mb-6 md:mb-0">
+                            <img src="logo.png" alt="OLab Logo" class="rounded-lg shadow-md border border-white-300 w-40 h-auto" onerror="this.src='https://placehold.co/160x160/EBF4FF/333333?text=Logo+Not+Found';">
+                        </div>
                         <div>
-                             <h3 class="font-bold text-xl">About OLab</h3>
-                             <p>Solving complex problems with optimal strategies.</p>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">About OLab</h3>
+                            <p class="text-justify">
+                                We aim to solve complex problems with optimal solutions and strategies. Our primary research interests include numerical optimization, operation research, and various real-world applications.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div id="olab-members" class="mb-10">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Members</h3>
+                        <ul class="styled-list list-none space-y-4 text-base">
+                             <li class="text-gray-500 italic mb-2 pt-2 pb-2 border-b border-gray-200">
+                                <strong>Format</strong>: Full Name, <em>current institution</em>, working in OLab from [start date] to [end date], <em>research interests</em>, CV / Homepage
+                            </li>
+                        </ul>
+                        <div id="member-list-container" class="styled-list list-none space-y-4 text-base">
+                            <li class="member-item text-justify">
+                                <strong>Hung Phan</strong>, <em>VinUniversity</em>, working in OLab from 11/2025 to present, <em>Multi-objective Optimization</em>, [<a href="#" class="bio-link">CV</a>] / [<a href="#" class="bio-link">Homepage</a>]
+                            </li>
+                            <li class="member-item text-justify">
+                                <strong>Bach Chi Le</strong>, <em>VinUniversity</em>, working in OLab from 6/2025 to present, <em>Adversarial Attacks, Robust Optimization</em>, [<a href="#" class="bio-link">CV</a>] / [<a href="#" class="bio-link">Homepage</a>]
+                            </li>
+                        </div>
+                    </div>
+
+                    <div id="olab-recruitment" class="mt-10 p-4 border border-blue-300 rounded-lg bg-blue-50">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 text-red-600">Recruitment Opportunities (RA / PE / PhD)</h3>
+                        <p class="text-justify mb-2">
+                            I am actively seeking highly motivated <strong>Research Assistants (RA)</strong> and <strong>Programming Engineer</strong> and <strong>Ph.D. candidates</strong>.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 mt-4">
+                            <a href="RA.pdf" target="_blank" class="bio-link font-bold p-3 border border-red-400 bg-white rounded-lg shadow-sm flex-1 text-center hover:bg-red-50 transition">
+                                <i class="fa-solid fa-file-pdf mr-2"></i> RA Position
+                            </a>
+                            <a href="PE.pdf" target="_blank" class="bio-link font-bold p-3 border border-red-400 bg-white rounded-lg shadow-sm flex-1 text-center hover:bg-red-50 transition">
+                                <i class="fa-solid fa-file-pdf mr-2"></i> PE Position
+                            </a>
                         </div>
                     </div>
                 </section>
+
+                <section id="awards" class="mb-12 hidden">
+                    <h2 class="section-title">Awards</h2>
+                    <ul class="styled-list list-square list-inside">
+                        <li><strong>[2021] Teaching award</strong> - National University of Singapore</li>
+                        <li><strong>[2020] Teaching award</strong> - National University of Singapore</li>
+                    </ul>
+                </section>
+
+                <section id="talks" class="mb-12 hidden">
+                    <h2 class="section-title">Talks</h2>
+                    <ul class="styled-list list-square list-inside">
+                        <li><strong>[October 2025]</strong> International Workshop, Nanjing, China</li>
+                        <li><strong>[May 2023]</strong> SIAM Conference on Optimization, Seattle, USA</li>
+                    </ul>
+                </section>
+
+                <section id="service" class="mb-12 hidden">
+                    <h2 class="section-title">Service</h2>
+                    <ul class="styled-list list-square list-inside">
+                        <li><strong>[2023 - 2028] Ambassador</strong>, NUS Faculty of Science</li>
+                        <li><strong>Reviewer:</strong> JOTA, ACML, AISTATS</li>
+                    </ul>
+                </section>
+
+                <section id="teaching" class="mb-12 hidden">
+                    <h2 class="section-title">Teaching</h2>
+                    <ul class="styled-list list-square list-inside">
+                        <li><strong>[Fall 2024] Lecturer, MATH2010</strong> Probability & Statistics (VinUniversity)</li>
+                    </ul>
+                </section>
+
+                <section id="programming" class="mb-12 hidden">
+                    <h2 class="section-title">Programming</h2>
+                    <ul class="styled-list list-square list-inside">
+                        <li>MATLAB</li>
+                        <li>PYTHON</li>
+                    </ul>
+                </section>
+
+                <footer class="mt-16 border-t border-gray-200 pt-8">
+                    <div class="text-center text-sm text-gray-500">
+                        <p>&copy; Hong T.M. Chu. Last updated: November 2025</p>
+                    </div>
+                </footer>
 
             </main>
         </div>
@@ -170,23 +368,46 @@
 
     <script>
         function showSection(targetId) {
-            document.querySelectorAll('main section').forEach(s => s.classList.add('hidden'));
-            
+            const mainContent = document.querySelector('main');
+            mainContent.querySelectorAll('section').forEach(section => {
+                section.classList.add('hidden');
+            });
+
             if (targetId === 'home') {
                 document.getElementById('home').classList.remove('hidden');
-                // If you want Employment/Education to show with Home, add them here
+                document.getElementById('employment').classList.remove('hidden');
+                document.getElementById('education').classList.remove('hidden');
             } else {
-                const target = document.getElementById(targetId);
-                if (target) target.classList.remove('hidden');
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) targetSection.classList.remove('hidden');
             }
-            window.scrollTo(0, 0);
+            
+            if (targetId === 'olab') sortMembers();
+            window.scrollTo(0, 0); 
+        }
+
+        function sortMembers() {
+            const container = document.getElementById('member-list-container');
+            if (!container) return;
+            const members = Array.from(container.children);
+            members.sort((a, b) => {
+                const nameA = a.querySelector('strong')?.textContent.toLowerCase() || '';
+                const nameB = b.querySelector('strong')?.textContent.toLowerCase() || '';
+                return nameA.localeCompare(nameB);
+            });
+            members.forEach(member => container.appendChild(member));
         }
 
         document.querySelectorAll('.sidebar-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                showSection(this.getAttribute('href').substring(1));
+            link.addEventListener('click', function(e) { 
+                e.preventDefault(); 
+                const targetId = this.getAttribute('href').substring(1); 
+                showSection(targetId);
             });
+        });
+        
+        document.addEventListener('DOMContentLoaded', () => {
+             showSection('home');
         });
     </script>
 </body>
