@@ -1,514 +1,1134 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="indigo">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hong T.M. Chu</title>
-    <link rel="icon" type="image/png" href="logo-O.png">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hong T.M. Chu</title>
+<meta name="description" content="Hong T.M. Chu, Assistant Professor of Mathematics at VinUniversity. Research on optimal transport, Wasserstein distributionally robust optimization, and fast algorithms for robust machine learning.">
+<meta name="author" content="Hong T.M. Chu">
+<link rel="canonical" href="https://hongtmchu.github.io/">
 
-    <style>
-        :root {
-            --primary-blue: #0033CC;
-            --primary-purple: #6600CC;
-            --body-font: 'Montserrat', sans-serif;
-        }
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Hong T.M. Chu">
+<meta property="og:description" content="Assistant Professor of Mathematics, VinUniversity. Optimal transport, Wasserstein distributionally robust optimization, and fast algorithms for robust machine learning.">
+<meta property="og:url" content="https://hongtmchu.github.io/">
+<meta property="og:image" content="https://hongtmchu.github.io/profile.jpg">
+<meta name="twitter:card" content="summary">
 
-        body {
-            font-family: var(--body-font);
-            color: #333;
-            font-size: 16px; 
-            line-height: 1.3; 
-        }
-        
-        .section-title {
-            color: var(--primary-purple); 
-            font-size: 1.5rem; 
-            font-weight: 700; 
-            margin-bottom: 1.5rem; 
-            line-height: 1;
-        }
+<link rel="icon" type="image/png" href="logo-O.png">
+<link rel="apple-touch-icon" href="logo-O.png">
 
-        .main-header {
-            background-color: rgba(0, 51, 204, 0.25); 
-            padding: 1rem; 
-            border-radius: 0.375rem; 
-            color: var(--primary-blue); 
-            font-size: 1.5rem; 
-            font-weight: 700;
-            line-height: 1.25;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
-        .sidebar-link {
-            display: block;
-            font-size: 0.875rem; 
-            font-weight: 500; 
-            color: var(--primary-blue);
-            margin-bottom: 0.5rem; 
-        }
-        .sidebar-link:hover {
-            text-decoration: underline;
-        }
+<style>
+/* ---------- design tokens ---------- */
+/* Palette roles lifted verbatim from hc_theme.sty (Research/slide/template).
+   Switch the whole site by setting data-palette on <html>:
+   azure (default) | indigo | teal | slate                                */
+:root,:root[data-palette="azure"]{
+  --p-primary:#153A62; --p-deep:#07203B; --p-emph:#2C65A4;
+  --p-fill:#B7CDF8;    --p-band:#D0DDF9; --p-wash:#E5EBFA;
+}
+:root[data-palette="indigo"]{
+  --p-primary:#382292; --p-deep:#1E0D5F; --p-emph:#674ECB;
+  --p-fill:#D0BBF6;    --p-band:#E0D3F8; --p-wash:#EEE6FA;
+}
+:root[data-palette="teal"]{
+  --p-primary:#0C3F49; --p-deep:#03232A; --p-emph:#1A6D7D;
+  --p-fill:#B8E5F9;    --p-band:#D1ECFA; --p-wash:#E5F3FB;
+}
+:root[data-palette="slate"]{
+  --p-primary:#2D3853; --p-deep:#151F35; --p-emph:#4E6292;
+  --p-fill:#CACFE7;    --p-band:#DDDFEE; --p-wash:#ECEDF4;
+}
+/* alert half: crimson, matching \usepackage[base=azure, alert=crimson] */
+:root{ --a-alert:#AE1C30; --a-dark:#7D1D2A; --a-band:#F4CDD3; }
 
-        .pub-list li {
-            margin-bottom: 1rem; 
-            text-align: justify;
-        }
-        .pub-list a {
-            color: var(--primary-blue); 
-        }
-        .pub-list a:hover {
-            text-decoration: underline;
-        }
-        
-        .bio-link {
-            color: var(--primary-blue); 
-            font-weight: 500; 
-        }
-        .bio-link:hover {
-            text-decoration: underline;
-        }
-        
-        .styled-list li {
-            margin-bottom: 0.75rem; 
-        }
-        
-        .list-square {
-            list-style-type: square;
-        }
-        
-        .styled-list strong {
-            color: #111;
-        }
-        
-        .icon-link {
-             font-size: 0.8em; 
-             margin-left: 4px;
-             color: var(--primary-blue);
-        }
-        
-        .social-icon-row {
-            margin-top: 0.75rem; 
-            display: flex;
-            align-items: center;
-        }
-        
-        .social-icon {
-            font-size: 1.5rem; 
-            margin-right: 1.25rem; 
-            color: var(--primary-blue);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        .social-icon:hover {
-            color: var(--primary-purple); 
-        }
-        
-        .social-icon.orcid {
-            color: #a6ce39; 
-        }
-        .social-icon.orcid:hover {
-            color: #8ab32f; 
-        }
-    </style>
+:root{
+  /* the three neutrals the theme shares across every scheme */
+  --ink:#1A1A20; --muted:#6C6C78; --track:#CECCDC; --ground:#FAFAFA;
+
+  --bg:var(--ground);
+  --bg-soft:var(--p-wash);
+  --bg-card:#ffffff;
+  --border:var(--track);
+  --border-strong:#A9A7BC;
+  --text:var(--ink);
+  --text-muted:var(--muted);
+  --accent:var(--p-primary);
+  --accent-2:var(--p-emph);
+  --accent-soft:var(--p-wash);
+  --accent-line:var(--p-fill);
+  --warn:var(--a-dark);
+  --warn-soft:color-mix(in srgb,var(--a-band) 42%,#ffffff);
+  --warn-line:color-mix(in srgb,var(--a-alert) 38%,#ffffff);
+  --shadow-sm:0 1px 2px rgba(26,26,32,.05);
+  --shadow:0 1px 3px rgba(26,26,32,.07),0 8px 24px -8px rgba(26,26,32,.12);
+  --radius:14px;
+  --maxw:1180px;
+  --display:"Fira Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Fira Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+/* hc_theme is a light-only print theme, so the dark scheme below is
+   derived from its own palette roles rather than newly invented: the
+   emphasis and alert hues are lightened against a dark ground.        */
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#101219;
+    --bg-soft:#171A22;
+    --bg-card:#171A22;
+    --border:#2C2F3C;
+    --border-strong:#3E4252;
+    --text:#E9E9EF;
+    --text-muted:#9C9CAE;
+    --accent:color-mix(in srgb,var(--p-emph) 52%,#ffffff);
+    --accent-2:color-mix(in srgb,var(--p-emph) 34%,#ffffff);
+    --accent-soft:color-mix(in srgb,var(--p-emph) 14%,transparent);
+    --accent-line:color-mix(in srgb,var(--p-emph) 34%,transparent);
+    --warn:color-mix(in srgb,var(--a-alert) 42%,#ffffff);
+    --warn-soft:color-mix(in srgb,var(--a-alert) 13%,transparent);
+    --warn-line:color-mix(in srgb,var(--a-alert) 40%,transparent);
+    --shadow-sm:0 1px 2px rgba(0,0,0,.4);
+    --shadow:0 1px 3px rgba(0,0,0,.45),0 8px 24px -8px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101219;
+  --bg-soft:#171A22;
+  --bg-card:#171A22;
+  --border:#2C2F3C;
+  --border-strong:#3E4252;
+  --text:#E9E9EF;
+  --text-muted:#9C9CAE;
+  --accent:color-mix(in srgb,var(--p-emph) 52%,#ffffff);
+  --accent-2:color-mix(in srgb,var(--p-emph) 34%,#ffffff);
+  --accent-soft:color-mix(in srgb,var(--p-emph) 14%,transparent);
+  --accent-line:color-mix(in srgb,var(--p-emph) 34%,transparent);
+  --warn:color-mix(in srgb,var(--a-alert) 42%,#ffffff);
+  --warn-soft:color-mix(in srgb,var(--a-alert) 13%,transparent);
+  --warn-line:color-mix(in srgb,var(--a-alert) 40%,transparent);
+  --shadow-sm:0 1px 2px rgba(0,0,0,.4);
+  --shadow:0 1px 3px rgba(0,0,0,.45),0 8px 24px -8px rgba(0,0,0,.6);
+}
+
+/* ---------- base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none !important;animation:none !important}}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--body);
+  font-size:16.5px;
+  font-weight:400;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.2;margin:0;letter-spacing:-.012em}
+p{margin:0 0 1rem}
+p:last-child{margin-bottom:0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:2px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+img{max-width:100%;height:auto;display:block}
+ul{margin:0;padding:0}
+strong{font-weight:600;color:var(--text)}
+em{color:var(--text-muted)}
+
+.skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--accent);color:#fff;padding:.7rem 1.1rem;border-radius:0 0 8px 0;font-weight:600}
+.skip:focus{left:0}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1.1rem,4vw,2.5rem)}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  background:color-mix(in srgb,var(--bg) 86%,transparent);
+  backdrop-filter:saturate(180%) blur(14px);
+  -webkit-backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid var(--border);
+}
+@supports not (backdrop-filter:blur(1px)){.topbar{background:var(--bg)}}
+.topbar-in{display:flex;align-items:center;gap:1rem;height:64px}
+.nav{display:flex;align-items:center;gap:.15rem;margin-left:auto;flex-wrap:wrap}
+.nav a{font-size:.855rem;font-weight:500;color:var(--text-muted);padding:.42rem .62rem;border-radius:7px;white-space:nowrap;transition:color .16s ease,background .16s ease}
+.nav a:hover{color:var(--accent);background:var(--accent-soft);text-decoration:none}
+.nav a.active{color:var(--accent);background:var(--accent-soft);font-weight:600}
+.icon-btn{flex-shrink:0;width:36px;height:36px;display:grid;place-items:center;background:transparent;border:1px solid var(--border);border-radius:9px;color:var(--text-muted);cursor:pointer;font-size:.9rem;transition:color .16s ease,border-color .16s ease}
+.icon-btn:hover{color:var(--accent);border-color:var(--accent-line)}
+#menu-btn{display:none}
+.theme-dark-only{display:none}
+:root[data-theme="dark"] .theme-dark-only{display:inline}
+:root[data-theme="dark"] .theme-light-only{display:none}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .theme-dark-only{display:inline}
+  :root:not([data-theme="light"]) .theme-light-only{display:none}
+}
+@media (max-width:900px){
+  .nav{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--bg);border-bottom:1px solid var(--border);padding:.5rem clamp(1.1rem,4vw,2.5rem) .9rem;box-shadow:var(--shadow)}
+  .nav.open{display:flex}
+  .nav a{padding:.62rem .5rem;font-size:.95rem}
+  #menu-btn{display:grid}
+}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(2.4rem,6vw,4rem) 0 clamp(1.6rem,4vw,2.4rem)}
+.hero-grid{display:flex;gap:clamp(1.5rem,4vw,2.8rem);align-items:flex-start;flex-wrap:wrap}
+.hero-photo{flex-shrink:0;width:clamp(168px,24vw,226px)}
+.hero-photo img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow)}
+.hero-body{flex:1 1 340px;min-width:0}
+.hero-name{font-size:clamp(1.85rem,4.4vw,2.55rem);font-weight:700;margin-bottom:.3rem}
+.hero-role{font-size:1.03rem;color:var(--text-muted);margin-bottom:.15rem}
+.hero-role strong{color:var(--text);font-weight:600}
+.hero-affil{font-size:.95rem;color:var(--text-muted);margin-bottom:1.15rem}
+.contact{display:flex;flex-direction:column;gap:.32rem;font-size:.925rem;margin-bottom:1.15rem}
+/* inline flow, not flex: as a flex container the whole address block
+   wraps as one item and strands the envelope on its own line */
+.contact-row{display:block}
+.contact-row .lbl{color:var(--text-muted);margin-right:.45rem}
+.contact-row .sep{color:var(--border-strong);padding:0 .12rem}
+.contact-row a{white-space:nowrap}
+.tag-pref{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);background:var(--accent-soft);padding:.09rem .38rem;border-radius:5px;margin-left:.3rem}
+.socials{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;margin-bottom:1.35rem}
+.social{width:40px;height:40px;display:grid;place-items:center;font-size:1.18rem;border:1px solid var(--border);border-radius:10px;color:var(--text-muted);background:var(--bg-card);transition:color .16s ease,border-color .16s ease,transform .16s ease}
+.social:hover{color:var(--accent);border-color:var(--accent-line);transform:translateY(-2px);text-decoration:none}
+/* Each mark hovers to its own brand colour rather than the theme accent.
+   LinkedIn #0A66C2 is their current primary (not the older #0077B5);
+   Scholar #4285F4 is sampled from the Google Scholar wordmark itself,
+   since Scholar publishes no brand guideline. */
+.social.linkedin:hover{color:#0A66C2;border-color:#0A66C2}
+.social.orcid:hover{color:#a6ce39;border-color:#a6ce39}
+.social.scopus:hover{color:#e9711c;border-color:#e9711c}
+.social.scholar:hover{color:#4285F4;border-color:#4285F4}
+/* CV sits in the same 40px box as the scholarly marks, labelled rather
+   than iconed, so the row reads as one set */
+.social-cv{font-family:var(--display);font-size:.8rem;font-weight:700;letter-spacing:.03em}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-size:.9rem;font-weight:600;padding:.6rem 1.05rem;border-radius:10px;border:1px solid var(--accent);color:#fff;background:var(--accent);transition:opacity .16s ease}
+.btn:hover{opacity:.88;text-decoration:none}
+:root[data-theme="dark"] .btn{color:var(--bg)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn{color:var(--bg)}}
+.btn-ghost{background:transparent;color:var(--accent);border-color:var(--border-strong)}
+.btn-ghost:hover{border-color:var(--accent);opacity:1}
+:root[data-theme="dark"] .btn-ghost{color:var(--accent)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn-ghost{color:var(--accent)}}
+.cv-row{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+.cv-note{font-size:.83rem;color:var(--text-muted)}
+
+/* ---------- callout ---------- */
+.callout{border:1px solid var(--accent-line);background:var(--accent-soft);border-radius:var(--radius);padding:1.05rem 1.25rem;font-size:.95rem}
+.callout-warn{border-color:var(--warn-line);background:var(--warn-soft)}
+.callout h3{font-size:1.05rem;color:var(--warn);margin-bottom:.6rem}
+
+/* ---------- sections ---------- */
+.section{padding:clamp(2.2rem,5vw,3.2rem) 0;border-top:1px solid var(--border)}
+/* One heading level per section, set exactly like .sub-title below but
+   carrying the palette's emphasis colour instead of the muted grey. */
+.section-title{font-size:.79rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-2);margin:0 0 1.1rem;font-family:var(--body)}
+.stack>.section-title{margin-bottom:-1rem}
+.sub-title{font-size:.79rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin:0 0 1rem;font-family:var(--body)}
+.stack{display:flex;flex-direction:column;gap:2.1rem}
+.prose{max-width:74ch;text-wrap:pretty}
+/* Research Interests, Short Bio and Acknowledgements: flush on both
+   sides, spanning the full column so the left and right margins match.
+   Hyphenation is what stops justification opening rivers of space.   */
+.justify{max-width:none;text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto;text-wrap:wrap}
+
+/* ---------- generic card ---------- */
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:1.15rem 1.3rem;box-shadow:var(--shadow-sm);transition:border-color .16s ease,box-shadow .16s ease,transform .16s ease}
+.card:hover{border-color:var(--border-strong);box-shadow:var(--shadow);transform:translateY(-1px)}
+.grid{display:grid;gap:1rem}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
+
+/* ---------- publications ---------- */
+.pub{position:relative;padding-left:1.35rem}
+.pub::before{content:"";position:absolute;left:0;top:1.3rem;bottom:1.15rem;width:3px;border-radius:3px;background:var(--accent-line)}
+.pub-title{font-family:var(--body);font-size:1.005rem;font-weight:600;line-height:1.45;margin-bottom:.42rem}
+.pub-title a{color:var(--text)}
+.pub-title a:hover{color:var(--accent)}
+.pub-authors{font-size:.9rem;color:var(--text-muted);line-height:1.55}
+.pub-authors strong{color:var(--text)}
+.pub-meta{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-top:.6rem}
+.badge{display:inline-flex;align-items:center;gap:.34rem;font-size:.74rem;font-weight:600;letter-spacing:.03em;padding:.2rem .55rem;border-radius:6px;color:var(--accent);background:var(--accent-soft);border:1px solid var(--accent-line)}
+.badge-muted{color:var(--text-muted);background:transparent;border-color:var(--border)}
+.venue{font-size:.855rem;color:var(--text-muted);font-style:italic}
+
+/* ---------- members (list, not boxes) ---------- */
+.people{list-style:none;display:flex;flex-direction:column}
+.person{padding:.8rem 0;border-bottom:1px solid var(--border)}
+.person:first-child{padding-top:.15rem}
+.person:last-child{border-bottom:0;padding-bottom:0}
+.person-head{display:flex;align-items:baseline;gap:.3rem .7rem;flex-wrap:wrap}
+.person-name{font-family:var(--body);font-size:1rem;font-weight:600;color:var(--text)}
+.person-inst{font-size:.9rem;color:var(--text-muted);font-style:italic}
+.person-body{display:flex;align-items:baseline;gap:.35rem .85rem;flex-wrap:wrap;margin-top:.28rem;font-size:.9rem}
+.member-links{display:flex;gap:.45rem;flex-wrap:wrap;font-size:.8rem;align-items:center}
+
+/* ---------- collapsible ---------- */
+.fold>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:.45rem;user-select:none;-webkit-user-select:none}
+.fold>summary::-webkit-details-marker{display:none}
+.fold>summary::marker{content:""}
+.fold>summary.sub-title,.fold>summary.section-title{margin-bottom:0}
+/* chevron drawn in CSS: U+25BE is absent from Fira Sans and falls back
+   to a dash-like glyph, so borders are used instead of a character */
+.fold>summary::after{
+  content:"";width:.4em;height:.4em;margin-left:.1rem;margin-top:-.22em;
+  border-right:2px solid currentColor;border-bottom:2px solid currentColor;
+  transform:rotate(45deg);transition:transform .2s ease,margin-top .2s ease;
+}
+.fold[open]>summary::after{transform:rotate(-135deg);margin-top:.12em}
+.fold>summary:hover{color:var(--accent)}
+.fold>summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.fold>*:not(summary){margin-top:1.1rem}
+.fold-count{font-weight:400;opacity:.75}
+.chip{display:inline-flex;align-items:center;gap:.3rem;padding:.22rem .58rem;border-radius:6px;font-weight:500;border:1px solid var(--border);color:var(--text-muted)}
+a.chip:hover{color:var(--accent);border-color:var(--accent-line);text-decoration:none}
+.chip-off{opacity:.45}
+.period{display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;font-weight:600;color:var(--text-muted);font-variant-numeric:tabular-nums}
+
+/* ---------- entry lists ---------- */
+.entries{list-style:none;display:flex;flex-direction:column;gap:1.15rem}
+.entry{display:grid;grid-template-columns:118px 1fr;gap:1.1rem;align-items:start}
+.entry-when{font-size:.815rem;font-weight:600;color:var(--accent-2);padding-top:.16rem;font-variant-numeric:tabular-nums}
+.entry-what{min-width:0}
+.entry-what strong{display:block;font-weight:600;margin-bottom:.12rem}
+.entry-what span{font-size:.9rem;color:var(--text-muted)}
+@media (max-width:560px){
+  .entry{grid-template-columns:1fr;gap:.2rem}
+  .entry-when{padding-top:0}
+}
+.ext{font-size:.72em;color:var(--text-muted);margin-left:.32rem}
+a:hover .ext{color:var(--accent)}
+
+/* ---------- olab masthead ---------- */
+.olab-head{display:flex;gap:1.8rem;align-items:center;flex-wrap:wrap;margin-bottom:2rem}
+.olab-head img{width:clamp(170px,26vw,230px)}
+.olab-head .prose{flex:1 1 300px}
+
+/* ---------- misc ---------- */
+.pill-list{list-style:none;display:flex;gap:.5rem;flex-wrap:wrap}
+.plain-list{list-style:disc;padding-left:1.2rem;margin:0 0 1rem}
+.plain-list li{margin-bottom:.2rem}
+.pill{font-size:.87rem;font-weight:500;padding:.34rem .8rem;border-radius:8px;border:1px solid var(--border);color:var(--text-muted);background:var(--bg-card)}
+.note{font-size:.87rem;color:var(--text-muted)}
+.footer{border-top:1px solid var(--border);padding:2.2rem 0 2.8rem;text-align:center}
+.footer p{font-size:.855rem;color:var(--text-muted);margin:0 0 .3rem}
+.to-top{position:fixed;right:1.3rem;bottom:1.3rem;z-index:90;width:42px;height:42px;display:grid;place-items:center;background:var(--bg-card);border:1px solid var(--border);border-radius:50%;color:var(--text-muted);box-shadow:var(--shadow);cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s ease,transform .2s ease,visibility .2s ease}
+.to-top.show{opacity:1;visibility:visible;transform:none}
+.to-top:hover{color:var(--accent);border-color:var(--accent-line)}
+</style>
 </head>
-<body class="bg-white text-gray-700">
 
-    <div class="p-4 sm:p-6 lg:p-8">
-        
-        <h1 class="section-title main-header mb-8">
-            Hong T.M. Chu
-        </h1>
+<body>
+<a class="skip" href="#main">Skip to content</a>
 
-        <div class="flex flex-col md:flex-row">
-            
-            <aside class="w-full md:w-64 md:flex-shrink-0 md:pr-10 mb-8 md:mb-0">
-                <nav class="flex flex-col sticky top-8">
-                    <a href="#home" class="sidebar-link">Home</a>
-                    <a href="#publications" class="sidebar-link">Publications</a>
-                    <a href="#olab" class="sidebar-link">OLab</a>
-                    <a href="#awards" class="sidebar-link">Awards</a>
-                    <a href="#talks" class="sidebar-link">Talks</a>
-                    <a href="#service" class="sidebar-link">Service</a>
-                    <a href="#teaching" class="sidebar-link">Teaching</a>
-                    <a href="#programming" class="sidebar-link">Programming</a>
-                </nav>
-            </aside>
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <nav class="nav" id="nav" aria-label="Section navigation">
+      <a href="#about">About</a>
+      <a href="#publications">Publications</a>
+      <a href="#olab">OLab</a>
+      <a href="#awards">Awards</a>
+      <a href="#talks">Talks</a>
+      <a href="#service">Service</a>
+      <a href="#teaching">Teaching</a>
+    </nav>
+    <button class="icon-btn" id="theme-btn" type="button" aria-label="Toggle dark mode">
+      <i class="fa-solid fa-moon theme-light-only" aria-hidden="true"></i>
+      <i class="fa-solid fa-sun theme-dark-only" aria-hidden="true"></i>
+    </button>
+    <button class="icon-btn" id="menu-btn" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">
+      <i class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
+  </div>
+</header>
 
-            <main class="flex-1 w-full">
+<main id="main">
+<span id="top"></span>
 
-                <section id="home" class="mb-12">
-                    <h2 class="section-title">Home</h2>
-                    
-                    <div class="flex flex-col md:flex-row items-start mb-8">
-                        <div class="md:flex-shrink-0 mb-6 md:mb-0 md:pr-6">
-                            <img src="profile.jpg" alt="Hong T.M. Chu" class="rounded-lg shadow-md border border-gray-300 w-40" onerror="this.src='https://placehold.co/150x150/EBF4FF/333333?text=Photo+Not+Found';">
-                        </div>
-                        <div class="space-y-2">
-                            <h3 class="text-2xl font-bold text-gray-900">Hong T.M. Chu, Dr.</h3>
-                            <p class="text-md text-gray-600">
-                                <strong>✉ Email:</strong> 
-                                <a href="mailto:hongtmchu@gmail.com" class="bio-link">hongtmchu@gmail.com (prefered)</a> / 
-                                <a href="mailto:hongtmchu@u.nus.edu" class="bio-link">hongtmchu@u.nus.edu</a> / 
-                                <a href="mailto:hong.ctm@vinuni.edu.vn" class="bio-link">hong.ctm@vinuni.edu.vn</a>
-                            </p>
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-photo">
+        <img src="profile.jpg" alt="Portrait of Hong T.M. Chu" width="640" height="640">
+      </div>
+      <div class="hero-body">
+        <h1 class="hero-name">Hong T.M. Chu, Dr.</h1>
+        <p class="hero-role"><strong>Assistant Professor</strong></p>
+        <p class="hero-affil">College of Engineering &amp; Computer Science, VinUniversity, Vietnam</p>
 
-                            <div class="social-icon-row">
-                                <a href="https://www.linkedin.com/in/hongtmchu" target="_blank" class="social-icon" title="LinkedIn">
-                                    <i class="fa-brands fa-linkedin"></i>
-                                </a>
-                                <a href="https://orcid.org/0009-0002-5674-4685" target="_blank" class="social-icon orcid" title="ORCID iD">
-                                    <i class="fa-brands fa-orcid"></i>
-                                </a>
-                                <a href="https://www.scopus.com/authid/detail.uri?authorId=57221410415" target="_blank" class="social-icon" title="Scopus" style="color: #ff6600;">
-                                    <i class="ai ai-scopus"></i>
-                                </a>
-                                <a href="https://scholar.google.com/citations?hl=en&user=ZLXxF3YAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" class="social-icon" title="Google Scholar">
-                                    <i class="fa-brands fa-google-scholar"></i>
-                                </a>
-                            </div>
-                            
-                            <div class="text-md text-gray-600">
-                                [<a href="CV_HongChu.pdf" class="bio-link" target="_blank">CV</a>] (Last updated: January 2026)
-                            </div>
-
-                            <div class="mt-4 p-4 border border-blue-300 rounded-lg bg-blue-50">
-                                I am recruiting <strong>RA / PE</strong> / <strong>PhD</strong> with relevant research experience on optimization and machine learning. Please check <a href="#" onclick="showSection('olab'); return false;" class="bio-link">OLab</a> for more information.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="research-interests" class="mb-10">
-                        <h2 class="section-title">Research Interests</h2>
-                        <p class="text-justify">
-                            I am interested in computational approaches to optimal transport and Wasserstein distributionally robust optimization problems. I specialize in designing fast computational methods and efficient algorithms to solve these problems, particularly in the context of robust machine learning and deep neural networks. A key part of my research involves analyzing tractable regularization techniques and their distributionally robust interpretations.
-                        </p>
-                    </div>
-
-                    <div id="short-bio" class="mb-10">
-                        <h2 class="section-title">Short Bio</h2>
-                        <p class="text-justify">
-                            Hong T.M. Chu is currently an Assistant Professor of Mathematics at the College of Engineering and Computer Science, VinUniversity, Vietnam. Prior to her current appointment at VinUniversity, she was a Research Fellow in the Department of Mathematics at the National University of Singapore. She received her PhD in Mathematics from the National University of Singapore under the supervision of Professor Kim-Chuan Toh. She has received Teaching Assistant Awards from the Faculty of Science (AY 2019-2020 & AY 2020-2021), Teaching Award from VinUniversity (AY 2024-2025) and has been nominated as a Faculty of Science Postgraduate Alumni Ambassador at the National University of Singapore.
-                        </p>
-                    </div>
-
-                    <div id="acknowledgements" class="mb-10">
-                        <h2 class="section-title">Acknowledgements</h2>
-                        <p class="text-justify">
-                            I am sincerely grateful to the organizers of 
-                            <a href="https://ims.nus.edu.sg/events/phd_homecoming/" class="bio-link" target="_blank">Joint Mathematics–Statistics PhD Homecoming</a>, 
-                            <a href="https://www.newton.ac.uk/event/cifw01/" class="bio-link" target="_blank">Foundations of causal inference</a>,                            
-                            <a href="https://ims.nus.edu.sg/events/asean_africa_am/" class="bio-link" target="_blank">Joint ASEAN-Africa Workshop on Computational and Applied Mathematics</a>
-                            for their generous full sponsorship of my visits. I also extend my deep appreciation to the 
-                            <a href="https://viasm.edu.vn/hdkh/Mini-Course-VADRO" class="bio-link" target="_blank">Vietnam Institute for Advanced Study in Mathematics (VIASM)</a> 
-                            for hosting and fully funding our proposed Mini-Course VADRO program. This collective support has been invaluable in facilitating my research collaborations and allowing me to share my work with the broader communities.
-                        </p>
-                    </div>
-                </section>
-
-                <section id="employment" class="mb-12 hidden">
-                    <h2 class="section-title">Employment</h2>
-                    <ul class="styled-list list-square list-inside">
-                        <li>
-                            <strong>[2024 - present] Assistant Professor</strong><br>
-                            College of Engineering & Computer Science, VinUniversity, Vietnam
-                        </li>
-                        <li>
-                            <strong>[2023 - 2024] Research Fellow</strong><br>
-                            Department of Mathematics, National University of Singapore, Singapore
-                        </li>
-                        <li>
-                            <strong>[2017 - 2018] Research Assistant</strong><br>
-                            Institute of Mathematics, Vietnam Academy of Science and Technology, Vietnam
-                        </li>
-                    </ul>
-                </section>
-
-                <section id="education" class="mb-12 hidden">
-                    <h2 class="section-title">Education</h2>
-                    <ul class="styled-list list-square list-inside">
-                        <li>
-                            <strong>[2018 - 2023] Ph.D</strong><br>
-                            Department of Mathematics, National University of Singapore, Singapore<br>
-                            (Supervisor: Professor Kim-Chuan Toh)
-                        </li>
-                        <li>
-                            <strong>[2013 - 2017] Bachelor of Mathematics</strong><br>
-                            Faculty of Mathematics & Information Technology, Hanoi National University of Education, Vietnam
-                        </li>
-                    </ul>
-                </section>
-
-                <section id="publications" class="mb-12 hidden">
-                    <h2 class="section-title">Publications & Preprints</h2>
-                    <div id="preprints" class="mb-10">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">Preprints</h3>
-                        <ul class="pub-list list-none">
-                            <li>
-                                <a href="https://www.google.com/search?q=Concave+Certificates+Geometric+Framework+for+Distributionally+Robust+Risk+and+Complexity+Analysis" target="_blank">Concave Certificates: Geometric Framework for Distributionally Robust Risk and Complexity Analysis</a><br>
-                                <strong>Hong T.M. Chu</strong>. <em>Submitted.</em>
-                            </li>
-                            <li>
-                                <a href="https://www.google.com/search?q=On+the+Convergence+of+Wasserstein+Gradient+Descent+for+Sampling" target="_blank">On the Convergence of Wasserstein Gradient Descent for Sampling</a><br>
-                                <strong>Van Chien Ta, Hong T.M. Chu, Minh-Ngoc Tran</strong>. <em>Submitted.</em>
-                            </li>
-                            <li>
-                                <a href="https://www.google.com/search?q=Time-integrated+Optimal+Transport+A+Robust+Minimax+Framework" target="_blank">Time-integrated Optimal Transport: A Robust Minimax Framework</a><br>
-                                Thai P. D. Nguyen, <strong>Hong T.M. Chu</strong>, Kim-Chuan Toh. <em>Submitted.</em>
-                            </li>
-                            <li>
-                                <a href="https://www.google.com/search?q=Tight+Robustness+Certificates+and+Wasserstein+Distributional+Attacks+for+Deep+Neural+Networks" target="_blank">Tight Robustness Certificates and Wasserstein Distributional Attacks for Deep Neural Networks</a><br>
-                                Bach C. Le, Tung V. Dao, Binh T. Nguyen, <strong>Hong T.M. Chu</strong>. <em>Submitted.</em>
-                            </li>
-                            <li>
-                                <a href="https://www.google.com/search?q=Implicit+Regularization+via+Spectral+Neural+Networks+and+Non-linear+Matrix+Sensing" target="_blank">Implicit Regularization via Spectral Neural Networks and Non-linear Matrix Sensing</a><br>
-                                <strong>Hong T. M. Chu</strong>, Subhro Ghosh, Chi Thanh Lam, Soumendu Sundar Mukherjee.
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div id="journal-publications" class="mb-10">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">Journal Publications</h3>
-                        <ul class="pub-list list-none">
-                            <li>
-                                <a href="https://link.springer.com/epdf/10.1007/s10957-025-02896-x?sharing_token=KZJA4KiicdROKTyycYhnwve4RwlQNchNByi7wbcMAY6S14eGo0U-FEVT249BfIpI61IyQakKPptZNGSg3NfjyfxohPDxjICm1fe8oku-T7-Om1gm0Mp-ADEIRDqZR8BLK7HEicoNu_cqVkS8K0HX4BT7CAhClLYQ0gF575AmqTA%3D" target="_blank">Wasserstein distributionally robust optimization and its tractable regularization formulations</a><br>
-                                <strong>Hong T.M. Chu</strong>, Meixia Lin, Kim-Chuan Toh. <em>Journal of Optimization Theory and Applications 208, 69 (2026)</em>
-                            </li>
-                            <li>
-                                <a href="https://www.google.com/search?q=A+Corrected+Inexact+Proximal+Augmented+Lagrangian+Method+with+a+Relative+Error+Criterion+for+a+Class+of+Group-quadratic+Regularized+Optimal+Transport+Problems" target="_blank">A Corrected Inexact Proximal Augmented Lagrangian Method with a Relative Error Criterion for a Class of Group-quadratic Regularized Optimal Transport Problems</a><br>
-                                Lei Yang, Ling Liang, <strong>Hong T.M. Chu</strong>, Kim-Chuan Toh. <em>Journal of Scientific Computing 99 (3), 79.</em>
-                            </li>
-                            <li>
-                                <a href="https://www.google.com/search?q=On+Regularized+Square-root+Regression+Problems:+Distributionally+Robust+Interpretation+and+Fast+Computations" target="_blank">On Regularized Square-root Regression Problems: Distributionally Robust Interpretation and Fast Computations</a><br>
-                                <strong>Hong T.M. Chu</strong>, Kim-Chuan Toh, Yangjing Zhang. <em>Journal of Machine Learning Research, 23(308):1–39.</em>
-                            </li>
-                            <li>
-                                <a href="https://www.google.com/search?q=An+efficient+implementable+inexact+entropic+proximal+point+algorithm+for+a+class+of+linear+programming+problems" target="_blank">An efficient implementable inexact entropic proximal point algorithm for a class of linear programming problems</a><br>
-                                <strong>Hong T. M. Chu</strong>, Ling Liang, Kim-Chuan Toh, Lei Yang. <em>Computational Optimization and Applications, (2023): 1-40.</em>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-                
-                <section id="olab" class="mb-12 hidden">
-                    <h2 class="section-title">Optimization Lab (OLab)</h2>
-
-                    <div id="olab-about" class="mb-10 flex flex-col md:flex-row items-start">
-                        <div class="md:flex-shrink-0 md:pr-6 mb-6 md:mb-0">
-                            <img src="logo.png" alt="OLab Logo" class="rounded-lg shadow-md border border-white-300 w-40 h-auto" onerror="this.src='https://placehold.co/160x160/EBF4FF/333333?text=Logo+Not+Found';">
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">About OLab</h3>
-                            <p class="text-justify">
-                                We aim to solve complex problems with optimal solutions and strategies. Our primary research interests include numerical optimization, operation research, and various real-world applications.
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div id="olab-members" class="mb-10">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">Members</h3>
-                        <ul class="styled-list list-none space-y-4 text-base">
-                             <li id="member-format-description" class="text-gray-500 italic mb-2 pt-2 pb-2 border-b border-gray-200">
-                                <strong>Format</strong>: Full Name, <em>current institution</em>, working in OLab from [start date] to [end date], <em>research interests</em>, CV / Homepage (attached link)
-                            </li>
-                        </ul>
-                        <div id="member-list-container" class="styled-list list-none space-y-4 text-base">                        
-                            <li class="member-item text-justify">
-                                <strong>Hung Phan</strong>, <em>VinUniversity</em>, working in OLab from 11/2025 to present, <em>Multi-objective Optimization</em>, [<a href="https://github.com/hwnginsoict/random/blob/main/CV_new%20(1).pdf" class="bio-link" target="_blank">CV</a>] / [<a href="https://scholar.google.com/citations?user=bFzFJMgAAAAJ&hl=vi" class="bio-link" target="_blank">Homepage</a>]
-                            </li>
-                            <li class="member-item text-justify">
-                                <strong>Bach Chi Le</strong>, <em>VinUniversity</em>, working in OLab from 6/2025 to present, <em>Adversarial Attacks, Robust Optimization</em>, [<a href="https://github.com/lcblcblcblcb/CV/blob/main/Bach%20Le%20-%20CV.pdf" class="bio-link" target="_blank">CV</a>] / [<a href="https://scholar.google.com/citations?user=XUqNsx0AAAAJ&hl=en" class="bio-link" target="_blank">Homepage</a>]
-                            </li>
-                            <li class="member-item text-justify">
-                                <strong>Dao Van Tung</strong>, <em>VinUniversity</em>, working in OLab from 8/2025 to present, <em>Quantum Machine Learning, Robust Optimization</em>, # / [<a href="https://scholar.google.com/citations?user=2QWkU6EAAAAJ&hl=en" class="bio-link" target="_blank">Homepage</a>]
-                            </li>
-                            <li class="member-item text-justify">
-                                <strong>Thai P.D. Nguyen</strong>, <em>National University of Singapore</em>, working in OLab from 10/2024 to 12/2025, <em>Continuous Optimization, Convex Optimization, Optimal Transport </em>, # / #
-                            </li>
-                            <li class="member-item text-justify">
-                                <strong>Long V.H.</strong>, <em>National University of Singapore</em>, working in OLab from 1/2025 to 7/2025, <em>Constrained Min-Max Optimization, Stackelberg Games</em>, [<a href="#" class="bio-link" target="_blank">CV</a>] / [<a href="linkedin.com/longddaays" class="bio-link" target="_blank">Homepage</a>]
-                            </li>
-                        </div>
-                    </div>
-
-                    <div id="olab-undergrads" class="mb-10">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">Undergraduate Students</h3>
-                        <ul class="styled-list list-none space-y-4 text-base">
-                             <li id="member-format-description" class="text-gray-500 italic mb-2 pt-2 pb-2 border-b border-gray-200">
-                                <strong>Format</strong>: Full Name, <em>current institution</em>, working in OLab from [start date] to [end date], <em>research interests</em>, CV / Homepage (attached link)
-                            </li>
-                        </ul>
-                        <div id="undergrad-list-container" class="styled-list list-none space-y-4 text-base">                        
-                            <li class="member-item text-justify">
-                                <strong>Tran Minh Khang</strong>, <em>VinUniversity</em>, working in OLab from 10/2024 to present, <em>Distributional Robust Portfolio Optimization</em>, [<a href="https://drive.google.com/file/d/1F02n8xo_y3n4ZqU-arAtU0U9WeCgdNc-/view?usp=sharing" class="bio-link" target="_blank">CV</a>] / [<a href="#" class="bio-link" target="_blank">Homepage</a>]
-                            </li>
-                            <li class="member-item text-justify">
-                                <strong>Nguyen Dinh Thai An</strong>, <em>VinUniversity</em>, working in OLab from 2/2025 to present, <em>Optimal Transport in Practical, Optimal Transport</em>, [<a href="#" class="bio-link" target="_blank">CV</a>] / [<a href="#" class="bio-link" target="_blank">Homepage</a>]
-                            </li>
-                        </div>
-                    </div>
-
-                    <div id="olab-recruitment" class="mt-10 p-4 border border-blue-300 rounded-lg bg-blue-50">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4 text-red-600">Recruitment Opportunities (RA / PE / PhD)</h3>
-                        <p class="text-justify mb-2">
-                            I am actively seeking highly motivated <strong>Research Assistants (RA)</strong> and <strong>Programming Engineer</strong> and <strong>Ph.D. candidates</strong> to join OLab. Candidates should have a strong background in mathematics, computer science, or a related field.
-                        </p>
-                        <ul class="list-disc list-inside ml-4 mb-4 space-y-1 text-gray-700">
-                            <li>Numerical Optimization and Algorithms</li>
-                            <li>Optimal Transport and Wasserstein DRO</li>
-                            <li>Robust Machine Learning / Deep Neural Networks</li>
-                            <li>Operational Research and Real-world Applications</li>
-                        </ul>
-                        <p class="text-justify mb-4">
-                            If you are interested, please send me an email with <strong>Application to OLab</strong> in the subject line.
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="RA.pdf" target="_blank" class="bio-link font-bold p-3 border border-red-400 bg-white rounded-lg shadow-sm flex-1 text-center hover:bg-red-50 transition">
-                                <i class="fa-solid fa-file-pdf mr-2"></i> RA Position
-                            </a>
-                            <a href="PE.pdf" target="_blank" class="bio-link font-bold p-3 border border-red-400 bg-white rounded-lg shadow-sm flex-1 text-center hover:bg-red-50 transition">
-                                <i class="fa-solid fa-file-pdf mr-2"></i> PE Position
-                            </a>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="awards" class="mb-12 hidden">
-                    <h2 class="section-title">Awards</h2>
-                    <ul class="styled-list list-square list-inside">
-                        <li>
-                            <strong>[2025] Teaching award</strong>
-                            <a href="https://www.facebook.com/share/p/1BzY1YVqcu/" target="_blank" class="icon-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a><br>
-                            Full-time teaching faculty award AY 2024/2025, VinUniversity
-                        </li>
-                        <li>
-                            <strong>[2021] Teaching award</strong>
-                            <a href="https://www.science.nus.edu.sg/blog/2022/01/07/faculty-award-2021-winners/" target="_blank" class="icon-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a><br>
-                            Part-time teaching assistant award AY 2020/2021, NUS
-                        </li>
-                        <li>
-                            <strong>[2020] Teaching award</strong>
-                            <a href="https://www.math.nus.edu.sg/about/faculty-awards-accolades-for-staff/" target="_blank" class="icon-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a><br>
-                            Part-time teaching assistant award AY 19/2020, NUS
-                        </li>
-                    </ul>
-                </section>
-
-                <section id="talks" class="mb-12 hidden">
-                    <h2 class="section-title">Talks</h2>
-                    <ul class="styled-list list-square list-inside">    
-                        <li><strong>[November 2026]</strong> INFORMS Annual Meeting 2026, San Francisco</li>
-                        <li><strong>[July 2026]</strong> International Conference on Optimization and Machine Learning, National Taiwan Normal University</li>                                            
-                        <li><strong>[July 2026]</strong> Eighth Conference on Discrete Optimization and Machine Learning, Institute of Science Tokyo (formerly Tokyo Tech)</li>
-                        <li><strong>[April 2026]</strong> Joint ASEAN-Africa Workshop on Computational and Applied Mathematics, Institute for Mathematical Science, Singapore</li>
-                        <li><strong>[October 2025]</strong> Joint Mathematics–Statistics PhD Homecoming, Institute for Mathematical Science, Singapore</li>
-                        <li><strong>[October 2025]</strong> International Workshop on Weakly Supervised Learning, Southeast University, China</li>
-                        <li><strong>[June 2023]</strong> SAMI, Hanoi University of Science and Technology, Vietnam</li>
-                        <li><strong>[May 2023]</strong> SIAM Conference on Optimization, Seattle</li>
-                        <li><strong>[March 2023]</strong> The 6th Mathematics Symposium in Singapore</li>
-                    </ul>
-                </section>
-
-                <section id="service" class="mb-12 hidden">
-                    <h2 class="section-title">Service</h2>
-                    <div id="admin-service" class="mb-10">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">Administrative Service</h3>
-                        <ul class="styled-list list-square list-inside">    
-                            <li><strong>[July 2026] Organizing Committee</strong>, Mini-Course: Variational Analysis and Distributionally Robust Optimization in Learning, VIASM, Vietnam
-                                <a href="https://viasm.edu.vn/hdkh/Mini-Course-VADRO" target="_blank" class="icon-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a><br>
-                            </li>
-                            <li><strong>[July 2026] Organizing Committee</strong>, Learning and Optimization for a Sustainable Future, VinUniversity, Vietnam
-                                <a href="https://optimization-conference.github.io/" target="_blank" class="icon-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a><br>
-                            </li>
-                            <li><strong>[2023 - 2028] Ambassador</strong>, NUS FPAA</li>
-                            <li><strong>[Spring 2024] Preliminary & Final Judge</strong>, SSEF Singapore</li>
-                            <li><strong>[Jan 2024] Member of Organizing Committee</strong>, The Mathematics of Data, Institute for Mathematical Sciences, Singapore
-                                <a href="https://ims.nus.edu.sg/events/the-mathematics-of-data/" target="_blank" class="icon-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a><br>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="review-service" class="mb-10">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">Reviewer Service</h3>
-                        <ul class="styled-list list-square list-inside">
-                            <li>JOTA, EJOR; ICML: 26, ACML: 24, AISTATS: 25/26, OIC:24/25, SOICT25</li>
-                        </ul>
-                    </div>
-                </section>
-                
-                <section id="teaching" class="mb-12 hidden">
-                    <h2 class="section-title">Teaching</h2>
-                    <ul class="styled-list list-square list-inside">
-                        <li><strong>[2024 - now] Lecturer </strong><em>MATH2010 & MATH4010 ((Advanced) Probability & Statistics), DATA1010 (Introduction to Data Science),</em>  VinUniversity</li>
-                        <li><strong>[2020 - 2022] Teaching Assistant </strong><em>DSA3102 (Essential Data Analytics Tools: Convex Optimisation), MA3252 (Linear and Network Optimisation), MA1102R (Calculus),</em> National University of Singapore</li>
-                    </ul>
-                </section>
-
-                <section id="programming" class="mb-12 hidden">
-                    <h2 class="section-title">Programming Languages</h2>
-                    <ul class="styled-list list-square list-inside">
-                        <li>PYTHON, MATLAB</li>
-                    </ul>
-                </section>
-
-                <footer class="mt-16 border-t border-gray-200 pt-8">
-                    <div class="text-center text-sm text-gray-500">
-                        <p>&copy; 2025 Hong T.M. Chu. Last updated: July 2026</p>
-                    </div>
-                </footer>
-
-            </main>
+        <div class="contact">
+          <div class="contact-row">
+            <span class="lbl"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+            <span>
+              <a href="mailto:hongtmchu@gmail.com">hongtmchu@gmail.com</a><span class="tag-pref">preferred</span>
+              <span class="sep">/</span>
+              <a href="mailto:hongtmchu@u.nus.edu">hongtmchu@u.nus.edu</a>
+              <span class="sep">/</span>
+              <a href="mailto:hong.ctm@vinuni.edu.vn">hong.ctm@vinuni.edu.vn</a>
+            </span>
+          </div>
         </div>
+
+        <div class="socials">
+          <a class="social linkedin" href="https://www.linkedin.com/in/hongtmchu" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+            <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+          </a>
+          <a class="social orcid" href="https://orcid.org/0009-0002-5674-4685" target="_blank" rel="noopener noreferrer" aria-label="ORCID iD" title="ORCID iD">
+            <i class="ai ai-orcid" aria-hidden="true"></i>
+          </a>
+          <a class="social scopus" href="https://www.scopus.com/authid/detail.uri?authorId=57221410415" target="_blank" rel="noopener noreferrer" aria-label="Scopus" title="Scopus">
+            <i class="ai ai-scopus" aria-hidden="true"></i>
+          </a>
+          <a class="social scholar" href="https://scholar.google.com/citations?hl=en&amp;user=ZLXxF3YAAAAJ&amp;view_op=list_works&amp;sortby=pubdate" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar" title="Google Scholar">
+            <i class="ai ai-google-scholar" aria-hidden="true"></i>
+          </a>
+          <a class="social social-cv" href="CV_HongChu.pdf" target="_blank" rel="noopener noreferrer" aria-label="Curriculum Vitae (PDF)" title="Curriculum Vitae (PDF)">CV</a>
+          <span class="cv-note">CV last updated: January 2026</span>
+        </div>
+      </div>
     </div>
 
-    <script>
-        function showSection(targetId) {
-            const mainContent = document.querySelector('main');
-            mainContent.querySelectorAll('section').forEach(section => section.classList.add('hidden'));
+    <div class="callout" style="margin-top:2rem">
+      I am recruiting <strong>RA / PE</strong> / <strong>PhD</strong> with relevant research experience on
+      optimization and machine learning. Please check <a href="#olab-recruitment">OLab</a> for more information.
+    </div>
+  </div>
+</section>
 
-            if (targetId === 'home') {
-                document.getElementById('home').classList.remove('hidden');
-                document.getElementById('employment').classList.remove('hidden');
-                document.getElementById('education').classList.remove('hidden');
-            } else {
-                const targetSection = document.getElementById(targetId);
-                if (targetSection) targetSection.classList.remove('hidden');
-            }
-            
-            if (targetId === 'olab') sortMembers();
-            window.scrollTo(0, 0); 
-        }
+<!-- ==================== ABOUT ==================== -->
+<section class="section" id="about">
+  <div class="wrap stack">
 
-        function sortMembers() {
-            const containers = ['member-list-container', 'undergrad-list-container'];
-            containers.forEach(cid => {
-                const container = document.getElementById(cid);
-                if (!container) return;
-                const members = Array.from(container.children);
-                members.sort((a, b) => {
-                    const nameA = a.querySelector('strong')?.textContent.toLowerCase() || '';
-                    const nameB = b.querySelector('strong')?.textContent.toLowerCase() || '';
-                    return nameA.localeCompare(nameB);
-                });
-                members.forEach(m => container.appendChild(m));
-            });
-        }
+    <h2 class="section-title">About</h2>
 
-        document.querySelectorAll('.sidebar-link').forEach(link => {
-            link.addEventListener('click', function(e) { 
-                e.preventDefault(); 
-                showSection(this.getAttribute('href').substring(1));
-            });
-        });
-        
-        document.addEventListener('DOMContentLoaded', () => showSection('home'));
-    </script>
+    <div>
+      <h3 class="sub-title">Research Interests</h3>
+      <p class="prose justify">
+        I am interested in computational approaches to optimal transport and Wasserstein distributionally
+        robust optimization problems. I specialize in designing fast computational methods and efficient
+        algorithms to solve these problems, particularly in the context of robust machine learning and deep
+        neural networks. A key part of my research involves analyzing tractable regularization techniques
+        and their distributionally robust interpretations.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="sub-title">Short Bio</h3>
+      <p class="prose justify">
+        Hong T.M. Chu is currently an Assistant Professor of Mathematics at the College of Engineering and
+        Computer Science, VinUniversity, Vietnam. Prior to her current appointment at VinUniversity, she was
+        a Research Fellow in the Department of Mathematics at the National University of Singapore. She
+        received her PhD in Mathematics from the National University of Singapore under the supervision of
+        Professor Kim-Chuan Toh. She has received Teaching Assistant Awards from the Faculty of Science
+        (AY 2019-2020 &amp; AY 2020-2021), Teaching Award from VinUniversity (AY 2024-2025) and has been
+        nominated as a Faculty of Science Postgraduate Alumni Ambassador at the National University of
+        Singapore.
+      </p>
+    </div>
+
+    <div id="acknowledgements">
+      <h3 class="sub-title">Acknowledgements</h3>
+      <p class="prose justify">
+        I am sincerely grateful to the organizers of
+        <a href="https://ims.nus.edu.sg/events/phd_homecoming/" target="_blank" rel="noopener noreferrer">Joint Mathematics&ndash;Statistics PhD Homecoming</a>,
+        <a href="https://www.newton.ac.uk/event/cifw01/" target="_blank" rel="noopener noreferrer">Foundations of causal inference</a>,
+        <a href="https://ims.nus.edu.sg/events/asean_africa_am/" target="_blank" rel="noopener noreferrer">Joint ASEAN-Africa Workshop on Computational and Applied Mathematics</a>
+        for their generous full sponsorship of my visits. I also extend my deep appreciation to the
+        <a href="https://viasm.edu.vn/" target="_blank" rel="noopener noreferrer">Vietnam Institute for Advanced Study in Mathematics (VIASM)</a>
+        for hosting and fully funding our proposed
+        <a href="https://viasm.edu.vn/hdkh/Mini-Course-VADRO" target="_blank" rel="noopener noreferrer">Mini-Course VADRO</a>
+        program. This collective support has been
+        invaluable in facilitating my research collaborations and allowing me to share my work with the broader
+        communities.
+      </p>
+    </div>
+
+    <div class="grid grid-2">
+      <div>
+        <h3 class="sub-title">Employment</h3>
+        <ul class="entries">
+          <li class="entry">
+            <div class="entry-when">2024 &ndash; present</div>
+            <div class="entry-what">
+              <strong>Assistant Professor</strong>
+              <span>College of Engineering &amp; Computer Science, VinUniversity, Vietnam</span>
+            </div>
+          </li>
+          <li class="entry">
+            <div class="entry-when">2023 &ndash; 2024</div>
+            <div class="entry-what">
+              <strong>Research Fellow</strong>
+              <span>Department of Mathematics, National University of Singapore, Singapore</span>
+            </div>
+          </li>
+          <li class="entry">
+            <div class="entry-when">2017 &ndash; 2018</div>
+            <div class="entry-what">
+              <strong>Research Assistant</strong>
+              <span>Institute of Mathematics, Vietnam Academy of Science and Technology, Vietnam</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="sub-title">Education</h3>
+        <ul class="entries">
+          <li class="entry">
+            <div class="entry-when">2018 &ndash; 2023</div>
+            <div class="entry-what">
+              <strong>Ph.D. in Mathematics</strong>
+              <span>Department of Mathematics, National University of Singapore, Singapore<br>
+              Supervisor: Professor Kim-Chuan Toh</span>
+            </div>
+          </li>
+          <li class="entry">
+            <div class="entry-when">2013 &ndash; 2017</div>
+            <div class="entry-what">
+              <strong>Bachelor of Mathematics</strong>
+              <span>Faculty of Mathematics &amp; Information Technology, Hanoi National University of Education, Vietnam</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== PUBLICATIONS ==================== -->
+<section class="section" id="publications">
+  <div class="wrap stack">
+
+    <h2 class="section-title">Publications &amp; Preprints</h2>
+
+    <div>
+      <h3 class="sub-title">Preprints</h3>
+      <div class="grid">
+        <article class="card pub">
+          <h4 class="pub-title">
+            <a href="https://www.google.com/search?q=Concave+Certificates+Geometric+Framework+for+Distributionally+Robust+Risk+and+Complexity+Analysis" target="_blank" rel="noopener noreferrer">Concave Certificates: Geometric Framework for Distributionally Robust Risk and Complexity Analysis</a>
+          </h4>
+          <p class="pub-authors"><strong>Hong T.M. Chu</strong>.</p>
+          <div class="pub-meta"><span class="badge badge-muted">Submitted</span></div>
+        </article>
+
+        <article class="card pub">
+          <h4 class="pub-title">
+            <a href="https://www.google.com/search?q=On+the+Convergence+of+Wasserstein+Gradient+Descent+for+Sampling" target="_blank" rel="noopener noreferrer">On the Convergence of Wasserstein Gradient Descent for Sampling</a>
+          </h4>
+          <p class="pub-authors">Van Chien Ta, <strong>Hong T.M. Chu</strong>, Minh-Ngoc Tran.</p>
+          <div class="pub-meta"><span class="badge badge-muted">Submitted</span></div>
+        </article>
+
+        <article class="card pub">
+          <h4 class="pub-title">
+            <a href="https://www.google.com/search?q=Time-integrated+Optimal+Transport+A+Robust+Minimax+Framework" target="_blank" rel="noopener noreferrer">Time-integrated Optimal Transport: A Robust Minimax Framework</a>
+          </h4>
+          <p class="pub-authors">Thai P. D. Nguyen, <strong>Hong T.M. Chu</strong>, Kim-Chuan Toh.</p>
+          <div class="pub-meta"><span class="badge badge-muted">Submitted</span></div>
+        </article>
+
+        <article class="card pub">
+          <h4 class="pub-title">
+            <a href="https://www.google.com/search?q=Tight+Robustness+Certificates+and+Wasserstein+Distributional+Attacks+for+Deep+Neural+Networks" target="_blank" rel="noopener noreferrer">Tight Robustness Certificates and Wasserstein Distributional Attacks for Deep Neural Networks</a>
+          </h4>
+          <p class="pub-authors">Bach C. Le, Tung V. Dao, Binh T. Nguyen, <strong>Hong T.M. Chu</strong>.</p>
+          <div class="pub-meta"><span class="badge badge-muted">Submitted</span></div>
+        </article>
+
+        <article class="card pub">
+          <h4 class="pub-title">
+            <a href="https://www.google.com/search?q=Implicit+Regularization+via+Spectral+Neural+Networks+and+Non-linear+Matrix+Sensing" target="_blank" rel="noopener noreferrer">Implicit Regularization via Spectral Neural Networks and Non-linear Matrix Sensing</a>
+          </h4>
+          <p class="pub-authors"><strong>Hong T. M. Chu</strong>, Subhro Ghosh, Chi Thanh Lam, Soumendu Sundar Mukherjee.</p>
+          <div class="pub-meta"><span class="badge badge-muted">Preprint</span></div>
+        </article>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="sub-title">Journal Publications</h3>
+      <div class="grid">
+        <article class="card pub">
+          <h4 class="pub-title">
+            <a href="https://doi.org/10.1007/s10957-025-02896-x" target="_blank" rel="noopener noreferrer">Wasserstein distributionally robust optimization and its tractable regularization formulations</a>
+          </h4>
+          <p class="pub-authors"><strong>Hong T.M. Chu</strong>, Meixia Lin, Kim-Chuan Toh.</p>
+          <div class="pub-meta">
+            <span class="badge">JOTA 2026</span>
+            <span class="venue">Journal of Optimization Theory and Applications 208, 69 (2026)</span>
+          </div>
+        </article>
+
+        <article class="card pub">
+          <h4 class="pub-title">
+            <a href="https://www.google.com/search?q=A+Corrected+Inexact+Proximal+Augmented+Lagrangian+Method+with+a+Relative+Error+Criterion+for+a+Class+of+Group-quadratic+Regularized+Optimal+Transport+Problems" target="_blank" rel="noopener noreferrer">A Corrected Inexact Proximal Augmented Lagrangian Method with a Relative Error Criterion for a Class of Group-quadratic Regularized Optimal Transport Problems</a>
+          </h4>
+          <p class="pub-authors">Lei Yang, Ling Liang, <strong>Hong T.M. Chu</strong>, Kim-Chuan Toh.</p>
+          <div class="pub-meta">
+            <span class="badge">JSC</span>
+            <span class="venue">Journal of Scientific Computing 99 (3), 79</span>
+          </div>
+        </article>
+
+        <article class="card pub">
+          <h4 class="pub-title">
+            <a href="https://www.google.com/search?q=On+Regularized+Square-root+Regression+Problems:+Distributionally+Robust+Interpretation+and+Fast+Computations" target="_blank" rel="noopener noreferrer">On Regularized Square-root Regression Problems: Distributionally Robust Interpretation and Fast Computations</a>
+          </h4>
+          <p class="pub-authors"><strong>Hong T.M. Chu</strong>, Kim-Chuan Toh, Yangjing Zhang.</p>
+          <div class="pub-meta">
+            <span class="badge">JMLR</span>
+            <span class="venue">Journal of Machine Learning Research, 23(308):1&ndash;39</span>
+          </div>
+        </article>
+
+        <article class="card pub">
+          <h4 class="pub-title">
+            <a href="https://www.google.com/search?q=An+efficient+implementable+inexact+entropic+proximal+point+algorithm+for+a+class+of+linear+programming+problems" target="_blank" rel="noopener noreferrer">An efficient implementable inexact entropic proximal point algorithm for a class of linear programming problems</a>
+          </h4>
+          <p class="pub-authors"><strong>Hong T. M. Chu</strong>, Ling Liang, Kim-Chuan Toh, Lei Yang.</p>
+          <div class="pub-meta">
+            <span class="badge">COAP</span>
+            <span class="venue">Computational Optimization and Applications (2023): 1&ndash;40</span>
+          </div>
+        </article>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== OLAB ==================== -->
+<section class="section" id="olab">
+  <div class="wrap stack">
+
+    <h2 class="section-title">Optimization Lab (OLab)</h2>
+
+    <div class="olab-head">
+      <img src="logo.png" alt="OLab logo" width="900" height="322">
+      <p class="prose justify">
+        We aim to solve complex problems with optimal solutions and strategies. Our primary research
+        interests include numerical optimization, operation research, and various real-world applications.
+      </p>
+    </div>
+
+    <details class="fold">
+      <summary class="section-title">Members <span class="fold-count">(7)</span></summary>
+      <div class="stack">
+
+    <div>
+      <h3 class="sub-title">Current</h3>
+      <ul class="people">
+        <li class="person">
+          <div class="person-head">
+            <span class="person-name">Bach Chi Le</span>
+            <span class="person-inst">VinUniversity</span>
+            <span class="period"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 6/2025 &ndash; present</span>
+          </div>
+          <div class="person-body">
+            <em>Adversarial Attacks, Robust Optimization</em>
+            <span class="member-links">
+              <a class="chip" href="https://github.com/lcblcblcblcb/CV/blob/main/Bach%20Le%20-%20CV.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+              <a class="chip" href="https://scholar.google.com/citations?user=XUqNsx0AAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Homepage</a>
+            </span>
+          </div>
+        </li>
+        <li class="person">
+          <div class="person-head">
+            <span class="person-name">Dao Van Tung</span>
+            <span class="person-inst">VinUniversity</span>
+            <span class="period"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 8/2025 &ndash; present</span>
+          </div>
+          <div class="person-body">
+            <em>Quantum Machine Learning, Robust Optimization</em>
+            <span class="member-links">
+              <span class="chip chip-off">CV &mdash;</span>
+              <a class="chip" href="https://scholar.google.com/citations?user=2QWkU6EAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Homepage</a>
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="sub-title">Undergraduate Students</h3>
+      <ul class="people">
+        <li class="person">
+          <div class="person-head">
+            <span class="person-name">Nguyen Dinh Thai An</span>
+            <span class="person-inst">VinUniversity</span>
+            <span class="period"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 2/2025 &ndash; present</span>
+          </div>
+          <div class="person-body">
+            <em>Optimal Transport in Practical, Optimal Transport</em>
+            <span class="member-links">
+              <span class="chip chip-off">CV &mdash;</span>
+              <span class="chip chip-off">Homepage &mdash;</span>
+            </span>
+          </div>
+        </li>
+        <li class="person">
+          <div class="person-head">
+            <span class="person-name">Tran Minh Khang</span>
+            <span class="person-inst">VinUniversity</span>
+            <span class="period"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 10/2024 &ndash; present</span>
+          </div>
+          <div class="person-body">
+            <em>Distributional Robust Portfolio Optimization</em>
+            <span class="member-links">
+              <a class="chip" href="https://drive.google.com/file/d/1F02n8xo_y3n4ZqU-arAtU0U9WeCgdNc-/view?usp=sharing" target="_blank" rel="noopener noreferrer">CV</a>
+              <span class="chip chip-off">Homepage &mdash;</span>
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="sub-title">Alumni</h3>
+      <ul class="people">
+        <li class="person">
+          <div class="person-head">
+            <span class="person-name">Hung Phan</span>
+            <span class="person-inst">National University of Singapore</span>
+            <span class="period"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 11/2025 &ndash; 8/2026</span>
+          </div>
+          <div class="person-body">
+            <em>Multi-objective Optimization</em>
+            <span class="member-links">
+              <a class="chip" href="https://github.com/hwnginsoict/random/blob/main/CV_new%20(1).pdf" target="_blank" rel="noopener noreferrer">CV</a>
+              <a class="chip" href="https://scholar.google.com/citations?user=bFzFJMgAAAAJ&amp;hl=vi" target="_blank" rel="noopener noreferrer">Homepage</a>
+            </span>
+          </div>
+        </li>
+        <li class="person">
+          <div class="person-head">
+            <span class="person-name">Long V.H.</span>
+            <span class="person-inst">National University of Singapore</span>
+            <span class="period"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 1/2025 &ndash; 7/2025</span>
+          </div>
+          <div class="person-body">
+            <em>Constrained Min-Max Optimization, Stackelberg Games</em>
+            <span class="member-links">
+              <span class="chip chip-off">CV &mdash;</span>
+              <span class="chip chip-off">Homepage &mdash;</span>
+            </span>
+          </div>
+        </li>
+        <li class="person">
+          <div class="person-head">
+            <span class="person-name">Thai P.D. Nguyen</span>
+            <span class="person-inst">National University of Singapore</span>
+            <span class="period"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 10/2024 &ndash; 12/2025</span>
+          </div>
+          <div class="person-body">
+            <em>Continuous Optimization, Convex Optimization, Optimal Transport</em>
+            <span class="member-links">
+              <span class="chip chip-off">CV &mdash;</span>
+              <span class="chip chip-off">Homepage &mdash;</span>
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+      </div>
+    </details>
+
+    <div class="callout callout-warn" id="olab-recruitment">
+      <h3>Recruitment Opportunities (RA / PE / PhD)</h3>
+      <p>
+        I am actively seeking highly motivated <strong>Research Assistants (RA)</strong> and
+        <strong>Programming Engineer</strong> and <strong>Ph.D. candidates</strong> to join OLab.
+        Candidates should have a strong background in mathematics, computer science, or a related field.
+      </p>
+      <ul class="plain-list">
+        <li>Numerical Optimization and Algorithms</li>
+        <li>Optimal Transport and Wasserstein DRO</li>
+        <li>Robust Machine Learning / Deep Neural Networks</li>
+        <li>Operational Research and Real-world Applications</li>
+      </ul>
+      <p>
+        If you are interested, please send me an email with <strong>Application to OLab</strong>
+        in the subject line.
+      </p>
+      <div class="cv-row">
+        <a class="btn btn-ghost" href="RA.pdf" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-file-pdf" aria-hidden="true"></i> RA Position
+        </a>
+        <a class="btn btn-ghost" href="PE.pdf" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-file-pdf" aria-hidden="true"></i> PE Position
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="sub-title">Programming Languages</h3>
+      <ul class="pill-list">
+        <li class="pill">Python</li>
+        <li class="pill">MATLAB</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== AWARDS ==================== -->
+<section class="section" id="awards">
+  <div class="wrap">
+    <h2 class="section-title">Awards</h2>
+    <ul class="entries">
+      <li class="entry">
+        <div class="entry-when">2025</div>
+        <div class="entry-what">
+          <strong>
+            <a href="https://www.facebook.com/share/p/1BzY1YVqcu/" target="_blank" rel="noopener noreferrer">Teaching Award<i class="fa-solid fa-arrow-up-right-from-square ext" aria-hidden="true"></i></a>
+          </strong>
+          <span>Full-time teaching faculty award AY 2024/2025, VinUniversity</span>
+        </div>
+      </li>
+      <li class="entry">
+        <div class="entry-when">2021</div>
+        <div class="entry-what">
+          <strong>
+            <a href="https://www.science.nus.edu.sg/blog/2022/01/07/faculty-award-2021-winners/" target="_blank" rel="noopener noreferrer">Teaching Award<i class="fa-solid fa-arrow-up-right-from-square ext" aria-hidden="true"></i></a>
+          </strong>
+          <span>Part-time teaching assistant award AY 2020/2021, NUS</span>
+        </div>
+      </li>
+      <li class="entry">
+        <div class="entry-when">2020</div>
+        <div class="entry-what">
+          <strong>
+            <a href="https://www.math.nus.edu.sg/about/faculty-awards-accolades-for-staff/" target="_blank" rel="noopener noreferrer">Teaching Award<i class="fa-solid fa-arrow-up-right-from-square ext" aria-hidden="true"></i></a>
+          </strong>
+          <span>Part-time teaching assistant award AY 2019/2020, NUS</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ==================== TALKS ==================== -->
+<section class="section" id="talks">
+  <div class="wrap stack">
+    <h2 class="section-title">Talks</h2>
+
+    <div>
+      <h3 class="sub-title">Upcoming</h3>
+      <ul class="entries">
+        <li class="entry">
+          <div class="entry-when">Nov 2026</div>
+          <div class="entry-what">
+            <strong>
+              <a href="https://submissions.mirasmart.com/InformsAnnual2026/Itinerary/EventDetail.aspx?evt=398" target="_blank" rel="noopener noreferrer">INFORMS Annual Meeting 2026<i class="fa-solid fa-arrow-up-right-from-square ext" aria-hidden="true"></i></a>
+            </strong>
+            <span>San Francisco</span>
+          </div>
+        </li>
+        <li class="entry">
+          <div class="entry-when">Oct 2026</div>
+          <div class="entry-what">
+            <strong>
+              <a href="https://math.ac.vn/conference/OVACT2026" target="_blank" rel="noopener noreferrer">International Workshop on Optimization, Variational Analysis, and Control Theory<i class="fa-solid fa-arrow-up-right-from-square ext" aria-hidden="true"></i></a>
+            </strong>
+            <span>Institute of Mathematics, Vietnam Academy of Science and Technology, Hanoi</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <details class="fold">
+      <summary class="sub-title">Past <span class="fold-count">(9)</span></summary>
+      <ul class="entries">
+        <li class="entry">
+          <div class="entry-when">Aug 2026</div>
+          <div class="entry-what">
+            <strong>
+              <a href="https://fami.hust.edu.vn/hoi-nghi/international-conference-on-applied-mathematics-and-informatics-2026-ami-2026/" target="_blank" rel="noopener noreferrer">International Conference on Applied Mathematics and Informatics 2026 (AMI 2026)<i class="fa-solid fa-arrow-up-right-from-square ext" aria-hidden="true"></i></a>
+            </strong>
+            <span>Hanoi University of Science and Technology, Vietnam</span>
+          </div>
+        </li>
+        <li class="entry">
+          <div class="entry-when">Jul 2026</div>
+          <div class="entry-what">
+            <strong>
+              <a href="https://www.math.ntnu.edu.tw/workshop/icoml2026/" target="_blank" rel="noopener noreferrer">International Conference on Optimization and Machine Learning<i class="fa-solid fa-arrow-up-right-from-square ext" aria-hidden="true"></i></a>
+            </strong>
+            <span>National Taiwan Normal University</span>
+          </div>
+        </li>
+        <li class="entry">
+          <div class="entry-when">Jul 2026</div>
+          <div class="entry-what">
+            <strong>
+              <a href="https://doml.zib.de/previous/doml2026.html" target="_blank" rel="noopener noreferrer">Eighth Conference on Discrete Optimization and Machine Learning<i class="fa-solid fa-arrow-up-right-from-square ext" aria-hidden="true"></i></a>
+            </strong>
+            <span>Institute of Science Tokyo (formerly Tokyo Tech)</span>
+          </div>
+        </li>
+        <li class="entry">
+          <div class="entry-when">Apr 2026</div>
+          <div class="entry-what">
+            <strong>
+              <a href="https://ims.nus.edu.sg/events/asean_africa_am/" target="_blank" rel="noopener noreferrer">Joint ASEAN-Africa Workshop on Computational and Applied Mathematics<i class="fa-solid fa-arrow-up-right-from-square ext" aria-hidden="true"></i></a>
+            </strong>
+            <span>Institute for Mathematical Sciences, Singapore</span>
+          </div>
+        </li>
+        <li class="entry">
+          <div class="entry-when">Oct 2025</div>
+          <div class="entry-what">
+            <strong>
+              <a href="https://ims.nus.edu.sg/events/phd_homecoming/" target="_blank" rel="noopener noreferrer">Joint Mathematics&ndash;Statistics PhD Homecoming<i class="fa-solid fa-arrow-up-right-from-square ext" aria-hidden="true"></i></a>
+            </strong>
+            <span>Institute for Mathematical Sciences, Singapore</span>
+          </div>
+        </li>
+        <li class="entry">
+          <div class="entry-when">Oct 2025</div>
+          <div class="entry-what">
+            <strong>
+              <a href="https://wsl-workshop.github.io/wsl25.html" target="_blank" rel="noopener noreferrer">International Workshop on Weakly Supervised Learning<i class="fa-solid fa-arrow-up-right-from-square ext" aria-hidden="true"></i></a>
+            </strong>
+            <span>Southeast University, China</span>
+          </div>
+        </li>
+        <li class="entry">
+          <div class="entry-when">Jun 2023</div>
+          <div class="entry-what">
+            <strong>SAMI</strong>
+            <span>Hanoi University of Science and Technology, Vietnam</span>
+          </div>
+        </li>
+        <li class="entry">
+          <div class="entry-when">May 2023</div>
+          <div class="entry-what">
+            <strong>
+              <a href="https://www.siam.org/conferences-events/past-event-archive/op23/" target="_blank" rel="noopener noreferrer">SIAM Conference on Optimization<i class="fa-solid fa-arrow-up-right-from-square ext" aria-hidden="true"></i></a>
+            </strong>
+            <span>Seattle</span>
+          </div>
+        </li>
+        <li class="entry">
+          <div class="entry-when">Mar 2023</div>
+          <div class="entry-what">
+            <strong>The 6th Mathematics Symposium in Singapore</strong>
+            <span>Singapore</span>
+          </div>
+        </li>
+      </ul>
+    </details>
+  </div>
+</section>
+
+<!-- ==================== SERVICE ==================== -->
+<section class="section" id="service">
+  <div class="wrap stack">
+    <h2 class="section-title">Service</h2>
+
+    <div>
+      <h3 class="sub-title">Administrative Service</h3>
+      <ul class="entries">
+        <li class="entry">
+          <div class="entry-when">Jul 2026</div>
+          <div class="entry-what">
+            <strong>
+              <a href="https://viasm.edu.vn/hdkh/Mini-Course-VADRO" target="_blank" rel="noopener noreferrer">Organizing Committee<i class="fa-solid fa-arrow-up-right-from-square ext" aria-hidden="true"></i></a>
+            </strong>
+            <span>Mini-Course: Variational Analysis and Distributionally Robust Optimization in Learning, VIASM, Vietnam</span>
+          </div>
+        </li>
+        <li class="entry">
+          <div class="entry-when">Jul 2026</div>
+          <div class="entry-what">
+            <strong>
+              <a href="https://optimization-conference.github.io/" target="_blank" rel="noopener noreferrer">Organizing Committee<i class="fa-solid fa-arrow-up-right-from-square ext" aria-hidden="true"></i></a>
+            </strong>
+            <span>Learning and Optimization for a Sustainable Future, VinUniversity, Vietnam</span>
+          </div>
+        </li>
+        <li class="entry">
+          <div class="entry-when">2023 &ndash; 2028</div>
+          <div class="entry-what">
+            <strong>Ambassador</strong>
+            <span>NUS Faculty of Science Postgraduate Alumni Ambassador (FPAA)</span>
+          </div>
+        </li>
+        <li class="entry">
+          <div class="entry-when">Spring 2024</div>
+          <div class="entry-what">
+            <strong>Preliminary &amp; Final Judge</strong>
+            <span>Singapore Science &amp; Engineering Fair (SSEF)</span>
+          </div>
+        </li>
+        <li class="entry">
+          <div class="entry-when">Jan 2024</div>
+          <div class="entry-what">
+            <strong>
+              <a href="https://ims.nus.edu.sg/events/the-mathematics-of-data/" target="_blank" rel="noopener noreferrer">Member of Organizing Committee<i class="fa-solid fa-arrow-up-right-from-square ext" aria-hidden="true"></i></a>
+            </strong>
+            <span>The Mathematics of Data, Institute for Mathematical Sciences, Singapore</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="sub-title">Reviewer Service</h3>
+      <ul class="pill-list">
+        <li class="pill">JOTA</li>
+        <li class="pill">EJOR</li>
+        <li class="pill">ICML 26</li>
+        <li class="pill">ACML 24</li>
+        <li class="pill">AISTATS 25 / 26</li>
+        <li class="pill">OIC 24 / 25</li>
+        <li class="pill">SOICT 25</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TEACHING ==================== -->
+<section class="section" id="teaching">
+  <div class="wrap stack">
+    <h2 class="section-title">Teaching</h2>
+    <ul class="entries">
+      <li class="entry">
+        <div class="entry-when">2024 &ndash; now</div>
+        <div class="entry-what">
+          <strong>Lecturer &mdash; VinUniversity</strong>
+          <span><em>MATH2010 &amp; MATH4010 ((Advanced) Probability &amp; Statistics), DATA1010 (Introduction to Data Science)</em></span>
+        </div>
+      </li>
+      <li class="entry">
+        <div class="entry-when">2020 &ndash; 2022</div>
+        <div class="entry-what">
+          <strong>Teaching Assistant &mdash; National University of Singapore</strong>
+          <span><em>DSA3102 (Essential Data Analytics Tools: Convex Optimisation), MA3252 (Linear and Network Optimisation), MA1102R (Calculus)</em></span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>&copy; 2026 Hong T.M. Chu</p>
+    <p>Last updated: August 2026</p>
+  </div>
+</footer>
+
+<button class="to-top" id="to-top" type="button" aria-label="Back to top">
+  <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+</button>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---- theme ---- */
+  var root = document.documentElement;
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "dark" || saved === "light") root.setAttribute("data-theme", saved);
+  } catch (e) {}
+
+  function currentTheme() {
+    var set = root.getAttribute("data-theme");
+    if (set) return set;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+
+  var themeBtn = document.getElementById("theme-btn");
+  if (themeBtn) {
+    themeBtn.addEventListener("click", function () {
+      var next = currentTheme() === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("theme", next); } catch (e) {}
+    });
+  }
+
+  /* ---- mobile menu ---- */
+  var nav = document.getElementById("nav");
+  var menuBtn = document.getElementById("menu-btn");
+  if (nav && menuBtn) {
+    menuBtn.addEventListener("click", function () {
+      var open = nav.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    nav.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") {
+        nav.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  /* ---- scroll spy ---- */
+  var links = Array.prototype.slice.call(document.querySelectorAll(".nav a"));
+  var sections = links
+    .map(function (a) { return document.querySelector(a.getAttribute("href")); })
+    .filter(Boolean);
+
+  function setActive(id) {
+    links.forEach(function (a) {
+      a.classList.toggle("active", a.getAttribute("href") === "#" + id);
+    });
+  }
+
+  /* Scroll spy.
+     The previous IntersectionObserver version could never highlight the
+     last section: it only counted a section as visible inside the top 40%
+     of the viewport, and Teaching is too short to reach that band before
+     the page bottom stops the scroll. It also took the FIRST intersecting
+     section, so Service kept winning over Teaching.
+     Instead: take the LAST section whose top has crossed a line just below
+     the sticky bar, and force the final section once the page is scrolled
+     to the bottom. */
+  function updateActive() {
+    if (!sections.length) return;
+    var doc = document.documentElement;
+    var atBottom = window.innerHeight + window.scrollY >= doc.scrollHeight - 2;
+    if (atBottom) { setActive(sections[sections.length - 1].id); return; }
+    var line = 100, cur = "";
+    for (var i = 0; i < sections.length; i++) {
+      if (sections[i].getBoundingClientRect().top <= line) cur = sections[i].id;
+    }
+    setActive(cur);
+  }
+
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function () { updateActive(); ticking = false; });
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll, { passive: true });
+  document.addEventListener("toggle", onScroll, true);
+  updateActive();
+
+  /* ---- back to top ---- */
+  var toTop = document.getElementById("to-top");
+  if (toTop) {
+    toTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    window.addEventListener("scroll", function () {
+      toTop.classList.toggle("show", window.scrollY > 600);
+    }, { passive: true });
+  }
+})();
+</script>
 </body>
 </html>
