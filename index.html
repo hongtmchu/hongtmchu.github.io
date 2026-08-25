@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-palette="indigo">
+<html lang="en" data-palette="violet-mist">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,7 +28,10 @@
 /* ---------- design tokens ---------- */
 /* Palette roles lifted verbatim from hc_theme.sty (Research/slide/template).
    Switch the whole site by setting data-palette on <html>:
-   azure (default) | indigo | teal | slate                                */
+   azure | indigo | teal | slate, or one of the two house contrast
+   palettes declared further down: violet-mist (default) |
+   inkberry-peach. The palette button in
+   the top bar sets the attribute and saves it in localStorage.        */
 :root,:root[data-palette="azure"]{
   --p-primary:#153A62; --p-deep:#07203B; --p-emph:#2C65A4;
   --p-fill:#B7CDF8;    --p-band:#D0DDF9; --p-wash:#E5EBFA;
@@ -115,9 +118,79 @@
   --shadow:0 1px 3px rgba(0,0,0,.45),0 8px 24px -8px rgba(0,0,0,.6);
 }
 
+/* ---------- house contrast palettes ----------
+   Two contrast palettes from the house palette (palette.json), each of
+   five colours, mapped onto the primitives above. Values carrying a
+   mix are derived from the card colours by color-mix, computed once
+   and written as hex so the swatch and the page agree exactly. */
+:root[data-palette="violet-mist"]{
+  /* Signal Violet #7A35FF, Mist Gray #F0F2F5, Ink Navy #17152E, Coral #FF6B5B, Amber #F5B841 */
+  --ink:#17152E; --muted:#5C5C6E; --track:#CDCFD5; --ground:#F0F2F5;
+  --bg-card:#F7F8FA; --border-strong:#AFB0B9;
+  --p-primary:#7A35FF; --p-deep:#5C2BC0; --p-emph:#B04E4C;
+  --p-fill:#F5B841; --p-band:#F3CF89; --p-wash:#F1E2C3;
+  --a-alert:#B04E4C; --a-dark:#823D43; --a-band:#F7B5B0;
+}
+:root[data-theme="dark"][data-palette="violet-mist"]{
+  --bg:#17152E; --bg-soft:#333147; --bg-card:#333147;
+  --border:#3A384E; --border-strong:#545366;
+  --text:#F0F2F5; --text-muted:#A6A7B1;
+  --accent:#9662FD; --accent-2:#FF6B5B;
+  --accent-soft:color-mix(in srgb,#9662FD 14%,transparent);
+  --accent-line:color-mix(in srgb,#9662FD 36%,transparent);
+  --warn:#FF6B5B;
+  --warn-soft:color-mix(in srgb,#FF6B5B 13%,transparent);
+  --warn-line:color-mix(in srgb,#FF6B5B 40%,transparent);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"])[data-palette="violet-mist"]{
+  --bg:#17152E; --bg-soft:#333147; --bg-card:#333147;
+  --border:#3A384E; --border-strong:#545366;
+  --text:#F0F2F5; --text-muted:#A6A7B1;
+  --accent:#9662FD; --accent-2:#FF6B5B;
+  --accent-soft:color-mix(in srgb,#9662FD 14%,transparent);
+  --accent-line:color-mix(in srgb,#9662FD 36%,transparent);
+  --warn:#FF6B5B;
+  --warn-soft:color-mix(in srgb,#FF6B5B 13%,transparent);
+  --warn-line:color-mix(in srgb,#FF6B5B 40%,transparent);
+  }
+}
+:root[data-palette="inkberry-peach"]{
+  /* Inkberry #1A0B2E, Peach #FFB7A5, Cream #FFF5EE, Coral #E4573D, Teal #2C6E7E */
+  --ink:#1A0B2E; --muted:#63566B; --track:#DAD0CF; --ground:#FFF5EE;
+  --bg-card:#FFFAF6; --border-strong:#BAAFB4;
+  --p-primary:#2C6E7E; --p-deep:#275066; --p-emph:#C0493A;
+  --p-fill:#FFB7A5; --p-band:#FFD0C2; --p-wash:#FFE4DA;
+  --a-alert:#C0493A; --a-dark:#8E3636; --a-band:#F3AE9E;
+}
+:root[data-theme="dark"][data-palette="inkberry-peach"]{
+  --bg:#1A0B2E; --bg-soft:#352847; --bg-card:#352847;
+  --border:#3F304D; --border-strong:#5A4D64;
+  --text:#FFF5EE; --text-muted:#B1A5AD;
+  --accent:#528692; --accent-2:#E4573D;
+  --accent-soft:color-mix(in srgb,#528692 14%,transparent);
+  --accent-line:color-mix(in srgb,#528692 36%,transparent);
+  --warn:#E4573D;
+  --warn-soft:color-mix(in srgb,#E4573D 13%,transparent);
+  --warn-line:color-mix(in srgb,#E4573D 40%,transparent);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"])[data-palette="inkberry-peach"]{
+  --bg:#1A0B2E; --bg-soft:#352847; --bg-card:#352847;
+  --border:#3F304D; --border-strong:#5A4D64;
+  --text:#FFF5EE; --text-muted:#B1A5AD;
+  --accent:#528692; --accent-2:#E4573D;
+  --accent-soft:color-mix(in srgb,#528692 14%,transparent);
+  --accent-line:color-mix(in srgb,#528692 36%,transparent);
+  --warn:#E4573D;
+  --warn-soft:color-mix(in srgb,#E4573D 13%,transparent);
+  --warn-line:color-mix(in srgb,#E4573D 40%,transparent);
+  }
+}
+
 /* ---------- base ---------- */
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;scroll-padding-top:156px;-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none !important;animation:none !important}}
 body{
   margin:0;
@@ -160,6 +233,17 @@ em{color:var(--text-muted)}
 .nav a.active{color:var(--accent);background:var(--accent-soft);font-weight:600}
 .icon-btn{flex-shrink:0;width:36px;height:36px;display:grid;place-items:center;background:transparent;border:1px solid var(--border);border-radius:9px;color:var(--text-muted);cursor:pointer;font-size:.9rem;transition:color .16s ease,border-color .16s ease}
 .icon-btn:hover{color:var(--accent);border-color:var(--accent-line)}
+
+/* ---------- palette picker ---------- */
+.pal-wrap{position:relative;flex-shrink:0}
+.pal-menu{position:absolute;right:0;top:calc(100% + 8px);z-index:120;min-width:232px;display:none;flex-direction:column;gap:2px;padding:.45rem;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow)}
+.pal-menu.open{display:flex}
+.pal-menu button{display:flex;align-items:center;gap:.7rem;width:100%;padding:.48rem .6rem;border:0;border-radius:8px;background:transparent;color:var(--text);font:inherit;font-size:.86rem;font-weight:500;text-align:left;cursor:pointer;transition:background .16s ease}
+.pal-menu button:hover{background:var(--accent-soft)}
+.pal-menu button[aria-checked="true"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.pal-dots{display:inline-flex;gap:3px;flex-shrink:0}
+.pal-dots i{display:block;width:14px;height:14px;border-radius:50%;border:1px solid rgba(0,0,0,.18)}
+.pal-name{white-space:nowrap}
 #menu-btn{display:none}
 .theme-dark-only{display:none}
 :root[data-theme="dark"] .theme-dark-only{display:inline}
@@ -222,6 +306,11 @@ em{color:var(--text-muted)}
 .callout{border:1px solid var(--accent-line);background:var(--accent-soft);border-radius:var(--radius);padding:1.05rem 1.25rem;font-size:.95rem}
 .callout-warn{border-color:var(--warn-line);background:var(--warn-soft)}
 .callout h3{font-size:1.05rem;color:var(--warn);margin-bottom:.6rem}
+/* the recruiting notice sticks right below the 64px top bar; the strip
+   carries the page background so content scrolls behind it opaquely */
+.recruit-bar{position:sticky;top:64px;z-index:99;background:var(--bg);padding:.5rem 0}
+.recruit-bar .callout{background:color-mix(in srgb,var(--accent-soft),var(--bg-card))}
+@media (max-width:560px){.recruit-bar{padding:.35rem 0}.recruit-bar .callout{padding:.6rem .9rem;font-size:.9rem}}
 
 /* ---------- sections ---------- */
 .section{padding:clamp(2.2rem,5vw,3.2rem) 0;border-top:1px solid var(--border)}
@@ -336,6 +425,15 @@ a:hover .ext{color:var(--accent)}
       <a href="#service">Service</a>
       <a href="#teaching">Teaching</a>
     </nav>
+    <div class="pal-wrap">
+      <button class="icon-btn" id="pal-btn" type="button" aria-label="Choose colour palette" aria-haspopup="menu" aria-expanded="false" aria-controls="pal-menu">
+        <i class="fa-solid fa-palette" aria-hidden="true"></i>
+      </button>
+      <div class="pal-menu" id="pal-menu" role="menu" aria-label="Colour palette">
+      <button type="button" role="menuitemradio" aria-checked="false" data-palette="violet-mist"><span class="pal-dots"><i style="background:#7A35FF" title="Signal Violet #7A35FF"></i><i style="background:#F0F2F5" title="Mist Gray #F0F2F5"></i><i style="background:#17152E" title="Ink Navy #17152E"></i><i style="background:#FF6B5B" title="Coral #FF6B5B"></i><i style="background:#F5B841" title="Amber #F5B841"></i></span><span class="pal-name">Violet &amp; Mist (default)</span></button>
+      <button type="button" role="menuitemradio" aria-checked="false" data-palette="inkberry-peach"><span class="pal-dots"><i style="background:#1A0B2E" title="Inkberry #1A0B2E"></i><i style="background:#FFB7A5" title="Peach #FFB7A5"></i><i style="background:#FFF5EE" title="Cream #FFF5EE"></i><i style="background:#E4573D" title="Coral #E4573D"></i><i style="background:#2C6E7E" title="Teal #2C6E7E"></i></span><span class="pal-name">Inkberry &amp; Peach</span></button>
+      </div>
+    </div>
     <button class="icon-btn" id="theme-btn" type="button" aria-label="Toggle dark mode">
       <i class="fa-solid fa-moon theme-light-only" aria-hidden="true"></i>
       <i class="fa-solid fa-sun theme-dark-only" aria-hidden="true"></i>
@@ -393,12 +491,19 @@ a:hover .ext{color:var(--accent)}
       </div>
     </div>
 
-    <div class="callout" style="margin-top:2rem">
-      I am recruiting <strong>RA / PE</strong> / <strong>PhD</strong> with relevant research experience on
-      optimization and machine learning. Please check <a href="#olab-recruitment">OLab</a> for more information.
-    </div>
   </div>
 </section>
+
+<!-- Recruiting notice. A direct child of <main> rather than of the hero,
+     so that position:sticky holds it under the top bar for the whole
+     page: a sticky element is released once its parent scrolls away. -->
+<div class="recruit-bar">
+  <div class="wrap">
+    <div class="callout">
+      I am recruiting <strong>RA / PE</strong> / <strong>PhD</strong>, see <a href="#olab-recruitment">OLab</a> for more information.
+    </div>
+  </div>
+</div>
 
 <!-- ==================== ABOUT ==================== -->
 <section class="section" id="about">
@@ -741,7 +846,7 @@ a:hover .ext{color:var(--accent)}
       </div>
     </details>
 
-    <div class="callout callout-warn" id="olab-recruitment">
+    <div class="callout" id="olab-recruitment">
       <h3>Recruitment Opportunities (RA / PE / PhD)</h3>
       <p>
         I am actively seeking highly motivated <strong>Research Assistants (RA)</strong> and
@@ -1058,6 +1163,59 @@ a:hover .ext{color:var(--accent)}
     });
   }
 
+
+  /* ---- colour palette ----
+     Resolution order: ?palette=slug in the URL, then the saved choice,
+     then the attribute written in the markup. Unknown names are ignored
+     so a stale localStorage value cannot strip the site of its colours. */
+  var palMenu = document.getElementById("pal-menu");
+  var palBtn = document.getElementById("pal-btn");
+  var palItems = palMenu ? Array.prototype.slice.call(palMenu.querySelectorAll("[data-palette]")) : [];
+  var palKnown = palItems.map(function (b) { return b.getAttribute("data-palette"); });
+
+  function applyPalette(slug, save) {
+    if (palKnown.indexOf(slug) < 0) return;
+    root.setAttribute("data-palette", slug);
+    palItems.forEach(function (b) {
+      b.setAttribute("aria-checked", b.getAttribute("data-palette") === slug ? "true" : "false");
+    });
+    if (save) { try { localStorage.setItem("palette", slug); } catch (e) {} }
+  }
+
+  (function () {
+    var fromUrl = null;
+    try { fromUrl = new URLSearchParams(window.location.search).get("palette"); } catch (e) {}
+    var savedPal = null;
+    try { savedPal = localStorage.getItem("palette"); } catch (e) {}
+    applyPalette(fromUrl || savedPal || root.getAttribute("data-palette"), false);
+  })();
+
+  function closePal() {
+    if (!palMenu) return;
+    palMenu.classList.remove("open");
+    palBtn.setAttribute("aria-expanded", "false");
+  }
+
+  if (palBtn && palMenu) {
+    palBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var open = palMenu.classList.toggle("open");
+      palBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    palItems.forEach(function (b) {
+      b.addEventListener("click", function () {
+        applyPalette(b.getAttribute("data-palette"), true);
+        closePal();
+      });
+    });
+    document.addEventListener("click", function (e) {
+      if (!palMenu.contains(e.target)) closePal();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closePal();
+    });
+  }
+
   /* ---- mobile menu ---- */
   var nav = document.getElementById("nav");
   var menuBtn = document.getElementById("menu-btn");
@@ -1093,14 +1251,29 @@ a:hover .ext{color:var(--accent)}
      the page bottom stops the scroll. It also took the FIRST intersecting
      section, so Service kept winning over Teaching.
      Instead: take the LAST section whose top has crossed a line just below
-     the sticky bar, and force the final section once the page is scrolled
-     to the bottom. */
+     the sticky bar and the recruiting notice under it, and force the final
+     section once the page is scrolled to the bottom. */
+  /* Height of everything that sticks to the top of the viewport: the
+     64px top bar plus the recruiting notice, whose height changes as its
+     text wraps. Anchor targets and the scroll spy both measure it rather
+     than assuming a constant. The height rather than the bottom edge is
+     read, so the value is the same before and after the notice sticks. */
+  var recruitBar = document.querySelector(".recruit-bar");
+  function stickyBottom() {
+    return 64 + (recruitBar ? recruitBar.getBoundingClientRect().height : 0);
+  }
+  function updateScrollPadding() {
+    root.style.scrollPaddingTop = (stickyBottom() + 20) + "px";
+  }
+  updateScrollPadding();
+  window.addEventListener("resize", updateScrollPadding, { passive: true });
+
   function updateActive() {
     if (!sections.length) return;
     var doc = document.documentElement;
     var atBottom = window.innerHeight + window.scrollY >= doc.scrollHeight - 2;
     if (atBottom) { setActive(sections[sections.length - 1].id); return; }
-    var line = 100, cur = "";
+    var line = stickyBottom() + 10, cur = "";
     for (var i = 0; i < sections.length; i++) {
       if (sections[i].getBoundingClientRect().top <= line) cur = sections[i].id;
     }
